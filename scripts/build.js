@@ -8,7 +8,7 @@ const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..'); // MyGallery root
 const ALBUMS_DIR = path.join(ROOT, 'albums');
-const PUBLIC_DIR = path.join(ROOT, 'public');
+const PUBLIC_DIR = path.join(ROOT, 'docs');
 const THUMB_DIR = path.join(PUBLIC_DIR, 'thumbnails');
 const SPLIT_DIR = path.join(PUBLIC_DIR, 'split');
 const DATA_FILE = path.join(PUBLIC_DIR, 'data.json');
@@ -261,7 +261,7 @@ function main() {
             }
         });
     }
-    console.log('[build] Copied static files to public/');
+    console.log('[build] Copied static files to docs/');
 }
 
 main();

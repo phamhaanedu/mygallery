@@ -5,7 +5,7 @@
     "main": "scripts/build.js",
     "scripts": {
         "build": "node scripts/build.js",
-        "dev": "npm run build && npx -y serve public",
+        "dev": "npm run build && npx -y serve docs",
         "watch": "nodemon --watch albums --watch scripts/build.js -e js,json,md --exec \"npm run build\""
     },
     "author": "",
