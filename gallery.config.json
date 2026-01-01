@@ -1,0 +1,10 @@
+{
+    "projectName": "MyGallery",
+    "browserIcon": "assets/gallery icon 32x32.png",
+    "projectLogo": "assets/gallery icon 100x100.png",
+    "defaultCategoryCover": "assets/default-category 200x200.png",
+    "defaultAlbumCover": "assets/default-album 200x200.png",
+    "categoryCovers": {
+        "Demo": "assets/test-category-1.png"
+    }
+}

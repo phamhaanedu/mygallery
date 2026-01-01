@@ -1,0 +1,21 @@
+{
+    "name": "mygallery",
+    "version": "1.0.0",
+    "description": "Static photo gallery built with Node.js",
+    "main": "scripts/build.js",
+    "scripts": {
+        "build": "node scripts/build.js",
+        "dev": "npm run build && npx -y serve public",
+        "watch": "nodemon --watch albums --watch scripts/build.js -e js,json,md --exec \"npm run build\""
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "bootstrap": "^5.3.2",
+        "gray-matter": "^4.0.3",
+        "ionicons": "^7.1.2",
+        "markdown-it": "^13.0.1",
+        "panzoom": "^9.4.0",
+        "sharp": "^0.33.0"
+    }
+}

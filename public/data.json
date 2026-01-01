@@ -1,0 +1,84 @@
+{
+  "config": {
+    "projectName": "MyGallery",
+    "browserIcon": "assets/gallery icon 32x32.png",
+    "projectLogo": "assets/gallery icon 100x100.png",
+    "defaultCategoryCover": "assets/default-category 200x200.png",
+    "defaultAlbumCover": "assets/default-album 200x200.png",
+    "categoryCovers": {
+      "Demo": "assets/test-category-1.png"
+    }
+  },
+  "categories": {
+    "Demo": "assets/test-category-1.png",
+    "Sample": "thumbnails/Sample-Album/cover.jpg",
+    "Demo-2": "assets/default-category 200x200.png"
+  },
+  "albums": [
+    {
+      "id": "Sample-Album",
+      "title": "Sample-Album",
+      "categories": [
+        "Demo",
+        "Sample"
+      ],
+      "cover": "Sample-Album/cover.jpg",
+      "locked": false,
+      "images": [
+        {
+          "name": "cover.jpg",
+          "srcA": "split/Sample-Album/cover_a.jpg",
+          "srcB": "split/Sample-Album/cover_b.jpg",
+          "thumb": "thumbnails/Sample-Album/cover.jpg",
+          "meta": {
+            "title": "",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "sample_img_01_1767120074454.png",
+          "srcA": "split/Sample-Album/sample_img_01_1767120074454_a.jpg",
+          "srcB": "split/Sample-Album/sample_img_01_1767120074454_b.jpg",
+          "thumb": "thumbnails/Sample-Album/sample_img_01_1767120074454.png",
+          "meta": {
+            "title": "Màu sắc trừu tượng",
+            "tags": [
+              "abstract",
+              "demo"
+            ],
+            "description": "Một bức ảnh trừu tượng đầy màu sắc, dùng làm ví dụ cho album mẫu.",
+            "content": "<p><em>Màu sắc trừu tượng</em></p>\n<p>Đây là một ảnh mẫu được tạo ra để minh họa cách hiển thị ảnh trong gallery.</p>\n"
+          }
+        },
+        {
+          "name": "sample_img_02_1767120096332.png",
+          "srcA": "split/Sample-Album/sample_img_02_1767120096332_a.jpg",
+          "srcB": "split/Sample-Album/sample_img_02_1767120096332_b.jpg",
+          "thumb": "thumbnails/Sample-Album/sample_img_02_1767120096332.png",
+          "meta": {
+            "title": "Cảnh quan đơn giản",
+            "tags": [
+              "landscape",
+              "demo"
+            ],
+            "description": "Một ảnh phong cảnh đơn giản, dùng làm ví dụ cho album mẫu.",
+            "content": "<p><em>Cảnh quan đơn giản</em></p>\n<p>Ảnh này mô tả một phong cảnh nhẹ nhàng, phù hợp cho việc thử nghiệm layout.</p>\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Sample-Album-2",
+      "title": "Sample-Album-2",
+      "categories": [
+        "Demo-2",
+        "Sample"
+      ],
+      "cover": null,
+      "locked": false,
+      "images": []
+    }
+  ]
+}

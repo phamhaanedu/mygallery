@@ -1,0 +1,9 @@
+# Node modules
+# node_modules/
+# Build output (được tạo lại mỗi lần chạy)
+dist/
+#public/
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.vs/

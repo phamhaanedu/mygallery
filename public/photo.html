@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MyGallery - Photo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main class="container-fluid p-0 position-relative vh-100 bg-black overflow-hidden" id="main-content">
+        <!-- Photo content will be injected here -->
+        <h1 class="d-none" id="photo-title">Photo</h1>
+        <div id="photo-wrapper"
+            class="w-100 h-100 d-flex align-items-center justify-content-center overflow-hidden position-relative">
+            <div id="photo-container" class="d-flex justify-content-center align-items-center"></div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div id="nav-prev" class="nav-zone start-0 d-flex align-items-center justify-content-start ps-3"
+            style="cursor: pointer; z-index: 1030; top: 0;">
+            <ion-icon name="chevron-back-outline" class="text-white fs-1 nav-icon"
+                style="opacity: 0; transition: opacity 0.2s;"></ion-icon>
+        </div>
+        <div id="nav-next" class="nav-zone end-0 d-flex align-items-center justify-content-end pe-3"
+            style="cursor: pointer; z-index: 1030; top: 0;">
+            <ion-icon name="chevron-forward-outline" class="text-white fs-1 nav-icon"
+                style="opacity: 0; transition: opacity 0.2s;"></ion-icon>
+        </div>
+
+        <!-- Info & Zoom Controls -->
+        <div id="controls-overlay"
+            class="position-absolute top-0 start-0 p-3 w-100 d-flex justify-content-start gap-2 pe-none"
+            style="margin-top: 0; z-index: 1060;">
+            <button id="back-btn"
+                class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
+                style="width: 40px; height: 40px; pointer-events: auto;"><ion-icon name="arrow-back-outline"
+                    class="fs-5"></ion-icon></button>
+            <button id="info-btn"
+                class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
+                style="width: 40px; height: 40px; pointer-events: auto;"><ion-icon name="information-outline"
+                    class="fs-5"></ion-icon></button>
+        </div>
+
+        <!-- Bottom Info Overlay -->
+        <div id="info-overlay" class="position-absolute bottom-0 start-0 p-4 text-white pe-none"
+            style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); width: 100%;">
+            <h6 id="overlay-title" class="m-0"></h6>
+        </div>
+
+        <!-- Side Info Panel -->
+        <div id="info-panel" class="position-absolute top-0 end-0 h-100 shadow p-3 overflow-auto"
+            style="width: 320px; transform: translateX(100%); transition: transform 0.3s ease; z-index: 1050; padding-top: 70px !important; display: block; background-color: rgba(33, 37, 41, 0.95) !important; border-left: 1px solid rgba(255,255,255,0.1); color: white;">
+            <div id="metadata-content"></div>
+        </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
