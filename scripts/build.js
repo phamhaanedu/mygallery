@@ -4,6 +4,7 @@ const MarkdownIt = require('markdown-it');
 const md = new MarkdownIt();
 const sharp = require('sharp');
 const matter = require('gray-matter');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..'); // MyGallery root
 const ALBUMS_DIR = path.join(ROOT, 'albums');
@@ -14,6 +15,10 @@ const DATA_FILE = path.join(PUBLIC_DIR, 'data.json');
 
 function ensureDir(p) {
     if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true });
+}
+
+function hash(str) {
+    return crypto.createHash('sha256').update(String(str)).digest('hex');
 }
 
 ensureDir(PUBLIC_DIR);
@@ -28,23 +33,33 @@ function processAlbum(albumPath) {
         try { cfg = JSON.parse(fs.readFileSync(configPath, 'utf8')); } catch (e) { console.error('Invalid JSON in', configPath); }
     }
     const images = [];
-    const files = fs.readdirSync(albumPath);
-    const imgFiles = files.filter(f => f.toLowerCase().endsWith('.jpg') || f.toLowerCase().endsWith('.png'));
-    imgFiles.forEach(img => {
-        const srcPath = path.join(albumPath, img);
+
+    // Helper to process a single image file
+    const processImgFile = (srcPath) => {
+        if (!fs.existsSync(srcPath)) {
+            console.warn(`Image source not found: ${srcPath}`);
+            return;
+        }
+
+        const imgName = path.basename(srcPath);
+
         // Thumbnail
         const thumbAlbumDir = path.join(THUMB_DIR, albumId);
         ensureDir(thumbAlbumDir);
-        const thumbPath = path.join(thumbAlbumDir, img);
+        const thumbPath = path.join(thumbAlbumDir, imgName); // Output in CURRENT album's thumb dir
+
+        // Re-check timestamp for resize
         if (!fs.existsSync(thumbPath) || fs.statSync(srcPath).mtimeMs > fs.statSync(thumbPath).mtimeMs) {
-            sharp(srcPath).resize(400, 400, { fit: 'inside' }).toFile(thumbPath).catch(e => console.error('Thumb error', e));
+            sharp(srcPath).resize(200, 200, { fit: 'cover' }).toFile(thumbPath).catch(e => console.error('Thumb error', e));
         }
+
         // Split vertically into two halves
         const splitAlbumDir = path.join(SPLIT_DIR, albumId);
         ensureDir(splitAlbumDir);
-        const baseName = path.parse(img).name;
+        const baseName = path.parse(imgName).name;
         const leftPath = path.join(splitAlbumDir, `${baseName}_a.jpg`);
         const rightPath = path.join(splitAlbumDir, `${baseName}_b.jpg`);
+
         if (!fs.existsSync(leftPath) || fs.statSync(srcPath).mtimeMs > fs.statSync(leftPath).mtimeMs) {
             sharp(srcPath).metadata().then(meta => {
                 const half = Math.floor(meta.width / 2);
@@ -55,7 +70,7 @@ function processAlbum(albumPath) {
             }).catch(e => console.error('Split error', e));
         }
 
-        // Metadata .md file
+        // Metadata .md file (Look for .md next to the SOURCE image)
         const mdPath = srcPath.replace(/\.(jpg|png)$/i, '.md');
         let metaData = {};
         let htmlContent = '';
@@ -67,37 +82,65 @@ function processAlbum(albumPath) {
             htmlContent = md.render(parsed.content || ''); // Rendered markdown body
         }
 
+        const title = metaData.title || baseName;
+
         images.push({
-            name: img,
+            name: imgName,
             srcA: path.relative(PUBLIC_DIR, leftPath).replace(/\\/g, '/'),
             srcB: path.relative(PUBLIC_DIR, rightPath).replace(/\\/g, '/'),
             thumb: path.relative(PUBLIC_DIR, thumbPath).replace(/\\/g, '/'),
             meta: {
-                title: metaData.title || '',
+                title: title,
                 tags: metaData.tags || [],
                 description: metaData.description || '',
                 content: htmlContent
             }
         });
+    };
+
+    // 1. Process Local Files
+    const files = fs.readdirSync(albumPath);
+    const imgFiles = files.filter(f => f.toLowerCase().endsWith('.jpg') || f.toLowerCase().endsWith('.png'));
+    imgFiles.forEach(img => {
+        processImgFile(path.join(albumPath, img));
     });
+
+    // 2. Process Included Files
+    if (cfg.includes && Array.isArray(cfg.includes)) {
+        cfg.includes.forEach(includePath => {
+            // Assume includePath is relative to ALBUMS_DIR, e.g. "OtherAlbum/Photo.jpg"
+            const fullPath = path.join(ALBUMS_DIR, includePath);
+            processImgFile(fullPath);
+        });
+    }
+
     // Validate cover image existence
     let coverPath = null;
     if (cfg.coverImage) {
+        // Use the cover image name (which might be one of the included ones or local ones)
+        // Check if we generated a thumbnail for it in the current album dir
         const coverThumbPath = path.join(THUMB_DIR, albumId, cfg.coverImage);
-        // We check if the thumbnail file was created/exists, or if the source file exists (thumbnails are generated in loop)
-        // Since the loop runs before this return, thumbnails should be ready if possible.
-        // However, checking THUMB_DIR directly is safer for the final output.
         if (fs.existsSync(coverThumbPath)) {
             coverPath = `${albumId}/${cfg.coverImage}`;
         }
     }
 
+    // Security: Hash unlock code if present
+    let unlockHash = null;
+    let isLocked = cfg.locked || false;
+
+    if (cfg.unlockCode) {
+        unlockHash = hash(cfg.unlockCode);
+        isLocked = true; // Force lock if code exists
+    }
+
     return {
         id: albumId,
-        title: cfg.title || albumId,
+        title: cfg.name || cfg.title || albumId,
         categories: cfg.category || [],
         cover: coverPath,
-        locked: cfg.locked || false,
+        locked: isLocked,
+        unlockHash: unlockHash, // Send hash to client
         images,
     };
 }
@@ -129,6 +172,12 @@ function main() {
     let galleryConfig = {};
     if (fs.existsSync(configPath)) {
         try { galleryConfig = JSON.parse(fs.readFileSync(configPath, 'utf8')); } catch (e) { console.error('Invalid config', e); }
+    }
+
+    // Hash Master Code
+    if (galleryConfig.masterCode) {
+        galleryConfig.masterHash = hash(galleryConfig.masterCode);
+        delete galleryConfig.masterCode; // Remove plain text
     }
 
     // Process Categories & Covers
@@ -176,11 +225,21 @@ function main() {
         });
     }
 
+    // Load Dictionary
+    let dictionary = {};
+    if (galleryConfig.dictionary) {
+        const dictPath = path.join(ROOT, galleryConfig.dictionary);
+        if (fs.existsSync(dictPath)) {
+            try { dictionary = JSON.parse(fs.readFileSync(dictPath, 'utf8')); } catch (e) { console.error('Invalid dictionary', e); }
+        }
+    }
+
     // Write data.json
     const outputData = {
         config: galleryConfig,
         categories: categoryMap,
-        albums: albums
+        albums: albums,
+        dictionary: dictionary
     };
 
     // ... (rest of writing logic moved up/modified)

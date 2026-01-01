@@ -111,7 +111,7 @@ function renderHome() {
     catList.forEach(cat => {
         const cover = catMap[cat]; // Resolved path from build.js
         const col = document.createElement('div');
-        col.className = 'col d-flex justify-content-center'; // Center the fixed-width card in the column
+        col.className = 'col'; // Center the fixed-width card in the column
         col.innerHTML = `
       <a href="category.html?category=${encodeURIComponent(cat)}" class="text-decoration-none">
         <div class="category-card">
@@ -137,7 +137,7 @@ function renderCategory(category) {
     const albums = galleryData.albums.filter(a => (a.categories || []).includes(category));
     albums.forEach(album => {
         const col = document.createElement('div');
-        col.className = 'col d-flex justify-content-center';
+        col.className = 'col';
 
         let coverSrc = '';
         if (album.cover) {
@@ -160,11 +160,99 @@ function renderCategory(category) {
     });
 }
 
+// Security Helpers
+async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function checkLock(album) {
+    if (!album.locked) return true;
+    if (localStorage.getItem('unlocked_' + album.id) === 'true') return true;
+    return false;
+}
+
+function showUnlockPrompt(album) {
+    const main = document.getElementById('main-content');
+    if (!main) return;
+
+    const dict = galleryData.dictionary || {};
+    const txtTitle = dict.lockedTitle || 'Locked Album';
+    const txtMsg = dict.lockedMsg || 'This album requires a code to access.';
+    const txtPlaceholder = dict.enterCodePlaceholder || 'Enter Access Code';
+    const txtBtn = dict.unlockBtn || 'Unlock';
+    const txtError = dict.incorrectCode || 'Incorrect code';
+    const txtBack = dict.backToGallery || 'Back to Gallery';
+    const txtWaiting = dict.waitingUnlock || 'Waiting to unlock: ';
+
+    main.innerHTML = `
+        <div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+            <div class="card p-4 shadow-lg text-center" style="max-width: 400px; width: 100%;">
+                <div class="mb-3">
+                    <ion-icon name="lock-closed-outline" size="large"></ion-icon>
+                </div>
+                <h4 class="mb-3">${txtTitle}</h4>
+                <p class="text-muted mb-2">${txtMsg}</p>
+                <p class="fw-bold mb-4">${txtWaiting}${album.title}</p>
+                <div class="mb-3">
+                     <input type="password" id="unlock-code" class="form-control text-center" placeholder="${txtPlaceholder}" autofocus>
+                </div>
+                <button id="unlock-btn" class="btn btn-primary w-100">${txtBtn}</button>
+                <div id="unlock-error" class="text-danger mt-2 small" style="display:none;">${txtError}</div>
+                <div class="mt-3">
+                    <a href="index.html" class="text-decoration-none small text-secondary">${txtBack}</a>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const btn = document.getElementById('unlock-btn');
+    const input = document.getElementById('unlock-code');
+    const err = document.getElementById('unlock-error');
+
+    const handleUnlock = async () => {
+        const code = input.value;
+        if (!code) return;
+
+        // Clear previous error
+        err.style.display = 'none';
+
+        const codeHash = await sha256(code);
+        const masterHash = galleryData.config ? galleryData.config.masterHash : null;
+
+        // Check against Album Hash OR Master Hash
+        const matchAlbum = album.unlockHash && codeHash === album.unlockHash;
+        const matchMaster = masterHash && codeHash === masterHash;
+
+        if (matchAlbum || matchMaster) {
+            localStorage.setItem('unlocked_' + album.id, 'true');
+            // Reload page to restore full UI structure and re-run checkLock (which will now pass)
+            window.location.reload();
+        } else {
+            err.style.display = 'block';
+            input.value = '';
+            input.focus();
+        }
+    };
+
+    btn.onclick = handleUnlock;
+    input.onkeyup = (e) => {
+        if (e.key === 'Enter') handleUnlock();
+    };
+}
+
 function renderAlbum(albumId) {
     const params = getQueryParams(); // Need access to 'category' param
     const album = galleryData.albums.find(a => a.id === albumId);
     if (!album) {
         document.getElementById('main-content').innerHTML = `<div class="alert alert-warning">Album not found.</div>`;
+        return;
+    }
+
+    if (!checkLock(album)) {
+        showUnlockPrompt(album);
         return;
     }
     const title = document.getElementById('album-title');
@@ -206,6 +294,11 @@ function renderPhoto(albumId, imageName) {
         document.getElementById('main-content').innerHTML = `<div class="alert alert-warning">Album not found.</div>`;
         return;
     }
+
+    if (!checkLock(album)) {
+        window.location.href = `album.html?album=${encodeURIComponent(albumId)}`;
+        return;
+    }
     const title = document.getElementById('photo-title');
     if (title) title.textContent = `${album.title} – ${imageName}`;
 
@@ -239,13 +332,9 @@ function renderPhoto(albumId, imageName) {
     // Enable mouse wheel
     elem.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
 
-    // Keyboard shortcuts for Zoom
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') panzoomInstance.reset();
-        if (e.key === '+' || e.key === '=') panzoomInstance.zoomIn();
-        if (e.key === '-') panzoomInstance.zoomOut();
-        if (e.key === '0') panzoomInstance.reset();
-    });
+    // Keyboard shortcuts for Zoom (Moved to global listener to avoid duplication, keeping specific ones here if needed, but better consolidated)
+    // Removed local keydown listener to correct logic placement.
+
 
     // Navigation logic
     const idx = album.images.findIndex(img => img.name === imageName);
@@ -283,6 +372,11 @@ function renderPhoto(albumId, imageName) {
     const cleanName = imgObj.name.replace(/\.[^/.]+$/, ""); // Remove extension
     overlayTitle.textContent = metaTitle || cleanName;
 
+    const overlayDesc = document.getElementById('overlay-desc');
+    if (overlayDesc) {
+        overlayDesc.textContent = imgObj.meta && imgObj.meta.description ? imgObj.meta.description : '';
+    }
+
     // Render metadata content
     const meta = imgObj.meta || {};
     const titleHtml = meta.title ? `<div class="fw-bold text-white mb-2" style="font-size: 1.1rem;">${meta.title}</div>` : '';
@@ -294,13 +388,14 @@ function renderPhoto(albumId, imageName) {
     }
 
     // Description + Content
+    // Description + Content
     const descHtml = meta.description ? `<p class="mb-2">${meta.description}</p>` : '';
     const contentHtml = meta.content || '';
 
     const finalHtml = `
         ${titleHtml}
         ${tagsHtml}
-        <div class="text-white-50" style="font-size: 0.95rem;">
+        <div id="metadata-text" class="text-white-50" style="font-size: 0.95rem;">
             ${descHtml}
             ${contentHtml}
         </div>
@@ -339,7 +434,76 @@ function renderPhoto(albumId, imageName) {
     if (localStorage.getItem('infoOpen') === 'true') {
         toggleInfo(true);
     }
+
+    // Copy Button Logic
+    const copyBtn = document.getElementById('copy-btn');
+    if (copyBtn) {
+        copyBtn.onclick = async () => {
+            const textElem = document.getElementById('metadata-text');
+            const textToCopy = textElem ? textElem.innerText : '';
+            if (textToCopy) {
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                    // Visual feedback
+                    const originalIcon = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<ion-icon name="checkmark-outline" style="font-size: 16px;"></ion-icon>';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalIcon;
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+            }
+        };
+    }
 }
 
 // Initialise when DOM is ready
-document.addEventListener('DOMContentLoaded', loadData);
+// Initialise when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    setupGlobalInteractions();
+});
+
+function setupGlobalInteractions() {
+    // Only active on Photo Page
+    if (!document.getElementById('photo-title')) return;
+
+    document.addEventListener('keydown', (e) => {
+        // Ignore if user is typing in an input (unlikely here but good practice)
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        // Navigation
+        if (e.key === 'ArrowLeft') {
+            document.getElementById('nav-prev')?.click();
+        } else if (e.key === 'ArrowRight') {
+            document.getElementById('nav-next')?.click();
+        }
+        // Info Toggle
+        else if (e.key === 'i' || e.key === 'I') {
+            document.getElementById('info-btn')?.click();
+        }
+        // Zoom Controls (Global shortcuts)
+        else if (panzoomInstance) {
+            if (e.key === 'Escape') panzoomInstance.reset();
+            if (e.key === '+' || e.key === '=') panzoomInstance.zoomIn();
+            if (e.key === '-') panzoomInstance.zoomOut();
+            if (e.key === '0') panzoomInstance.reset();
+        }
+    });
+
+    document.addEventListener('wheel', (e) => {
+        // check if hovering over the zoomable image container
+        // If inside photo-container, let Panzoom or default scroll happen (Panzoom handles wheel usually)
+        if (e.target.closest('#photo-container')) return;
+
+        // Otherwise (black background), use wheel for navigation
+        if (e.deltaY < 0) {
+            // Scroll Up -> Previous
+            document.getElementById('nav-prev')?.click();
+        } else if (e.deltaY > 0) {
+            // Scroll Down -> Next
+            document.getElementById('nav-next')?.click();
+        }
+    });
+}

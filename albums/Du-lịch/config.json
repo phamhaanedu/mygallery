@@ -1,0 +1,12 @@
+{
+    "name": "Du lịch - Travel",
+    "template": "post",
+    "date": "2025-12-31 10:00",
+    "category": [
+        "Travel",
+        "Sample"
+    ],
+    "coverImage": "Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "includes": [],
+    "locked": true
+}

@@ -1,0 +1,10 @@
+{
+    "__comment": "Dictionary for English",
+    "lockedTitle": "Locked Album",
+    "lockedMsg": "This album requires a code to access.",
+    "enterCodePlaceholder": "Enter Access Code",
+    "unlockBtn": "Unlock",
+    "incorrectCode": "Incorrect password",
+    "backToGallery": "Back to Gallery",
+    "waitingUnlock": "Waiting to unlock: "
+}

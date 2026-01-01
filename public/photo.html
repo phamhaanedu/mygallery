@@ -32,22 +32,29 @@
 
         <!-- Info & Zoom Controls -->
         <div id="controls-overlay"
-            class="position-absolute top-0 start-0 p-3 w-100 d-flex justify-content-start gap-2 pe-none"
+            class="position-absolute top-0 start-0 p-3 w-100 d-flex justify-content-between pe-none"
             style="margin-top: 0; z-index: 1060;">
-            <button id="back-btn"
+            <div class="d-flex gap-2">
+                <button id="back-btn"
+                    class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
+                    style="width: 30px; height: 30px; pointer-events: auto; padding: 0;"><ion-icon
+                        name="arrow-back-outline" style="font-size: 16px;"></ion-icon></button>
+                <button id="info-btn"
+                    class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
+                    style="width: 30px; height: 30px; pointer-events: auto; padding: 0;"><ion-icon
+                        name="information-outline" style="font-size: 18px;"></ion-icon></button>
+            </div>
+            <button id="copy-btn"
                 class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
-                style="width: 40px; height: 40px; pointer-events: auto;"><ion-icon name="arrow-back-outline"
-                    class="fs-5"></ion-icon></button>
-            <button id="info-btn"
-                class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
-                style="width: 40px; height: 40px; pointer-events: auto;"><ion-icon name="information-outline"
-                    class="fs-5"></ion-icon></button>
+                style="width: 30px; height: 30px; pointer-events: auto; padding: 0;"><ion-icon name="copy-outline"
+                    style="font-size: 16px;"></ion-icon></button>
         </div>
 
         <!-- Bottom Info Overlay -->
         <div id="info-overlay" class="position-absolute bottom-0 start-0 p-4 text-white pe-none"
             style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); width: 100%;">
-            <h6 id="overlay-title" class="m-0"></h6>
+            <h6 id="overlay-title" class="m-0 fw-bold"></h6>
+            <p id="overlay-desc" class="m-0 small text-white-50 "></p>
         </div>
 
         <!-- Side Info Panel -->

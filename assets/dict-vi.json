@@ -1,0 +1,10 @@
+{
+    "__comment": "Dictionary for Vietnamese",
+    "lockedTitle": "Album bị khóa",
+    "lockedMsg": "Album này yêu cầu mã truy cập để xem.",
+    "enterCodePlaceholder": "Nhập mã truy cập",
+    "unlockBtn": "Mở khóa",
+    "incorrectCode": "Mã không đúng",
+    "backToGallery": "Quay lại Thư viện",
+    "waitingUnlock": "Đang chờ mở khóa: "
+}

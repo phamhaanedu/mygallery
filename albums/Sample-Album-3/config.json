@@ -1,0 +1,16 @@
+{
+    "name": "Sample-Album-3",
+    "template": "post",
+    "date": "2025-12-31 10:00",
+    "category": [
+        "Demo-3",
+        "Sample"
+    ],
+    "coverImage": "cover.jpg",
+    "includes": [
+        "Trang-trắng-trẻo/Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
+        "Trang-trắng-trẻo/Gemini_Generated_Image_4yuc304yuc304yuc.png"
+    ],
+    "locked": true,
+    "unlockCode": "3"
+}
