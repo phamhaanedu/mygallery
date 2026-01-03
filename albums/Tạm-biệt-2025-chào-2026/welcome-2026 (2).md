@@ -1,7 +1,7 @@
 ---
 title: "Tạm biệt 2025 - Chào 2026"
 date: "2025-12-31 10:00"
-tags: ["new year", "couple"]
+tags: ["bính ngọ", "new year", "couple"]
 description:
 ---
 

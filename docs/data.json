@@ -22,7 +22,7 @@
   },
   "tags": {
     "new year": {
-      "count": 23,
+      "count": 33,
       "cover": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1).jpg"
     },
     "áo dài": {
@@ -34,7 +34,7 @@
       "cover": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (1).jpg"
     },
     "bính ngọ": {
-      "count": 13,
+      "count": 21,
       "cover": "thumbnails/Chụp-cùng-ngựa/chup-cung-ngua (1).jpg"
     },
     "ngựa": {
@@ -42,7 +42,7 @@
       "cover": "thumbnails/Chụp-cùng-ngựa/chup-cung-ngua (1).jpg"
     },
     "couple": {
-      "count": 13,
+      "count": 17,
       "cover": "thumbnails/Couple-01/Couple-01-01.jpg"
     },
     "travel": {
@@ -72,6 +72,10 @@
     "demo": {
       "count": 1,
       "cover": "thumbnails/Sample-Album/sample_img_01_1767120074454.png"
+    },
+    "baby": {
+      "count": 4,
+      "cover": "thumbnails/Chào-xuân-2026/Tet 006.jpg"
     }
   },
   "albums": [
@@ -625,6 +629,80 @@
             ],
             "description": "",
             "content": "<p>Hyper-realistic cinematic portrait of a beautiful young East Asian woman, preserving her facial features, with fair skin, delicate features, and a gentle, inviting smile. Her long, straight black hair is elegantly styled in a traditional bun with some flowing strands, adorned with an intricate red and gold hairpin featuring red tassels and beads. She wears a luxurious, rich red traditional Chinese gown (Qipao-inspired), exquisitely embroidered with large golden peony motifs across the bodice and skirt, and subtle gold trim along the collar and cuffs. She gracefully holds a vibrant red folding fan, adorned with delicate white cherry blossom patterns, partially obscuring one side of her face. She leans against an intricately carved dark wooden window frame, with a softly diffused, out-of-focus background of lush pink cherry blossoms (sakura) on branches. Soft, natural cinematic lighting illuminates her from the front, creating a warm, ethereal glow and highlighting the textures of her attire. The composition is a medium close-up shot, eye-level, with a shallow depth of field, creating an immersive, high-resolution, and incredibly detailed photorealistic image.</p>\n"
+          }
+        },
+        {
+          "name": "Tet 006.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 006_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 006_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 006.jpg",
+          "meta": {
+            "title": "Tet 006",
+            "tags": [
+              "new year",
+              "baby"
+            ],
+            "description": "",
+            "content": "<p>Keep 100% of the face in the uploaded photo. A cute East Asian girl, approximately 10-18 months old, is sitting on the floor in a clean studio.\nVertical portrait, minimalist, soft background.\nShe's wearing a dark red bodysuit with a subtle shimmer, long sleeves, and softly pleated shoulders. She's not too chubby.\nShe's wearing matching red socks, no shoes.\nHer short, fluffy hair is braided into two small pigtails on either side. Her bangs are styled with a slight curl.\nShe has adorable cheeks, fair skin, and big, round eyes. She has light makeup: orange blush and slightly rosy lips.\nShe's making a cute pouty face (lips pursed), very playful and adorable.\nShe's sitting with her legs naturally spread apart, holding a small traditional hand drum in front of her.\nTo the left, red balloons are floating, tied with thin strings.\nThe background is a light cream studio backdrop.\nAbove, elegant red brushstroke lettering reads &quot;2026,&quot; with calligraphy subtly inspired by horses.\nSmall, whimsical drawings of red hearts and flowers are scattered around, creating a festive and cute atmosphere. The studio lighting is soft, with even illumination and subtle shadows.\nThe image is surreal, with natural baby skin texture, innocent baby body proportions, and high resolution.</p>\n"
+          }
+        },
+        {
+          "name": "Tet 007.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 007_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 007_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 007.jpg",
+          "meta": {
+            "title": "Tet 007",
+            "tags": [
+              "new year",
+              "baby"
+            ],
+            "description": "",
+            "content": "<p>The uploaded photo retains 100% of the face. A cute East Asian girl, approximately 10-18 months old, is sitting on the floor in a clean studio.\nThe portrait is vertical, minimalist, with a soft background.\nShe's wearing a dark red bodysuit with a subtle shimmer, long sleeves, and softly pleated shoulders. She's not too chubby.\nShe's wearing matching red socks, no shoes.\nHer short, soft hair is braided into two small pigtails on either side. Her bangs are lightly curled.\nShe has adorable chubby cheeks, fair skin, and big, round eyes. Her makeup is light: orange blush and slightly rosy lips.\nShe has a bright and cute smile, very playful and adorable.\nShe is sitting naturally with her legs spread wide, holding a red envelope.\nAbove the baby, two adult hands hold a traditional red paper horse on a stick, stretched horizontally like a playful pony.\nIn the center of the top of the image, bold red calligraphy reads &quot;Tet&quot; (Lunar New Year).\nSmall, whimsical drawings of red hearts and flowers are scattered around, looking cute and lively. The studio lighting is soft, with even brightness and subtle shadows.\nThe photograph has a surreal feel, with the baby's natural skin texture, innocent body proportions, and high resolution.</p>\n"
+          }
+        },
+        {
+          "name": "Tet 008.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 008_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 008_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 008.jpg",
+          "meta": {
+            "title": "Tet 008",
+            "tags": [
+              "new year",
+              "baby"
+            ],
+            "description": "",
+            "content": "<p>Keep 100% of the face in the uploaded photo. A cute East Asian girl, approximately 10-18 months old, is sitting on the floor in a clean studio.\nVertical portrait, minimalist, soft background.\nShe's wearing a dark red bodysuit with a subtle shimmer, long sleeves, and softly pleated shoulders. She's not too chubby.\nShe's wearing matching red socks, no shoes.\nHer short, fluffy hair is braided into two small pigtails on either side. Her bangs are styled with a slight curl.\nAdorable cheeks, fair skin, big round eyes. She has light makeup: orange blush and slightly rosy lips.\nShe has a surprised, curious expression, her mouth slightly open, one finger in her mouth, looking directly at the camera.\nA small traditional hand drum is suspended in front of her chest by a string, with a red drumstick visible.\nShe's sitting naturally with her legs slightly crossed.\nAbove, red horses hang suspended.\nThe backdrop is a clean, smooth, light cream/ivory studio backdrop.\nSmall, whimsical doodles of red hearts and flowers are scattered around, cute and vibrant. The studio lighting is soft, with even illumination and subtle shadows.\nThe image is surreal, with natural baby skin texture, innocent baby body proportions, and high resolution.</p>\n"
+          }
+        },
+        {
+          "name": "Tet 009.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 009_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 009_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 009.jpg",
+          "meta": {
+            "title": "Tet 009",
+            "tags": [
+              "new year",
+              "baby"
+            ],
+            "description": "",
+            "content": "<p>Keep 100% of the face in the uploaded photo. A cute East Asian girl, approximately 10-18 months old, is sitting on the floor in a clean studio.\nVertical portrait, minimalist, soft background.\nShe's wearing a dark red bodysuit with a subtle shimmer, long sleeves, and softly pleated shoulders. She's not too chubby.\nShe's wearing matching red socks, no shoes.\nHer short, fluffy hair is braided into two small pigtails on either side. Her bangs are styled with a slight curl.\nAdorable cheeks, fair skin, big round eyes. She has light makeup: orange blush and slightly rosy lips.\nShe's smiling happily with her mouth slightly open, looking slightly upwards, full of joy and excitement.\nShe's sitting naturally with her legs spread wide, holding a small traditional hand drum in her hands.\nSurrounding her are red balloons tied with thin strings, placed on either side of the frame.\nThe backdrop is a clean, smooth, light cream/ivory studio backdrop.\nSmall, whimsical doodles of red hearts and flowers are scattered around, cute and vibrant. The studio lighting is soft, with even illumination and subtle shadows.\nThe image is surreal, with natural baby skin texture, innocent baby body proportions, and high resolution.</p>\n"
+          }
+        },
+        {
+          "name": "Tet 010.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 010_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 010_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 010.jpg",
+          "meta": {
+            "title": "Tet 010",
+            "tags": [
+              "new year"
+            ],
+            "description": "",
+            "content": "<p>A sprawling, wet-street Times Square metropolis at midnight, New Year's Eve 2026. A colossal curved digital billboard dominates the skyline, displaying a hyper-realistic, perfectly lit portrait based on [User Reference Photos]. I am smiling confidently, wearing a highly detailed black leather jacket that reflects the city neon. A surreal breakthrough happens as I pour a glowing, effervescent stream of Coca-Cola directly out of the screen into the physical world. The red liquid cascades downwards, solidifying on the asphalt into massive, sculptural 3D metallic red letters that read 'HAPPY NEW YEAR 2026'. Below, a dense crowd cheers amid confetti and smartphone lights. Rain-slicked streets create long light reflections. Luxury advertising aesthetic, ultra-detailed, dramatic low-angle perspective, HDR, cinematic color grading.</p>\n"
           }
         }
       ]
@@ -1402,6 +1480,21 @@
       "unlockHash": null,
       "images": [
         {
+          "name": "goodbye-2025-2.jpg",
+          "srcA": "split/Tạm-biệt-2025-chào-2026/goodbye-2025-2_a.jpg",
+          "srcB": "split/Tạm-biệt-2025-chào-2026/goodbye-2025-2_b.jpg",
+          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/goodbye-2025-2.jpg",
+          "meta": {
+            "title": "Tạm biệt 2025 - Chào 2026",
+            "tags": [
+              "bính ngọ",
+              "new year"
+            ],
+            "description": "",
+            "content": "<p>a full body shot of a slender young woman with black hair and fair skin, wearing a pink and white traditional Vietnamese ao dai, standing on a sandy beach with the turquoise sea in the background, large letters spelling &quot;GOODBYE 2025&quot; behind her, clear blue sky, soft natural lighting, photo taken in Vietnam, high resolution, beautiful scenery</p>\n"
+          }
+        },
+        {
           "name": "goodbye-2025.jpg",
           "srcA": "split/Tạm-biệt-2025-chào-2026/goodbye-2025_a.jpg",
           "srcB": "split/Tạm-biệt-2025-chào-2026/goodbye-2025_b.jpg",
@@ -1409,6 +1502,7 @@
           "meta": {
             "title": "Tạm biệt 2025 - Chào 2026",
             "tags": [
+              "bính ngọ",
               "new year",
               "couple"
             ],
@@ -1417,13 +1511,14 @@
           }
         },
         {
-          "name": "welcome-2026-1.jpg",
-          "srcA": "split/Tạm-biệt-2025-chào-2026/welcome-2026-1_a.jpg",
-          "srcB": "split/Tạm-biệt-2025-chào-2026/welcome-2026-1_b.jpg",
-          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026-1.jpg",
+          "name": "welcome-2026 (1).jpg",
+          "srcA": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (1)_a.jpg",
+          "srcB": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (1)_b.jpg",
+          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026 (1).jpg",
           "meta": {
             "title": "Tạm biệt 2025 - Chào 2026",
             "tags": [
+              "bính ngọ",
               "new year",
               "couple"
             ],
@@ -1432,18 +1527,83 @@
           }
         },
         {
-          "name": "welcome-2026-2.jpg",
-          "srcA": "split/Tạm-biệt-2025-chào-2026/welcome-2026-2_a.jpg",
-          "srcB": "split/Tạm-biệt-2025-chào-2026/welcome-2026-2_b.jpg",
-          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026-2.jpg",
+          "name": "welcome-2026 (2).jpg",
+          "srcA": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (2)_a.jpg",
+          "srcB": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (2)_b.jpg",
+          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026 (2).jpg",
           "meta": {
             "title": "Tạm biệt 2025 - Chào 2026",
             "tags": [
+              "bính ngọ",
               "new year",
               "couple"
             ],
             "description": "",
             "content": "<p>Giữ nguyên 2 gương mặt của 2 ảnh tham chiếu hãy tạo Poster studio quảng cáo siêu sáng. Ảnh toàn thân của một cô gái trẻ da trắng, mặc ÁO DÀI truyền thống màu pastel sky quần trắng của Việt Nam và chàng trai mặc trang phục áo sơ mi màu cam pastel quần tây trắng , đứng tạo dáng trong phòng studio Bảng màu pastel kẹo ngọt, ánh sáng studio cao cấp, ánh sáng mềm mại, tâm trạng thoải mái chụp ảnh thương mại chuyên nghiệp, siêu thực, dòng chữ lớn &quot;WELCOME &quot; phía sau ,cả 2 đang cười nhẹ nhàng ngồi trên một con số 3D màu pastel bóng loáng (20) trong khi nghiêng mình nghịch ngợm vào một con số 3D màu pastel bóng loáng (26) , độ phân giải cao,chất lượng 8K, chi tiết sắc nét cao cấp, làn da mịn tự nhiên, tỷ lệ 9:16.\nGóc chụp rõ mặt cả hai chủ thể.</p>\n"
+          }
+        },
+        {
+          "name": "welcome-2026 (3).jpg",
+          "srcA": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (3)_a.jpg",
+          "srcB": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (3)_b.jpg",
+          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026 (3).jpg",
+          "meta": {
+            "title": "Tạm biệt 2025 - Chào 2026",
+            "tags": [
+              "bính ngọ",
+              "new year",
+              "couple"
+            ],
+            "description": "",
+            "content": "<p>Ultra-bright cute advertising studio poster featuring a cheerful, playful family or couple of any age and ethnicity, all based on the provided uploaded image(s) maintaining their original faces and hairstyles. They are smiling and laughing joyfully, sitting happily on glossy pastel 3D numbers while playfully interacting with each other and leaning against oversized rounded pastel 3D numbers &quot;2&quot;, &quot;0&quot;, &quot;2&quot;, and &quot;6&quot; which form the year 2026. Each person wears soft pastel-colored oversized shirts over white tank tops, paired with light blue jeans, embodying pastel casual outfits. The background is a high-key studio lighting setup with a soft glow, color palette in candy pastel shades, creating a bubbly, joyful, cute, and playful mood. The composition is ultra-realistic, high-end advertising quality, with an aspect ratio of 5:4, no text included. The subjects interact naturally with the glossy pastel 3D numbers and among themselves, all placed in a clean studio environment. Use the uploaded image(s) as the base or reference for the subjects' appearances, faces, and poses, replicating and varying their positions to create a lively, warm, and joyful group or couple scene.</p>\n"
+          }
+        },
+        {
+          "name": "welcome-2026 (4).jpg",
+          "srcA": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (4)_a.jpg",
+          "srcB": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (4)_b.jpg",
+          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026 (4).jpg",
+          "meta": {
+            "title": "Tạm biệt 2025 - Chào 2026",
+            "tags": [
+              "bính ngọ",
+              "new year",
+              "couple"
+            ],
+            "description": "",
+            "content": "<p>Ultra-bright cute advertising studio poster featuring a cheerful, playful young Thai woman. She is smiling and laughing joyfully, sitting happily on a glossy pastel 3D number &quot;0&quot; while leaning playfully against an oversized rounded pastel 3D number &quot;2&quot;, which is the first digit of &quot;2026&quot; and significantly larger than the others. Her long, soft wavy hair has natural bounce, and her makeup is fresh dewy style with rosy cheeks and glossy lips. She wears a soft pink oversized shirt over a white tank top, paired with light blue jeans, embodying a pastel casual outfit. The background is a high-key studio lighting setup with a soft glow, color palette in candy pastel shades, creating a bubbly, joyful, cute, and playful mood. The composition is ultra-realistic, high-end advertising quality, with an aspect ratio of 5:4, no text included. The subject interacts naturally with the glossy pastel 3D numbers &quot;2&quot;, &quot;0&quot;, and the other digits &quot;2&quot; and &quot;6&quot; forming the year 2026, all placed in a clean studio environment.</p>\n"
+          }
+        },
+        {
+          "name": "welcome-2026 (5).jpg",
+          "srcA": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (5)_a.jpg",
+          "srcB": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (5)_b.jpg",
+          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026 (5).jpg",
+          "meta": {
+            "title": "Tạm biệt 2025 - Chào 2026",
+            "tags": [
+              "bính ngọ",
+              "new year",
+              "couple"
+            ],
+            "description": "",
+            "content": "<p>Ultra-bright cute advertising studio poster featuring a cheerful, playful man of any age and ethnicity, based on the provided uploaded image. He is smiling and laughing joyfully, sitting happily on a glossy pastel 3D number &quot;0&quot; while leaning playfully against an oversized rounded pastel 3D number &quot;2&quot;, which is the first digit of &quot;2026&quot; and significantly larger than the others. His hair style varies but appears natural with soft waves or texture and a lively bounce. He wears a soft pastel-colored oversized shirt over a white tank top, paired with light blue jeans, embodying a pastel casual outfit. The background is a high-key studio lighting setup with a soft glow, color palette in candy pastel shades, creating a bubbly, joyful, cute, and playful mood. The composition is ultra-realistic, high-end advertising quality, with an aspect ratio of 5:4, no text included. The subject interacts naturally with the glossy pastel 3D numbers &quot;2&quot;, &quot;0&quot;, and the other digits &quot;2&quot; and &quot;6&quot; forming the year 2026, all placed in a clean studio environment. Use the uploaded image as the base or reference for the subject's appearance and pose.</p>\n"
+          }
+        },
+        {
+          "name": "welcome-2026 (6).jpg",
+          "srcA": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (6)_a.jpg",
+          "srcB": "split/Tạm-biệt-2025-chào-2026/welcome-2026 (6)_b.jpg",
+          "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026 (6).jpg",
+          "meta": {
+            "title": "Tạm biệt 2025 - Chào 2026",
+            "tags": [
+              "bính ngọ",
+              "new year",
+              "couple"
+            ],
+            "description": "",
+            "content": "<p>Ultra-bright cute advertising studio poster featuring a cheerful, playful family or couple of any age and ethnicity, all based on the provided uploaded image(s) maintaining their original faces and hairstyles. They are smiling and laughing joyfully, sitting happily on glossy pastel 3D numbers while playfully interacting with each other and leaning against oversized rounded pastel 3D numbers &quot;2&quot;, &quot;0&quot;, &quot;2&quot;, and &quot;6&quot; which form the year 2026. Each person wears soft pastel-colored oversized shirts over white tank tops, paired with light blue jeans, embodying pastel casual outfits. The background is a high-key studio lighting setup with a soft glow, color palette in candy pastel shades, creating a bubbly, joyful, cute, and playful mood. The composition is ultra-realistic, high-end advertising quality, with an aspect ratio of 5:4, no text included. The subjects interact naturally with the glossy pastel 3D numbers and among themselves, all placed in a clean studio environment. Use the uploaded image(s) as the base or reference for the subjects' appearances, faces, and poses, replicating and varying their positions to create a lively, warm, and joyful group or couple scene.</p>\n"
           }
         }
       ]
