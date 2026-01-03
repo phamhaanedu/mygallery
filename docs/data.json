@@ -14,7 +14,7 @@
   },
   "categories": {
     "Tạo ảnh AI": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1).jpg",
-    "Travel": "assets/default-category 200x200.png",
+    "Travel": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
     "Demo": "assets/test-category-1.png",
     "Sample": "thumbnails/Trang-trắng-trẻo/Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
     "Sample1": "assets/default-category 200x200.png",
@@ -733,10 +733,43 @@
       "categories": [
         "Travel"
       ],
-      "cover": null,
+      "cover": "Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
       "locked": false,
       "unlockHash": null,
-      "images": []
+      "images": [
+        {
+          "name": "Gemini_Generated_Image_4yuc304yuc304yuc.png",
+          "srcA": "split/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc_a.jpg",
+          "srcB": "split/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc_b.jpg",
+          "thumb": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+          "meta": {
+            "title": "Gemini_Generated_Image_4yuc304yuc304yuc",
+            "tags": [
+              "travel",
+              "thailand",
+              "trangtrangtreo"
+            ],
+            "description": "",
+            "content": "<p>&quot;Tạo hình ảnh người mẫu có cùng khuôn mặt với mẫu tham khảo. Cô ấy mặc trang phục Lanna (miền Bắc Thái Lan): áo ống trễ vai bằng lụa trắng.\nVáy của cô ấy là sarong Lanna Thái (Phasin) màu trắng kem với các sọc trắng ngang và thắt lưng bạc. Một chiếc khăn choàng màu hồng pastel của miền Bắc Thái Lan được khoác trên cánh tay cô ấy.\nCô ấy đeo đồ trang sức bằng bạc: hoa tai, vòng tay và vòng cổ dài. Tóc cô ấy được búi cao gọn gàng, trang trí bằng hoa trắng, với những lọn tóc nhỏ ôm lấy khuôn mặt.\nCô ấy đang đứng, hướng về phía trước, nhìn vào máy ảnh, mỉm cười và thực hiện động tác 'Wai' (chào). Những chiếc đèn lồng trắng có hoa văn vàng treo gần đó. Phông nền là bối cảnh miền Bắc Thái Lan với 'Tung' (cờ) trang trí, ánh sáng dịu nhẹ và lối đi lát gạch. Phong cách chân thực, độ phân giải cao 4K, lấy nét mềm mại, màu sắc tự nhiên, làn da mịn màng.&quot;</p>\n"
+          }
+        },
+        {
+          "name": "Gemini_Generated_Image_10t6r810t6r810t6.png",
+          "srcA": "split/Du-lịch/Gemini_Generated_Image_10t6r810t6r810t6_a.jpg",
+          "srcB": "split/Du-lịch/Gemini_Generated_Image_10t6r810t6r810t6_b.jpg",
+          "thumb": "thumbnails/Du-lịch/Gemini_Generated_Image_10t6r810t6r810t6.png",
+          "meta": {
+            "title": "Gemini_Generated_Image_10t6r810t6r810t6",
+            "tags": [
+              "travel",
+              "thailand",
+              "trangtrangtreo"
+            ],
+            "description": "",
+            "content": "<p>&quot;Tạo hình ảnh người mẫu có cùng khuôn mặt với mẫu tham khảo. Cô ấy mặc trang phục Lanna (miền Bắc Thái Lan): áo ống trễ vai bằng lụa trắng.\nVáy của cô ấy là sarong Lanna Thái (Phasin) màu trắng kem với các sọc trắng ngang và thắt lưng bạc. Một chiếc khăn choàng màu hồng pastel của miền Bắc Thái Lan được khoác trên cánh tay cô ấy.\nCô ấy đeo đồ trang sức bằng bạc: hoa tai, vòng tay và vòng cổ dài. Tóc cô ấy được búi cao gọn gàng, trang trí bằng hoa trắng, với những lọn tóc nhỏ ôm lấy khuôn mặt.\nCô ấy đang đứng, hướng về phía trước, nhìn vào máy ảnh, mỉm cười và thực hiện động tác 'Wai' (chào). Những chiếc đèn lồng trắng có hoa văn vàng treo gần đó. Phông nền là bối cảnh miền Bắc Thái Lan với 'Tung' (cờ) trang trí, ánh sáng dịu nhẹ và lối đi lát gạch. Phong cách chân thực, độ phân giải cao 4K, lấy nét mềm mại, màu sắc tự nhiên, làn da mịn màng.&quot;</p>\n"
+          }
+        }
+      ]
     },
     {
       "id": "Mùa hoa cải",
@@ -808,6 +841,36 @@
       "locked": false,
       "unlockHash": null,
       "images": [
+        {
+          "name": "Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
+          "srcA": "split/Sample-Album/Gemini_Generated_Image_2o6isp2o6isp2o6i_a.jpg",
+          "srcB": "split/Sample-Album/Gemini_Generated_Image_2o6isp2o6isp2o6i_b.jpg",
+          "thumb": "thumbnails/Sample-Album/Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
+          "meta": {
+            "title": "Gemini_Generated_Image_2o6isp2o6isp2o6i",
+            "tags": [
+              "trangtrangtreo"
+            ],
+            "description": "",
+            "content": "<p>&quot;Tạo một bức chân dung toàn thân siêu thực bằng nhân vật trong ảnh tham chiếu, là một cô gái trẻ 25 tuổi với mái tóc đen có gẩy một chút line nâu dài quá bờ vai buộc tóc kiểu đuôi ngựa, chất lượng super HD (hướng chân dung), chân dung chiếm 50% khung hình, sử dụng chính khuôn mặt của ảnh tham chiếu.</p>\n<p>Mặc một bộ trang phục pastel thời trang, vui tươi (dễ thương/gợi cảm): một chiếc váy ngắn bó sát màu pastel có bèo nhún, áo crop top pastel thời thượng và các phụ kiện đồng bộ (bông tai, vòng tay, kẹp tóc hoặc tất xinh xắn).</p>\n<p>Tư thế (Chọn một): Vui tươi/gợi cảm (ngồi trên bàn, nằm trên ghế sofa với búp bê), nằm trên một chiếc gối xinh xắn hoặc xoay tóc nhìn vào máy ảnh.</p>\n<p>Môi trường: Được bao quanh bởi những đám mây pastel như kẹo bông gòn (màu hồng và màu tím) và/hoặc vươn tới những bong bóng đang nổi.&quot;</p>\n"
+          }
+        },
+        {
+          "name": "Gemini_Generated_Image_4yuc304yuc304yuc.png",
+          "srcA": "split/Sample-Album/Gemini_Generated_Image_4yuc304yuc304yuc_a.jpg",
+          "srcB": "split/Sample-Album/Gemini_Generated_Image_4yuc304yuc304yuc_b.jpg",
+          "thumb": "thumbnails/Sample-Album/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+          "meta": {
+            "title": "Gemini_Generated_Image_4yuc304yuc304yuc",
+            "tags": [
+              "travel",
+              "thailand",
+              "trangtrangtreo"
+            ],
+            "description": "",
+            "content": "<p>&quot;Tạo hình ảnh người mẫu có cùng khuôn mặt với mẫu tham khảo. Cô ấy mặc trang phục Lanna (miền Bắc Thái Lan): áo ống trễ vai bằng lụa trắng.\nVáy của cô ấy là sarong Lanna Thái (Phasin) màu trắng kem với các sọc trắng ngang và thắt lưng bạc. Một chiếc khăn choàng màu hồng pastel của miền Bắc Thái Lan được khoác trên cánh tay cô ấy.\nCô ấy đeo đồ trang sức bằng bạc: hoa tai, vòng tay và vòng cổ dài. Tóc cô ấy được búi cao gọn gàng, trang trí bằng hoa trắng, với những lọn tóc nhỏ ôm lấy khuôn mặt.\nCô ấy đang đứng, hướng về phía trước, nhìn vào máy ảnh, mỉm cười và thực hiện động tác 'Wai' (chào). Những chiếc đèn lồng trắng có hoa văn vàng treo gần đó. Phông nền là bối cảnh miền Bắc Thái Lan với 'Tung' (cờ) trang trí, ánh sáng dịu nhẹ và lối đi lát gạch. Phong cách chân thực, độ phân giải cao 4K, lấy nét mềm mại, màu sắc tự nhiên, làn da mịn màng.&quot;</p>\n"
+          }
+        },
         {
           "name": "Mùa-hoa-cải-01.jpg",
           "srcA": "split/Sample-Album/Mùa-hoa-cải-01_a.jpg",
