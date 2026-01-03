@@ -21,6 +21,13 @@ function hash(str) {
     return crypto.createHash('sha256').update(String(str)).digest('hex');
 }
 
+// Load Gallery Config Global
+const configPath = path.join(ROOT, 'gallery.config.json');
+let galleryConfig = {};
+if (fs.existsSync(configPath)) {
+    try { galleryConfig = JSON.parse(fs.readFileSync(configPath, 'utf8')); } catch (e) { console.error('Invalid config', e); }
+}
+
 ensureDir(PUBLIC_DIR);
 ensureDir(THUMB_DIR);
 ensureDir(SPLIT_DIR);
@@ -50,7 +57,16 @@ function processAlbum(albumPath) {
 
         // Re-check timestamp for resize
         if (!fs.existsSync(thumbPath) || fs.statSync(srcPath).mtimeMs > fs.statSync(thumbPath).mtimeMs) {
-            sharp(srcPath).resize(200, 200, { fit: 'cover' }).toFile(thumbPath).catch(e => console.error('Thumb error', e));
+            const layout = galleryConfig.layout || 'grid';
+            let resizeOpts = { width: 200, height: 200, fit: 'cover' }; // Default Grid
+
+            if (layout === 'masonry') {
+                resizeOpts = { width: 300 }; // Fixed width, auto height
+            } else if (layout === 'justified') {
+                resizeOpts = { height: 220 }; // Fixed height, auto width
+            }
+
+            sharp(srcPath).resize(resizeOpts).toFile(thumbPath).catch(e => console.error('Thumb error', e));
         }
 
         // Split vertically into two halves
@@ -166,13 +182,6 @@ function main() {
     const serveConfig = { cleanUrls: false };
     fs.writeFileSync(path.join(PUBLIC_DIR, 'serve.json'), JSON.stringify(serveConfig, null, 2), 'utf8');
     console.log('[build] Generated serve.json');
-
-    // Load Gallery Config
-    const configPath = path.join(ROOT, 'gallery.config.json');
-    let galleryConfig = {};
-    if (fs.existsSync(configPath)) {
-        try { galleryConfig = JSON.parse(fs.readFileSync(configPath, 'utf8')); } catch (e) { console.error('Invalid config', e); }
-    }
 
     // Hash Master Code
     if (galleryConfig.masterCode) {

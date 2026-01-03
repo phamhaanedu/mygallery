@@ -8,6 +8,7 @@
     "categoryCovers": {
       "Demo": "assets/test-category-1.png"
     },
+    "layout": "masonry",
     "dictionary": "assets/dict-en.json",
     "masterHash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
   },
@@ -15,6 +16,16 @@
     "Tạo ảnh AI": "thumbnails/Chào-xuân-2026/Chào-xuân-01-01.jpg",
     "Travel": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
     "Sample": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Travel1": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Sample1": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Travel2": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Sample2": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Travel3": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Sample3": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Travel4": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Sample4": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Travel5": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Sample5": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
     "Demo": "assets/test-category-1.png",
     "Demo-2": "assets/default-category 200x200.png",
     "Demo-3": "assets/default-category 200x200.png"
@@ -339,7 +350,17 @@
       "title": "Du lịch - Travel",
       "categories": [
         "Travel",
-        "Sample"
+        "Sample",
+        "Travel1",
+        "Sample1",
+        "Travel2",
+        "Sample2",
+        "Travel3",
+        "Sample3",
+        "Travel4",
+        "Sample4",
+        "Travel5",
+        "Sample5"
       ],
       "cover": "Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
       "locked": true,
