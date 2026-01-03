@@ -1,126 +1,46 @@
-# Localization & Lock Screen Enhancements
+# Tag Cloud Implementation Plan
 
-Externalize UI text into a dictionary file and enhance the lock screen to show the album name.
+## Goal
+Redesign the [tags.html](file:///d:/web%20project/Gallery/pages/tags.html) page to display tags as a "Tag Cloud" where the font size of each tag reflects the number of photos associated with it.
 
-## Proposed Changes
+## User Requirement
+-   "Tag Cloud" style.
+-   More photos = larger size.
+-   Reference common web examples.
+-   Maintain "rich aesthetics".
 
-### Configuration & Data
-#### [NEW] [assets/dict.json](file:///d:/web%20project/Gallery/assets/dict.json)
-Create a dictionary file containing text mappings.
-```json
-{
-    "lockedTitle": "Album bị khóa",
-    "lockedMsg": "Album này yêu cầu mã truy cập để xem.",
-    "enterCodePlaceholder": "Nhập mã truy cập",
-    "unlockBtn": "Mở khóa",
-    "incorrectCode": "Mã không đúng",
-    "backToGallery": "Quay lại Thư viện",
-    "waitingUnlock": "Đang chờ mở khóa: "
-}
-```
+## Backend ([scripts/build.js](file:///d:/web%20project/Gallery/scripts/build.js))
+-   **No changes required.** The current logic already provides `count` for each tag, which is what we need. Use `data.tags`.
 
-#### [MODIFY] [gallery.config.json](file:///d:/web%20project/Gallery/gallery.config.json)
-Add reference to the dictionary file.
-```json
-{
-    "dictionary": "assets/dict.json"
-}
-```
+## Frontend Changes
 
-### Logic Layer (Node.js Build Script)
-#### [MODIFY] [scripts/build.js](file:///d:/web%20project/Gallery/scripts/build.js)
--   In [main()](file:///d:/web%20project/Gallery/scripts/build.js#192-303):
-    -   Check if `galleryConfig.dictionary` exists.
-    -   Read the file content.
-    -   Add it to `outputData.dictionary`.
+### 1. [pages/tags.html](file:///d:/web%20project/Gallery/pages/tags.html)
+-   Modify `#tags-container`. Remove grid classes (`row`, `g-4`) to allow for a free-flowing flex layout.
+-   Ensure responsive padding/centering.
 
-### UI/Logic Layer (Frontend)
-#### [MODIFY] [photo.html](file:///d:/web%20project/Gallery/pages/photo.html)
-- Standardize button styles.
-- Add copy button.
+### 2. [app.js](file:///d:/web%20project/Gallery/app.js) -> [renderTags()](file:///d:/web%20project/Gallery/app.js#243-273)
+-   **Calculate Weights**:
+    -   Find `minCount` and `maxCount` in `galleryData.tags`.
+    -   Define `minSize` (e.g., 1rem) and `maxSize` (e.g., 3rem).
+-   **Render Loop**:
+    -   Iterate through sorted tags.
+    -   Calculate `fontSize` for each tag.
+    -   Render as an inline-block element (e.g., `<a>` tag) with:
+        -   Calculated `font-size`.
+        -   Pill/Badge styling (rounded corners, padding).
+        -   Subtle gradient or glassmorphism effect.
+        -   Hover scale animation.
+        -   Tooltip/Title showing the exact count: `title="${count} photos"`.
 
-### [Build Script]
-#### [MODIFY] [build.js](file:///d:/web%20project/Gallery/scripts/build.js)
-- Change output directory from `public` to `docs`.
-- Refactor to load config globally.
-- Implement thumbnail generation logic based on `layout` config:
-    - `grid`: 200x200 cover (default).
-    - `masonry`: Fixed width (300px), auto height.
-    - `justified`: Fixed height (220px), auto width.
+## Styling Strategy (CSS in [app.js](file:///d:/web%20project/Gallery/app.js) or inline)
+-   Container: `d-flex flex-wrap justify-content-center align-items-center gap-3 p-4`.
+-   Tag Item:
+    -   `text-decoration-none`.
+    -   `transition: all 0.3s ease`.
+    -   Color palette: Use a set of harmonious gradients or a semi-transparent dark theme with accents. Given the dark mode aesthetic, maybe "glass" pills.
+    -   Hover: `transform: scale(1.1)`, increase brightness.
 
-### [Frontend]
-#### [MODIFY] [gallery.config.json](file:///d:/web%20project/Gallery/gallery.config.json)
-- Add `"layout": "grid"` (options: "grid", "masonry", "justified").
-
-#### [MODIFY] [style.css](file:///d:/web%20project/Gallery/style.css)
-- Add `.layout-grid` (existing styles).
-- Add `.layout-masonry` (column-count).
-- Add `.layout-justified` (flexbox).
-
-#### [MODIFY] [app.js](file:///d:/web%20project/Gallery/app.js)
-- Update [renderAlbum](file:///d:/web%20project/Gallery/app.js#303-370) to apply the correct layout class from config.
-
-### [Other]
-#### [MODIFY] [package.json](file:///d:/web%20project/Gallery/package.json)
-- Update `dev` command to serve `docs`.
-#### [MODIFY] [app.js](file:///d:/web%20project/Gallery/app.js)
--   In [showUnlockPrompt(album)](file:///d:/web%20project/Gallery/app.js#234-302):
-    -   Use `galleryData.dictionary` to populate text. Fallback to English if undefined.
-    -   Update the modal header or description to include the album name: `album.title`.
-
-## Verification Plan
-1.  **Create** `assets/dict.json` with Vietnamese text.
-2.  **Update** [gallery.config.json](file:///d:/web%20project/Gallery/gallery.config.json).
-3.  **Run** `npm run build`. Verify [data.json](file:///d:/web%20project/Gallery/docs/data.json) contains the dictionary.
-4.  **Run** `npm run dev`.
-5.  **Test**: Open a locked album.
-    -   Check if text is in Vietnamese.
-    -   Check if album name is displayed (e.g., "Đang chờ mở khóa: Sample-Album-5").
-
-# Feature: Include Entire Album
-
-Allow `includes` array in [config.json](file:///d:/web%20project/Gallery/gallery.config.json) to accept directory paths, automatically adding all images within that directory.
-
-## Proposed Changes
-
-### Logic Layer (Node.js Build Script)
-#### [MODIFY] [scripts/build.js](file:///d:/web%20project/Gallery/scripts/build.js)
--   In [processAlbum()](file:///d:/web%20project/Gallery/scripts/build.js#35-191) -> `includes` processing loop:
-    -   Check if `fullPath` is a directory.
-    -   If **Directory**:
-        -   Read all files in that directory.
-        -   Filter for [.jpg](file:///d:/web%20project/Gallery/albums/Ch%C3%A0o-xu%C3%A2n-2026/Ch%C3%A0o-xu%C3%A2n-01-09.jpg) / `.png`.
-        -   Call [processImgFile](file:///d:/web%20project/Gallery/scripts/build.js#44-127) for each.
-    -   If **File**:
-        -   Call [processImgFile](file:///d:/web%20project/Gallery/scripts/build.js#44-127) (keep existing logic).
-
-## Verification Plan
-1.  **Configure**: Update an album's [config.json](file:///d:/web%20project/Gallery/gallery.config.json) to include a folder name (e.g., `"Mùa hoa cải"`).
-2.  **Build**: Run `npm run build`.
-3.  **Verify**: Check [data.json](file:///d:/web%20project/Gallery/docs/data.json) to ensure images from the included folder are present in the target album.
-
-
-# Feature: Merge Duplicate Albums
-
-Automatically merge albums with the same display name. The first encountered folder defines the album metadata; subsequent folders just contribute images.
-
-## Proposed Changes
-
-### Logic Layer (Node.js Build Script)
-#### [MODIFY] [scripts/build.js](file:///d:/web%20project/Gallery/scripts/build.js)
--   Refactor [main()](file:///d:/web%20project/Gallery/scripts/build.js#192-303) to use a `Map<string, Album>` where the key is the **Album Title**.
--   When processing a folder:
-    1.  Read config to get the Title.
-    2.  Check if Title exists in Map.
-    3.  **If New**: Create new Album entry, process all images, store in Map.
-    4.  **If Existing**:
-        -   Retrieve existing Album object.
-        -   Process images from the *current* folder (generate thumbs/splits).
-        -   Append these images to the existing Album's `images` array.
-        -   **Skip** reading `config` for other metadata (cover, lock status, etc.) - honor the first one.
-
-## Verification Plan
-1.  **Setup**: Ensure `albums/Traditional-Chinese-New-Year` and `albums/Chào-xuân-2026` both have name "Chào xuân".
-2.  **Build**: Run `npm run build`.
-3.  **Verify**: `data.json` should have **only one** album named "Chào xuân".
-4.  **Verify**: This merged album should contain images from **both** folders (5 + 13 = 18 images).
+## Verification
+-   Check [tags.html](file:///d:/web%20project/Gallery/pages/tags.html).
+-   Verify widely used tags are significantly larger than rarely used ones.
+-   Verify links work (`tag.html?tag=...`).

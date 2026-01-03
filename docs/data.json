@@ -20,6 +20,52 @@
     "Sample1": "assets/default-category 200x200.png",
     "Sample2": "assets/default-category 200x200.png"
   },
+  "tags": {
+    "new year": {
+      "count": 23,
+      "cover": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1).jpg"
+    },
+    "áo dài": {
+      "count": 20,
+      "cover": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1).jpg"
+    },
+    "cartoon": {
+      "count": 7,
+      "cover": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (1).jpg"
+    },
+    "couple": {
+      "count": 13,
+      "cover": "thumbnails/Couple-01/Couple-01-01.jpg"
+    },
+    "travel": {
+      "count": 5,
+      "cover": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png"
+    },
+    "thailand": {
+      "count": 5,
+      "cover": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png"
+    },
+    "trangtrangtreo": {
+      "count": 16,
+      "cover": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png"
+    },
+    "mùa hoa": {
+      "count": 6,
+      "cover": "thumbnails/Mùa hoa cải/Mùa-hoa-cải-01.jpg"
+    },
+    "hoa cải": {
+      "count": 6,
+      "cover": "thumbnails/Mùa hoa cải/Mùa-hoa-cải-01.jpg"
+    },
+    "abstract": {
+      "count": 1,
+      "cover": "thumbnails/Sample-Album/sample_img_01_1767120074454.png"
+    },
+    "demo": {
+      "count": 1,
+      "cover": "thumbnails/Sample-Album/sample_img_01_1767120074454.png"
+    }
+  },
   "albums": [
     {
       "id": "Bà-hội-đồng-mời-trà",
@@ -789,8 +835,8 @@
           "meta": {
             "title": "Mùa-hoa-cải-01",
             "tags": [
-              "new year",
-              "áo dài"
+              "mùa hoa",
+              "hoa cải"
             ],
             "description": "",
             "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
@@ -804,8 +850,8 @@
           "meta": {
             "title": "Mùa-hoa-cải-02",
             "tags": [
-              "new year",
-              "áo dài"
+              "mùa hoa",
+              "hoa cải"
             ],
             "description": "",
             "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
@@ -819,8 +865,8 @@
           "meta": {
             "title": "Mùa-hoa-cải-03",
             "tags": [
-              "new year",
-              "áo dài"
+              "mùa hoa",
+              "hoa cải"
             ],
             "description": "",
             "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
@@ -879,8 +925,8 @@
           "meta": {
             "title": "Mùa-hoa-cải-01",
             "tags": [
-              "new year",
-              "áo dài"
+              "mùa hoa",
+              "hoa cải"
             ],
             "description": "",
             "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
@@ -894,8 +940,8 @@
           "meta": {
             "title": "Mùa-hoa-cải-02",
             "tags": [
-              "new year",
-              "áo dài"
+              "mùa hoa",
+              "hoa cải"
             ],
             "description": "",
             "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
@@ -909,8 +955,8 @@
           "meta": {
             "title": "Mùa-hoa-cải-03",
             "tags": [
-              "new year",
-              "áo dài"
+              "mùa hoa",
+              "hoa cải"
             ],
             "description": "",
             "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
@@ -1148,6 +1194,7 @@
           "meta": {
             "title": "Tạm biệt 2025 - Chào 2026",
             "tags": [
+              "new year",
               "couple"
             ],
             "description": "",
@@ -1162,6 +1209,7 @@
           "meta": {
             "title": "Tạm biệt 2025 - Chào 2026",
             "tags": [
+              "new year",
               "couple"
             ],
             "description": "",
@@ -1175,7 +1223,10 @@
           "thumb": "thumbnails/Tạm-biệt-2025-chào-2026/welcome-2026-2.jpg",
           "meta": {
             "title": "Tạm biệt 2025 - Chào 2026",
-            "tags": [],
+            "tags": [
+              "new year",
+              "couple"
+            ],
             "description": "",
             "content": "<p>Giữ nguyên 2 gương mặt của 2 ảnh tham chiếu hãy tạo Poster studio quảng cáo siêu sáng. Ảnh toàn thân của một cô gái trẻ da trắng, mặc ÁO DÀI truyền thống màu pastel sky quần trắng của Việt Nam và chàng trai mặc trang phục áo sơ mi màu cam pastel quần tây trắng , đứng tạo dáng trong phòng studio Bảng màu pastel kẹo ngọt, ánh sáng studio cao cấp, ánh sáng mềm mại, tâm trạng thoải mái chụp ảnh thương mại chuyên nghiệp, siêu thực, dòng chữ lớn &quot;WELCOME &quot; phía sau ,cả 2 đang cười nhẹ nhàng ngồi trên một con số 3D màu pastel bóng loáng (20) trong khi nghiêng mình nghịch ngợm vào một con số 3D màu pastel bóng loáng (26) , độ phân giải cao,chất lượng 8K, chi tiết sắc nét cao cấp, làn da mịn tự nhiên, tỷ lệ 9:16.\nGóc chụp rõ mặt cả hai chủ thể.</p>\n"
           }

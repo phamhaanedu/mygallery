@@ -1,0 +1,293 @@
+# Walkthrough - Photo Page Enhancements
+
+I have updated the Photo page to support keyboard and mouse shortcuts for better navigation and usability.
+
+## Changes
+
+### [app.js](file:///d:/web%20project/Gallery/app.js)
+
+-   **Global Navigation Shortcuts**:
+    -   `ArrowLeft` / `ArrowRight` or Mouse Wheel (on background) now navigates between photos.
+    -   `I` key toggles the Info Panel.
+-   **Event Listener Optimization**:
+    -   Moved keyboard listeners to a global [setupGlobalInteractions](file:///d:/web%20project/Gallery/app.js#681-724) function to prevent duplication and ensure cleaner logic.
+    -   Mouse wheel navigation is smart: it zooms if you are over the photo, and navigates if you are on the background.
+
+## Verification Results
+
+### Automated Tests
+-   **Browser Verification**: Attempted, but skipped due to system timeout.
+-   **Manual Code Review**: Verified that:
+    -   [setupGlobalInteractions](file:///d:/web%20project/Gallery/app.js#681-724) runs on DOMContentLoaded.
+    -   Key events (Arrows, I) trigger [click()](file:///d:/web%20project/Gallery/app.js#653-671) on the respective interface buttons (`nav-prev`, `nav-next`, `info-btn`).
+    -   This decoupling allows the logic inside [renderPhoto](file:///d:/web%20project/Gallery/app.js#502-673) (which sets the [onclick](file:///d:/web%20project/Gallery/app.js#653-671) handlers) to remain the source of truth for what those buttons do.
+    -   Mouse wheel navigation correctly checks `e.target.closest('#photo-container')` to differentiate between Zooming and Navigating.
+
+## User Actions
+-   Open a photo in the gallery.
+-   Use **Arrow Keys** to change photos.
+-   Use **Mouse Wheel** on the black background to change photos.
+-   Press **I** to show/hide the info panel.
+
+# Walkthrough - Layout Density Improvements
+
+I have updated the **Category List** and **Album List** pages to display items in a denser, clearer grid.
+
+## Changes
+
+### [pages/index.html](file:///d:/web%20project/Gallery/pages/index.html) & [pages/category.html](file:///d:/web%20project/Gallery/pages/category.html)
+-   **Responsive Grid**: Changed the grid classes to `row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6`.
+-   **Effect**:
+    -   Small screens (mobile): 2 items per row.
+    -   Medium screens: 4 items per row.
+    -   Large screens: 5-6 items per row.
+    -   This eliminates the large gaps and excessive whitespace seen previously.
+
+### [style.css](file:///d:/web%20project/Gallery/style.css)
+-   **Fluid Cards**:
+    -   Updated `.category-card`, `.album-item`, and `.album-thumb-wrapper` to have `width: 100%` and `aspect-ratio: 1 / 1`.
+    -   This ensures images always fill their grid cell perfectly, regardless of the screen size.
+
+### [app.js](file:///d:/web%20project/Gallery/app.js)
+-   **Cleaner Rendering**: Removed hardcoded `d-flex justify-content-center` classes, allowing the grid system to handle alignment naturally.
+
+## User Actions
+-   Resize your browser window on the Homepage or Category page.
+-   Observe how the number of columns adjusts dynamically (up to 6) and items remain close together.
+
+# Walkthrough - Photo Description in Overlay
+
+I have added a **Description** field to the photo overlay in the bottom-left corner.
+
+## Changes
+
+### [pages/photo.html](file:///d:/web%20project/Gallery/pages/photo.html)
+-   Added a `<p>` element below the title in the info overlay.
+-   Styled it with `small text-white-50` to meet the "small, gray, normal font" requirement.
+
+### [app.js](file:///d:/web%20project/Gallery/app.js)
+-   Updated [renderPhoto](file:///d:/web%20project/Gallery/app.js#502-673) to check for `imgObj.meta.description` and populate the new element.
+
+## User Actions
+-   Open a photo that has a `description` in its metadata (Markdown file).
+-   Verify that the description appears below the title in the bottom-left overlay.
+
+# Walkthrough - Album Grid Density
+
+I have updated the **Album Page** to display photos in a high-density grid, matching the style of the Category list.
+
+## Changes
+
+### [pages/album.html](file:///d:/web%20project/Gallery/pages/album.html)
+-   **Responsive Grid**: Updated `#photos` to use `row-cols-2` up to `row-cols-xl-6`.
+-   **Effect**: Photos now fill the screen width efficiently, displaying up to 6 photos per row on large screens.
+
+### [style.css](file:///d:/web%20project/Gallery/style.css)
+-   **Square Thumbnails**: Enforced `aspect-ratio: 1 / 1` and `object-fit: cover` for album thumbnails.
+-   This ensures all photos appear as uniform squares in the grid, regardless of their original aspect ratio.
+
+## User Actions
+-   Open any Album.
+-   Resize the browser window.
+-   Observe the dense, responsive grid of square photo thumbnails.
+
+# Bug Fix - Split Image Gap
+
+I fixed a visual issue where a thin vertical line (gap) appeared between the two halves of a split photo when zoomed in.
+
+## Changes
+
+### [style.css](file:///d:/web%20project/Gallery/style.css)
+-   Added a negative left margin (`-1px`) to the second half of the split image.
+-   This forces a slight overlap, effectively closing any sub-pixel rendering gaps that appear during zooming or scaling.
+
+## User Actions
+-   Open a split photo.
+-   Zoom in using the mouse wheel or controls.
+-   Verify that the image appears seamless with no vertical line down the center.
+
+# Styling Fix - Album Thumbnails
+
+I fixed an issue where photos in certain albums (like "Trang-trắng-trẻo") were not displaying as squares, causing the grid to look uneven.
+
+## Changes
+
+### [style.css](file:///d:/web%20project/Gallery/style.css)
+-   Added a specific rule for `.album-card-hover .card-img-top` to enforce `aspect-ratio: 1 / 1` and `object-fit: cover`.
+-   This ensures that even portrait or landscape photos are cropped to a perfect square in the grid view, maintaining layout consistency across all albums.
+
+## User Actions
+-   Open the "Trang-trắng-trẻo" album (or any album with portrait photos).
+-   Verify that all photo thumbnails are now uniform squares (approx 200x200 depending on screen size).
+
+# Feature - Album Includes
+
+I enabled the ability to include photos from other albums using the `includes` property in [config.json](file:///d:/web%20project/Gallery/gallery.config.json).
+
+## Changes
+
+### [scripts/build.js](file:///d:/web%20project/Gallery/scripts/build.js)
+-   Refactored `processAlbum` to use a helper [processImgFile](file:///d:/web%20project/Gallery/scripts/build.js#38-136).
+-   Added logic to iterate over `cfg.includes`, resolving paths relative to the `albums/` root.
+-   These included images are processed (thumbnail creation, splitting, metadata reading) and added to the current album's image list.
+
+## Usage
+In an album's [config.json](file:///d:/web%20project/Gallery/gallery.config.json):
+```json
+{
+  "includes": [
+    "OtherAlbum/Photo1.png",
+    "AnotherAlbum/Photo2.jpg"
+  ]
+}
+```
+
+## User Actions
+-   Verify that `Sample-Album-3` now correctly displays the images included from `Trang-trắng-trẻo`.
+
+# Feature - Album Locking
+
+I implemented a security feature to lock albums with a PIN code. Codes are hashed (SHA-256) during build, so plain text passwords are never exposed in the client-side code.
+
+## Configuration
+
+### 1. Album-Specific Code
+In `albums/[AlbumName]/config.json`:
+```json
+{
+  "locked": true,
+  "unlockCode": "1234"
+}
+```
+
+### 2. Master Code (Global)
+In [gallery.config.json](file:///d:/web%20project/Gallery/gallery.config.json) (root directory):
+```json
+{
+  "masterCode": "9999"
+}
+```
+
+## How it works
+1.  **Build**: [scripts/build.js](file:///d:/web%20project/Gallery/scripts/build.js) reads the codes, computes their SHA-256 hash, and saves *only the hash* to [data.json](file:///d:/web%20project/Gallery/docs/data.json).
+2.  **Frontend**: [app.js](file:///d:/web%20project/Gallery/app.js) checks if an album is locked.
+3.  **UI**: If locked, a modal prompts for a code.
+4.  **Verification**: The entered code is hashed client-side and compared with the `unlockHash` (album) or `masterHash` (global).
+5.  **Access**: On success, a token is saved in `localStorage` to allow access until cookies are cleared.
+
+## User Actions
+-   Set `unlockCode` in `Sample-Album-3/config.json`.
+-   Run `npm run build`.
+-   Set `unlockCode` in `Sample-Album-3/config.json`.
+-   Run `npm run build`.
+-   Try to access `Sample-Album-3`. You should be prompted for a code.
+-   Enter the correct code to unlock.
+
+## UX Improvements (Lock Screen)
+-   **Auto-Redirect**: Upon entering the correct code, the page automatically reloads to display the album content immediately.
+-   **Error Handling**: The "Incorrect code" message is cleared as soon as you try a new code, avoiding confusion.
+
+# Feature - Localization & Lock Screen UI
+
+I enhanced the lock screen to be fully localizable and to display the name of the album being accessed.
+
+## Configuration
+### Dictionary File
+Text strings are stored in `assets/dict.json` (or any file specified in config).
+```json
+{
+    "lockedTitle": "Album bị khóa",
+    "lockedMsg": "Album này yêu cầu mã truy cập để xem.",
+    "waitingUnlock": "Đang chờ mở khóa: ",
+    ...
+}
+```
+
+### Config Update
+In [gallery.config.json](file:///d:/web%20project/Gallery/gallery.config.json):
+```json
+{
+    "dictionary": "assets/dict.json"
+}
+```
+
+## UI Changes
+-   The lock screen now pulls text from [data.json](file:///d:/web%20project/Gallery/docs/data.json) (which embeds the dictionary).
+-   The album title is displayed: "Đang chờ mở khóa: [Album Name]".
+
+## User Actions
+-   Ensure `assets/dict.json` exists.
+-   Run `npm run build`.
+-   Run `npm run build`.
+-   Access a locked album to see the Vietnamese interface and album name.
+
+# Enhancement - Filename as Default Title
+When an image lacks a title in its metadata (or has no metadata file), the system now automatically uses the filename (without extension) as the title. This applies to both the photo overlay and the metadata panel.
+
+# Deployment - Docs Folder
+The project now outputs to the `docs` folder instead of `public` to facilitate GitHub Pages deployment.
+-   **Build Output**: `docs/`
+-   **Dev Server**: Serves from `docs/`
+
+# Configurable Layouts
+You can now switch between three distinct layouts in [gallery.config.json](file:///d:/web%20project/Gallery/gallery.config.json) by setting the `layout` property:
+-   `"grid"`: (Default) Standard square grid with uniform 200x200 thumbnails.
+-   `"masonry"`: Pinterest-style card layout. Preserves original aspect ratios (fixed width, variable height).
+-   `"justified"`: Flickr/Google Photos style. Rows are filled horizontally (fixed height, variable width).
+
+Example config:
+```json
+{
+    "layout": "masonry",
+    ...
+}
+```
+
+# Feature - Merge Duplicate Albums
+Automatically merge multiple album folders into a single album if they share the same **Album Title**.
+
+## Logic
+1.  **Grouping**: Albums are grouped by their display name (determined by `name` in [config.json](file:///d:/web%20project/Gallery/gallery.config.json) or the folder name).
+2.  **Primary Album**: The first folder encountered with a given name becomes the "Primary" album.
+    -   Its configuration (Cover, Lock status, Description, etc.) is used.
+3.  **Contributors**: Subsequent folders with the same name are treated as contributors.
+    -   Their images are processed and added to the Primary album.
+    -   Their [config.json](file:///d:/web%20project/Gallery/gallery.config.json) (metadata, settings) is **ignored**.
+
+## Usage
+Simply name two different folders with the same `name` in their respective [config.json](file:///d:/web%20project/Gallery/gallery.config.json) files.
+
+Example:
+-   `albums/FolderA/config.json`: `{ "name": "My Trip" }`
+-   `albums/FolderB/config.json`: `{ "name": "My Trip" }`
+
+Result: One album "My Trip" containing images from both FolderA and FolderB.
+
+## Tags Feature
+As of Step 1084, a comprehensive **Tags** system has been implemented to allow cross-album organization.
+
+### Logic
+-   **Aggregation**: During the build process (`npm run build`), the script scans all [.md](file:///d:/web%20project/Gallery/README.md) metadata files for `tags`.
+-   **Global Map**: It creates a global list of unique tags, counting how many photos use each tag and assigning a cover image (from the first photo found with that tag).
+-   **Data Output**: This aggregated data is saved to [data.json](file:///d:/web%20project/Gallery/docs/data.json) under the `tags` key.
+
+### New Pages
+1.  **Tags List ([tags.html](file:///d:/web%20project/Gallery/pages/tags.html))**:
+    -   Accessible via the Navbar ("Tags").
+    -   Displays a grid of all available tags.
+    -   Each card shows the Tag Name, Photo Count, and a Cover Image.
+2.  **Tag Detail ([tag.html](file:///d:/web%20project/Gallery/pages/tag.html))**:
+    -   Clicking a tag in the customized list opens this page (e.g., `tag.html?tag=nature`).
+    -   Displays a grid of *all* photos from *all* albums that share this tag.
+    -   Reuses the responsive grid layout from the Album page.
+    -   Clicking a photo opens the full-screen **Photo Viewer** (reusing [photo.html](file:///d:/web%20project/Gallery/pages/photo.html) logic via [app.js](file:///d:/web%20project/Gallery/app.js) routing).
+
+### Configuration
+No new configuration is needed. Simply add tags to your image's markdown file, and they will automatically appear.
+
+```markdown
+---
+title: "My Photo"
+tags: ["nature", "travel", "2024"]
+---
+```

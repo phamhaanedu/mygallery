@@ -32,6 +32,10 @@ ensureDir(PUBLIC_DIR);
 ensureDir(THUMB_DIR);
 ensureDir(SPLIT_DIR);
 
+// Global Tags Map: Name -> { count, cover }
+const globalTagsMap = new Map();
+const processingTasks = []; // Track active image processing tasks
+
 // Helper to process a single image file
 function processImgFile(srcPath, albumId, images) {
     if (!fs.existsSync(srcPath)) {
@@ -44,8 +48,6 @@ function processImgFile(srcPath, albumId, images) {
     // Thumbnail
     const thumbAlbumDir = path.join(THUMB_DIR, albumId);
     ensureDir(thumbAlbumDir);
-    // Collision handling: if filename exists but path is different, we might overwrite.
-    // For simple merging, we assume unique filenames or acceptable overwrite.
     const thumbPath = path.join(thumbAlbumDir, imgName);
 
     // Re-check timestamp for resize
@@ -59,7 +61,8 @@ function processImgFile(srcPath, albumId, images) {
             resizeOpts = { height: 220 }; // Fixed height, auto width
         }
 
-        sharp(srcPath).resize(resizeOpts).toFile(thumbPath).catch(e => console.error('Thumb error', e));
+        const task = sharp(srcPath).resize(resizeOpts).toFile(thumbPath).catch(e => console.error('Thumb error', e));
+        processingTasks.push(task);
     }
 
     // Split vertically into two halves
@@ -70,16 +73,17 @@ function processImgFile(srcPath, albumId, images) {
     const rightPath = path.join(splitAlbumDir, `${baseName}_b.jpg`);
 
     if (!fs.existsSync(leftPath) || fs.statSync(srcPath).mtimeMs > fs.statSync(leftPath).mtimeMs) {
-        sharp(srcPath).metadata().then(meta => {
+        const task = sharp(srcPath).metadata().then(meta => {
             const half = Math.floor(meta.width / 2);
             return Promise.all([
                 sharp(srcPath).extract({ left: 0, top: 0, width: half, height: meta.height }).toFile(leftPath),
                 sharp(srcPath).extract({ left: half, top: 0, width: meta.width - half, height: meta.height }).toFile(rightPath)
             ]);
         }).catch(e => console.error('Split error', e));
+        processingTasks.push(task);
     }
 
-    // Metadata .md file (Look for .md next to the SOURCE image)
+    // Metadata .md file
     const mdPath = srcPath.replace(/\.(jpg|png)$/i, '.md');
     let metaData = {};
     let htmlContent = '';
@@ -100,6 +104,21 @@ function processImgFile(srcPath, albumId, images) {
     }
 
     const title = metaData.title || baseName;
+    const tags = metaData.tags || [];
+
+    // Process Tags
+    tags.forEach(tag => {
+        if (!tag) return;
+        if (!globalTagsMap.has(tag)) {
+            // First time seeing this tag -> use this image as cover
+            globalTagsMap.set(tag, {
+                count: 0,
+                cover: path.relative(PUBLIC_DIR, thumbPath).replace(/\\/g, '/')
+            });
+        }
+        const tagData = globalTagsMap.get(tag);
+        tagData.count++;
+    });
 
     // Check for duplicates in current images array by name
     if (!images.find(img => img.name === imgName)) {
@@ -110,7 +129,7 @@ function processImgFile(srcPath, albumId, images) {
             thumb: path.relative(PUBLIC_DIR, thumbPath).replace(/\\/g, '/'),
             meta: {
                 title: title,
-                tags: metaData.tags || [],
+                tags: tags,
                 description: metaData.description || '',
                 content: htmlContent
             }
@@ -132,7 +151,7 @@ function processFolderImages(folderPath, albumObj) {
     });
 }
 
-function main() {
+async function main() {
     const albumMap = new Map(); // Title -> Album Object
 
     if (fs.existsSync(ALBUMS_DIR)) {
@@ -190,7 +209,7 @@ function main() {
                             if (stat.isDirectory()) {
                                 processFolderImages(fullPath, albumObj);
                             } else if (stat.isFile()) {
-                                // NEW: Handle single file include
+                                // Handle single file include
                                 processImgFile(fullPath, albumObj.id, albumObj.images);
                             }
                         } else {
@@ -224,7 +243,7 @@ function main() {
     fs.copyFileSync(path.join(ROOT, 'app.js'), path.join(PUBLIC_DIR, 'app.js'));
     fs.copyFileSync(path.join(ROOT, 'style.css'), path.join(PUBLIC_DIR, 'style.css'));
 
-    // Write serve.json to disable "Clean URLs" (which strips query params on redirect)
+    // Write serve.json to disable "Clean URLs"
     const serveConfig = { cleanUrls: false };
     fs.writeFileSync(path.join(PUBLIC_DIR, 'serve.json'), JSON.stringify(serveConfig, null, 2), 'utf8');
     console.log('[build] Generated serve.json');
@@ -281,10 +300,14 @@ function main() {
         }
     }
 
+    // Convert Tags Map to Object
+    const tagsObj = Object.fromEntries(globalTagsMap);
+
     // Write data.json
     const outputData = {
         config: galleryConfig,
         categories: categoryMap,
+        tags: tagsObj,
         albums: albums,
         dictionary: dictionary
     };
@@ -295,6 +318,13 @@ function main() {
         console.log('[build] Generated', DATA_FILE);
     } catch (e) {
         console.error('[build] Error writing data.json', e);
+    }
+
+    // Wait for all images to process
+    if (processingTasks.length > 0) {
+        console.log(`[build] Waiting for ${processingTasks.length} background image tasks...`);
+        await Promise.all(processingTasks);
+        console.log('[build] All image tasks finished.');
     }
 
     // Copy HTML pages

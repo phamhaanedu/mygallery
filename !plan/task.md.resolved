@@ -1,0 +1,81 @@
+# Photo Page Enhancements
+
+- [x] Explore codebase to find [photo.html](file:///d:/web%20project/Gallery/pages/photo.html) logic <!-- id: 0 -->
+- [x] Create implementation plan <!-- id: 1 -->
+- [x] Implement mouse wheel navigation (excluding image area) <!-- id: 2 -->
+- [x] Implement arrow key navigation (Left/Right) <!-- id: 3 -->
+- [x] Implement 'I' key toggle for info panel <!-- id: 4 -->
+- [x] Verify changes <!-- id: 5 -->
+
+# Layout Improvements
+- [x] Analyze current grid css/html <!-- id: 6 -->
+- [x] Create implementation plan for dense grid <!-- id: 7 -->
+- [x] Update [renderHome](file:///d:/web%20project/Gallery/app.js#124-181) in [app.js](file:///d:/web%20project/Gallery/app.js) (Categories) <!-- id: 8 -->
+- [x] Update [renderCategory](file:///d:/web%20project/Gallery/app.js#182-242) in [app.js](file:///d:/web%20project/Gallery/app.js) (Albums) <!-- id: 9 -->
+- [x] Update [style.css](file:///d:/web%20project/Gallery/style.css) if necessary <!-- id: 10 -->
+- [x] Verify layout changes <!-- id: 11 -->
+
+# Photo Overlay Updates
+- [x] Add description element to [photo.html](file:///d:/web%20project/Gallery/pages/photo.html) <!-- id: 12 -->
+- [x] Populate description in [app.js](file:///d:/web%20project/Gallery/app.js) <!-- id: 13 -->
+- [x] Verify overlay update <!-- id: 14 -->
+
+# Album Grid Density
+- [x] Update grid classes in [album.html](file:///d:/web%20project/Gallery/pages/album.html) <!-- id: 15 -->
+- [x] Update [renderAlbum](file:///d:/web%20project/Gallery/app.js#431-498) in [app.js](file:///d:/web%20project/Gallery/app.js) <!-- id: 16 -->
+- [x] Verify album grid layout <!-- id: 17 -->
+
+# Bug Fixes
+- [x] Fix gap between split images in [photo.html](file:///d:/web%20project/Gallery/pages/photo.html) <!-- id: 18 -->
+- [x] Verify fix <!-- id: 19 -->
+
+# Styling Fixes
+- [x] Enforce square aspect ratio for photo thumbnails in [style.css](file:///d:/web%20project/Gallery/style.css) <!-- id: 20 -->
+- [x] Verify thumbnail resizing <!-- id: 21 -->
+
+# Standardization
+- [x] Update [scripts/build.js](file:///d:/web%20project/Gallery/scripts/build.js) for 200x200 cover thumbnails <!-- id: 22 -->
+- [x] Regenerate thumbnails <!-- id: 23 -->
+- [x] Verify uniformity <!-- id: 24 -->
+
+# Feature Implementation
+- [x] Refactor [build.js](file:///d:/web%20project/Gallery/scripts/build.js) to support `includes` <!-- id: 25 -->
+- [x] Verify `includes` processing <!-- id: 26 -->
+
+# Album Locking
+- [x] Implement hashing in [build.js](file:///d:/web%20project/Gallery/scripts/build.js) <!-- id: 27 -->
+- [x] Implement lock screen & validation in [app.js](file:///d:/web%20project/Gallery/app.js) <!-- id: 28 -->
+- [x] Verify locking mechanism <!-- id: 29 -->
+
+# Localization & UI
+- [x] Create dictionary file & update config <!-- id: 30 -->
+- [x] Update [build.js](file:///d:/web%20project/Gallery/scripts/build.js) to inject dictionary <!-- id: 31 -->
+- [x] Update [app.js](file:///d:/web%20project/Gallery/app.js) to use dictionary & show album name <!-- id: 32 -->
+- [x] Verify localization <!-- id: 33 -->
+
+# Enhancements
+- [x] Default photo title to filename <!-- id: 34 -->
+- [x] Rename public folder to docs <!-- id: 35 -->
+- [x] Implement configurable layouts (grid, masonry, justified) <!-- id: 36 -->
+- [x] Implement sticky navigation bar (transparent gray) for Category, Album, and Photo pages <!-- id: 37 -->
+
+# Refinements & Fixes
+- [x] Fix EISDIR build error (directory handled as file) <!-- id: 38 -->
+- [x] Fix Masonry layout alignment (remove conflicting flex/CSS) <!-- id: 39 -->
+- [x] Fix Photo Viewer full-height rendering & Panzoom clipping <!-- id: 40 -->
+
+# Duplication Handling
+- [x] Implement Merge Duplicate Albums in [build.js](file:///d:/web%20project/Gallery/scripts/build.js) <!-- id: 41 -->
+- [x] Verify merge logic with user <!-- id: 42 -->
+
+# Tags Feature
+- [x] Update [build.js](file:///d:/web%20project/Gallery/scripts/build.js) to aggregate tags <!-- id: 43 -->
+- [x] Create [pages/tags.html](file:///d:/web%20project/Gallery/pages/tags.html) <!-- id: 44 -->
+- [x] Create [pages/tag.html](file:///d:/web%20project/Gallery/pages/tag.html) <!-- id: 45 -->
+- [x] Update [app.js](file:///d:/web%20project/Gallery/app.js) logic for Tags <!-- id: 46 -->
+- [x] Verify Tags feature <!-- id: 47 -->
+
+# Redesign: Tag Cloud
+- [ ] Update [tags.html](file:///d:/web%20project/Gallery/pages/tags.html) container <!-- id: 48 -->
+- [ ] Implement [renderTags](file:///d:/web%20project/Gallery/app.js#243-273) with cloud logic <!-- id: 49 -->
+- [ ] Verify Tag Cloud styling and links <!-- id: 50 -->

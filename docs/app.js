@@ -43,6 +43,8 @@ function route() {
     const isAlbumPage = !!document.getElementById('album-title');
     const isPhotoPage = !!document.getElementById('photo-container');
     const isHomePage = !!document.getElementById('categories');
+    const isTagsPage = !!document.getElementById('tags-container');
+    const isTagDetailPage = !!document.getElementById('tag-photos');
 
     if (isPhotoPage) {
         if (params.album && params.photo) {
@@ -62,8 +64,29 @@ function route() {
         } else {
             showError('Missing category parameter.');
         }
+    } else if (isTagsPage) {
+        renderTags();
+    } else if (isTagDetailPage) {
+        if (params.tag) {
+            renderTagDetail(params.tag);
+        } else {
+            showError('Missing tag parameter.');
+        }
     } else if (isHomePage) {
         renderHome();
+    }
+
+    updateNavbar();
+}
+
+function updateNavbar() {
+    const navMenu = document.getElementById('nav-menu');
+    if (navMenu) {
+        // Dynamic Menu
+        navMenu.innerHTML = `
+            <li class="nav-item"><a class="nav-link" href="index.html">Categories</a></li>
+            <li class="nav-item"><a class="nav-link" href="tags.html">Tags</a></li>
+        `;
     }
 }
 
@@ -212,6 +235,144 @@ function renderCategory(category) {
         </div>
         <div class="album-title">${album.title}</div>
         <div class="album-count">${count} items</div>
+      </a>`;
+        container.appendChild(col);
+    });
+}
+
+// Render Tags (Cloud Style)
+function renderTags() {
+    const container = document.getElementById('tags-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    if (!galleryData.tags || Object.keys(galleryData.tags).length === 0) {
+        container.innerHTML = '<p class="text-center text-white">No tags found.</p>';
+        return;
+    }
+
+    const tags = Object.keys(galleryData.tags).sort();
+    const tagCounts = tags.map(t => galleryData.tags[t].count);
+    const maxCount = Math.max(...tagCounts);
+    const minCount = Math.min(...tagCounts);
+
+    // Font size range (in rem)
+    const minSize = 0.5;
+    const maxSize = 1.5;
+
+    tags.forEach(tag => {
+        const data = galleryData.tags[tag];
+        const count = data.count;
+
+        // Calculate size weight (0 to 1)
+        let weight = 0;
+        if (maxCount > minCount) {
+            weight = (count - minCount) / (maxCount - minCount);
+        }
+
+        // Linear interpolation for font size
+        const fontSize = minSize + (weight * (maxSize - minSize));
+
+        // Opacity/Brightness tweak based on weight for depth (optional, keeping it simple simple first)
+        const opacity = 0.7 + (weight * 0.3); // 0.7 to 1.0
+
+        const tagLink = document.createElement('a');
+        tagLink.href = `tag.html?tag=${encodeURIComponent(tag)}`;
+        tagLink.className = 'text-decoration-none text-white badge rounded-pill bg-gradient shadow-sm border border-light border-opacity-25';
+        tagLink.style.fontSize = `${fontSize}rem`;
+        tagLink.style.padding = '0.5em 1em';
+        tagLink.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'; // Bouncy effect
+        tagLink.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; // Glassy base
+        tagLink.style.backdropFilter = 'blur(10px)';
+        tagLink.style.opacity = opacity;
+        tagLink.title = `${count} photos`;
+        tagLink.innerHTML = `${tag} <span class="badge bg-white text-dark rounded-circle ms-1" style="font-size: 0.4em; vertical-align: middle;">${count}</span>`;
+
+        // Hover effect
+        tagLink.onmouseover = function () {
+            this.style.transform = 'scale(1.1)';
+            this.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+            this.style.zIndex = '10';
+        };
+        tagLink.onmouseout = function () {
+            this.style.transform = 'scale(1)';
+            this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            this.style.zIndex = '1';
+        };
+
+        container.appendChild(tagLink);
+    });
+}
+
+function renderTagDetail(tagName) {
+    // Collect all photos with this tag
+    const allPhotos = [];
+    galleryData.albums.forEach(album => {
+        if (!checkLock(album)) return; // Skip locked albums
+
+        album.images.forEach(img => {
+            if (img.meta && img.meta.tags && img.meta.tags.includes(tagName)) {
+                allPhotos.push({
+                    albumId: album.id,
+                    ...img
+                });
+            }
+        });
+    });
+
+    const title = document.getElementById('tag-title-header');
+    if (title) title.textContent = `${tagName} (${allPhotos.length})`;
+
+    // Breadcrumb update
+    const pathName = document.getElementById('path-tag-name');
+    if (pathName) pathName.textContent = tagName;
+
+    const container = document.getElementById('tag-photos');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const countElem = document.getElementById('tag-count');
+    if (countElem) countElem.textContent = `${allPhotos.length} items`;
+
+    // Render Logic (Duplicate from renderAlbum but using flat list)
+    // Reuse Config Layout logic if desirable, but simple grid is usually fine for Tags
+
+    // Setup generic Grid layout classes for container
+    const layout = (galleryData.config && galleryData.config.layout) || 'grid';
+    container.className = 'layout-' + layout;
+
+    // Switch to container-fluid for modern layouts
+    const parentContainer = container.parentElement;
+    if (parentContainer && (parentContainer.classList.contains('container') || parentContainer.classList.contains('container-fluid'))) {
+        if (layout === 'grid') {
+            parentContainer.classList.add('container');
+            parentContainer.classList.remove('container-fluid', 'px-4');
+        } else {
+            parentContainer.classList.remove('container');
+            parentContainer.classList.add('container-fluid', 'px-4');
+        }
+    }
+
+    if (layout === 'masonry') {
+        if (parentContainer) parentContainer.classList.remove('d-flex', 'justify-content-center');
+        container.style.maxWidth = (allPhotos.length * 280) + 'px';
+        container.style.margin = '0 auto';
+    } else {
+        if (parentContainer) parentContainer.classList.remove('d-flex', 'justify-content-center');
+        container.style.maxWidth = '';
+        container.style.margin = '';
+    }
+
+    allPhotos.forEach(img => {
+        const col = document.createElement('div');
+        col.className = 'gallery-item';
+        const thumb = img.thumb;
+
+        col.innerHTML = `
+      <a href="photo.html?album=${encodeURIComponent(img.albumId)}&photo=${encodeURIComponent(img.name)}&tag=${encodeURIComponent(tagName)}" class="text-decoration-none text-dark">
+        <div class="card h-100 album-card-hover">
+            <img src="${thumb}" class="card-img-top" alt="${img.name}">
+        </div>
       </a>`;
         container.appendChild(col);
     });
@@ -372,6 +533,9 @@ function renderAlbum(albumId) {
 let panzoomInstance = null;
 
 function renderPhoto(albumId, imageName) {
+    const params = getQueryParams();
+    const tagContext = params.tag;
+
     const album = galleryData.albums.find(a => a.id === albumId);
     if (!album) {
         document.getElementById('main-content').innerHTML = `<div class="alert alert-warning">Album not found.</div>`;
@@ -381,9 +545,7 @@ function renderPhoto(albumId, imageName) {
     if (!checkLock(album)) {
         window.location.href = `album.html?album=${encodeURIComponent(albumId)}`;
         return;
-        return;
     }
-    // Title setting removed per user request
 
     const container = document.getElementById('photo-container');
     if (!container) return;
@@ -415,30 +577,64 @@ function renderPhoto(albumId, imageName) {
     // Enable mouse wheel
     elem.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
 
-    // Keyboard shortcuts for Zoom (Moved to global listener to avoid duplication, keeping specific ones here if needed, but better consolidated)
-    // Removed local keydown listener to correct logic placement.
+    // NAVIGATION LOGIC
+    let photoList = [];
+    let currentIndex = -1;
+    let backUrl = `album.html?album=${encodeURIComponent(album.id)}`;
 
+    if (tagContext) {
+        // TAG CONTEXT: Collect all photos for this tag
+        galleryData.albums.forEach(a => {
+            if (!checkLock(a)) return;
+            a.images.forEach(img => {
+                const imgTags = (img.meta && img.meta.tags) ? img.meta.tags : [];
+                if (imgTags.includes(tagContext)) {
+                    photoList.push({ ...img, albumId: a.id });
+                }
+            });
+        });
 
-    // Navigation logic
-    const idx = album.images.findIndex(img => img.name === imageName);
-    const prevIdx = (idx - 1 + album.images.length) % album.images.length;
-    const nextIdx = (idx + 1) % album.images.length;
+        // Find current photo in the aggregated list
+        // We need to match both albumId and name to be unique
+        currentIndex = photoList.findIndex(p => p.albumId === albumId && p.name === imageName);
+        backUrl = `tag.html?tag=${encodeURIComponent(tagContext)}`;
+    } else {
+        // ALBUM CONTEXT (Default)
+        photoList = album.images.map(img => ({ ...img, albumId: album.id }));
+        currentIndex = photoList.findIndex(p => p.name === imageName);
+    }
+
+    // Calculate Next/Prev
+    let prevParams = '';
+    let nextParams = '';
+
+    if (currentIndex !== -1 && photoList.length > 0) {
+        const prevIndex = (currentIndex - 1 + photoList.length) % photoList.length;
+        const nextIndex = (currentIndex + 1) % photoList.length;
+        const prevPhoto = photoList[prevIndex];
+        const nextPhoto = photoList[nextIndex];
+
+        let tagQuery = tagContext ? `&tag=${encodeURIComponent(tagContext)}` : '';
+
+        prevParams = `?album=${encodeURIComponent(prevPhoto.albumId)}&photo=${encodeURIComponent(prevPhoto.name)}${tagQuery}`;
+        nextParams = `?album=${encodeURIComponent(nextPhoto.albumId)}&photo=${encodeURIComponent(nextPhoto.name)}${tagQuery}`;
+    }
 
     const navPrev = document.getElementById('nav-prev');
     const navNext = document.getElementById('nav-next');
     const backBtn = document.getElementById('back-btn');
 
-    // Back to Album
+    // Back Button
     backBtn.onclick = () => {
-        window.location.href = `album.html?album=${encodeURIComponent(album.id)}`;
+        window.location.href = backUrl;
     };
 
-    // Unbind old listeners to avoid duplicates (simple assignment overwrites)
+    // Nav Buttons
     navPrev.onclick = () => {
-        window.location.search = `?album=${encodeURIComponent(album.id)}&photo=${encodeURIComponent(album.images[prevIdx].name)}`;
+        if (prevParams) window.location.search = prevParams;
     };
     navNext.onclick = () => {
-        window.location.search = `?album=${encodeURIComponent(album.id)}&photo=${encodeURIComponent(album.images[nextIdx].name)}`;
+        if (nextParams) window.location.search = nextParams;
     };
 
     // Info Logic
@@ -467,7 +663,10 @@ function renderPhoto(albumId, imageName) {
     // Format tags: "Tag: tag1, tag2"
     let tagsHtml = '';
     if (meta.tags && meta.tags.length > 0) {
-        tagsHtml = `<div class="text-white-50 mb-3" style="font-size: 0.9rem;"><span class="text-white fw-bold">Tags:</span> ${meta.tags.join(', ')}</div>`;
+        const tagLinks = meta.tags.map(tag =>
+            `<a href="tag.html?tag=${encodeURIComponent(tag)}" class="text-info text-decoration-none hover-white">${tag}</a>`
+        ).join(', ');
+        tagsHtml = `<div class="text-white-50 mb-3" style="font-size: 0.9rem;"><span class="text-white fw-bold">Tags:</span> ${tagLinks}</div>`;
     }
 
     // Description + Content
