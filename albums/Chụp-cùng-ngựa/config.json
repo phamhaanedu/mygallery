@@ -1,0 +1,11 @@
+{
+    "name": "Chụp ảnh cùng ngựa",
+    "template": "post",
+    "date": "2026-01-01 10:00",
+    "category": [
+        "Tạo ảnh AI"
+    ],
+    "coverImage": "chup-cung-ngua (3).jpg",
+    "includes": [],
+    "locked": false
+}
