@@ -27,6 +27,7 @@
 | 📝 **Metadata** | Quản lý thông tin ảnh (tiêu đề, mô tả, tags) bằng file Markdown |
 | 🌍 **Đa ngôn ngữ** | Hỗ trợ Localization (Tiếng Anh, Tiếng Việt...) |
 | 📱 **Responsive** | Giao diện hiện đại, tương thích mọi thiết bị với Bootstrap 5 |
+| 🧩 **Layout Linh hoạt** | Tùy chọn Grid, Masonry hoặc Justified Layout |
 
 ---
 
@@ -34,9 +35,13 @@
 
 ### 📸 Quản lý & Hiển thị
 - **Deep Zoom**: Xem ảnh chi tiết với khả năng zoom mượt mà
-- **Auto Thumbnail**: Tự động crop và resize thumbnail vuông vức (200x200px)
-- **Album Organization**: Tổ chức ảnh theo album và category
-- **Split View**: Hỗ trợ cắt ảnh khổ lớn thành 2 phần để hiển thị tối ưu (cho truyện tranh/poster)
+- **3 Kiểu Layout**:
+    - `grid`: Lưới vuông tiêu chuẩn (Default)
+    - `masonry`: Kiểu Pinterest (giữ tỷ lệ gốc của ảnh)
+    - `justified`: Kiểu Flickr/Google Photos (căn đều dòng ngang)
+- **Album Merging (Mới)**: Tự động gom nhóm các thư mục có cùng tên album thành một album duy nhất.
+- **Includes**: Album có thể "mượn" ảnh từ album khác mà không cần copy file.
+- **Split View**: Hỗ trợ cắt ảnh khổ lớn thành 2 phần để hiển thị tối ưu (cho truyện tranh/poster).
 
 ### 🛡️ Bảo mật & Riêng tư
 - **Album Locking**: Đặt mật khẩu riêng cho từng album hoặc mật khẩu Master cho toàn bộ
@@ -44,13 +49,14 @@
 
 ### ⚙️ Cấu hình linh hoạt
 - **Configurable**: Tùy chỉnh tiêu đề, logo, icon qua file JSON
-- **Includes**: Album có thể "mượn" ảnh từ album khác mà không cần copy file
 - **Smart Titles**: Tự động dùng tên file làm tiêu đề nếu không nhập metadata
+- **Dictionary**: Dễ dàng việt hóa hoặc đổi ngôn ngữ hiển thị.
 
 ### 🖱️ Trải nghiệm người dùng
 - **Keyboard Navigation**: Dùng phím mũi tên để chuyển ảnh
 - **Copy Metadata**: Sao chép nhanh thông tin ảnh (prompt/mô tả) với một cú click
 - **Touch Support**: Hỗ trợ vuốt chạm trên thiết bị di động
+- **Sticky Navbar**: Thanh điều hướng luôn nổi giúp dễ dàng thao tác.
 
 ---
 
@@ -64,8 +70,7 @@ MyGallery/
 │   │   ├── photo.jpg       # Ảnh gốc
 │   │   └── photo.md        # Metadata ảnh (Markdown + YAML)
 ├── assets/                 # Logo, icon, dictionary
-│   ├── dict-en.json        # File ngôn ngữ Tiếng Anh
-│   ├── dict-vi.json        # File ngôn ngữ Tiếng Việt
+│   ├── dict.json           # File từ điển ngôn ngữ
 │   └── ...
 ├── docs/                   # OUTPUT (Website tĩnh sau khi build)
 │   ├── data.json           # Dữ liệu toàn bộ gallery
@@ -120,9 +125,33 @@ Mở trình duyệt tại địa chỉ được cung cấp (thường là `http:
     "date": "2025-01-01",
     "category": ["Travel", "2025"],
     "coverImage": "img_01.jpg",
+    "includes": [],
     "locked": false
 }
 ```
+
+### Tính năng Gộp Album (Album Merging)
+Nếu bạn có nhiều thư mục ảnh nhưng muốn hiển thị chúng trong cùng một Album:
+- Đặt `name` trong `config.json` giống hệt nhau.
+- Script build sẽ tự động gộp ảnh từ tất cả các thư mục có cùng tên này.
+- Thư mục được quét đầu tiên sẽ quyết định Cover và Setting của Album.
+
+### Nhúng ảnh từ nơi khác (Includes)
+Bạn có thể "nhúng" ảnh từ các thư mục album khác hoặc từng file lẻ vào album hiện tại mà không cần copy file. Tính năng này hữu ích khi bạn muốn tạo album "Best Of" hoặc album tổng hợp.
+
+Sử dụng trường `includes` trong `config.json`. Đường dẫn tính từ thư mục `albums/`.
+
+```json
+{
+    "name": "Album Tổng Hợp",
+    "includes": [
+        "Other-Album/best-photo.jpg",  // Cách 1: Nhúng 1 file cụ thể
+        "Final-Fantasy-VII/Tifa.png",
+        "Another-Album/"               // Cách 2: Nhúng TOÀN BỘ ảnh trong thư mục này
+    ]
+}
+```
+*Lưu ý: Ảnh được nhúng vẫn sẽ giữ nguyên metadata gốc của nó.*
 
 ### Thêm Metadata cho ảnh
 
@@ -156,17 +185,19 @@ Nội dung chi tiết hơn có thể viết ở đây (Hỗ trợ Markdown)
 ```json
 {
     "projectName": "My Gallery",
-    "browserIcon": "assets/icon.png",
-    "projectLogo": "assets/logo.png",
-    "dictionary": "assets/dict-vi.json",
+    "layout": "masonry", 
+    "browserIcon": "assets/gallery icon 32x32.png",
+    "projectLogo": "assets/gallery icon 100x100.png",
+    "dictionary": "assets/dict.json",
     "masterCode": "mat-khau-quan-tri",
-    "defaultCategoryCover": "assets/default.jpg"
+    "defaultCategoryCover": "assets/default-cover.jpg"
 }
 ```
 
 | Trường | Mô tả |
 |--------|-------|
 | `projectName` | Tên hiển thị trên thanh tiêu đề |
+| `layout` | Kiểu hiển thị: `grid` (mặc định), `masonry` (Pinterest), `justified` (Flickr) |
 | `dictionary` | Đường dẫn file ngôn ngữ (vi/en) |
 | `masterCode` | Mật khẩu mở khóa mọi album |
 

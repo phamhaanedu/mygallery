@@ -1,0 +1,11 @@
+{
+    "name": "Chào xuân",
+    "template": "post",
+    "date": "2026-01-01 10:00",
+    "category": [
+        "Tạo ảnh AI"
+    ],
+    "coverImage": "Tet 001.jpg",
+    "includes": [],
+    "locked": false
+}

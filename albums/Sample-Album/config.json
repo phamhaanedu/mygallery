@@ -4,9 +4,15 @@
     "date": "2025-12-31 10:00",
     "category": [
         "Demo",
-        "Sample"
+        "Sample",
+        "Sample1",
+        "Sample2"
     ],
-    "coverImage": "sample_img_01_1767120074454.png",
-    "includes": [],
+    "coverImage": "",
+    "includes": [
+        "Trang-trắng-trẻo/Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
+        "Trang-trắng-trẻo/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+        "Mùa hoa cải"
+    ],
     "locked": false
 }

@@ -29,9 +29,9 @@ body {
 
 #photo-container img {
   max-width: none;
-  /* Let Panzoom handle sizing */
-  max-height: 85vh;
-  /* Initial constraint */
+  height: 100%;
+  width: auto;
+  object-fit: contain;
   cursor: grab;
 }
 
@@ -219,6 +219,9 @@ body {
   /* Use columns shorthand for flexible count based on width */
   columns: 250px;
   column-gap: 1.5rem;
+  /* Center the masonry block if columns are few */
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .layout-masonry .gallery-item {
@@ -280,14 +283,46 @@ body {
   border-radius: 4px;
 }
 
-@media (max-width: 992px) {
-  .layout-masonry {
-    column-count: 3;
-  }
+
+
+/* Sticky Sub-navigation */
+.sticky-subnav {
+  position: sticky;
+  top: 0;
+  z-index: 1070;
+  /* Above Info Panel (1050) and Overlays */
+  background: rgba(33, 37, 41, 0.7);
+  /* Dark gray, 70% opacity */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
-  .layout-masonry {
-    column-count: 2;
-  }
+.sticky-subnav h2,
+.sticky-subnav h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #fff;
+  /* White text */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-subnav .btn-link {
+  color: rgba(255, 255, 255, 0.9);
+  /* Light text */
+  font-size: 1.5rem;
+  padding: 0;
+  margin-right: 1rem;
+  transition: color 0.2s;
+}
+
+.sticky-subnav .btn-link:hover {
+  color: #fff;
 }
