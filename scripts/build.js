@@ -32,14 +32,9 @@ ensureDir(PUBLIC_DIR);
 ensureDir(THUMB_DIR);
 ensureDir(SPLIT_DIR);
 
-function processAlbum(albumPath) {
-    const albumId = path.basename(albumPath);
-    const configPath = path.join(albumPath, 'config.json');
-    let cfg = {};
-    if (fs.existsSync(configPath)) {
-        try { cfg = JSON.parse(fs.readFileSync(configPath, 'utf8')); } catch (e) { console.error('Invalid JSON in', configPath); }
-    }
-    const images = [];
+function processFolderImages(folderPath, albumObj) {
+    const albumId = albumObj.id; // Use the ID of the PRIMARY album (the one created first)
+    const images = albumObj.images;
 
     // Helper to process a single image file
     const processImgFile = (srcPath) => {
@@ -53,7 +48,9 @@ function processAlbum(albumPath) {
         // Thumbnail
         const thumbAlbumDir = path.join(THUMB_DIR, albumId);
         ensureDir(thumbAlbumDir);
-        const thumbPath = path.join(thumbAlbumDir, imgName); // Output in CURRENT album's thumb dir
+        // Collision handling: if filename exists but path is different, we might overwrite.
+        // For simple merging, we assume unique filenames or acceptable overwrite.
+        const thumbPath = path.join(thumbAlbumDir, imgName);
 
         // Re-check timestamp for resize
         if (!fs.existsSync(thumbPath) || fs.statSync(srcPath).mtimeMs > fs.statSync(thumbPath).mtimeMs) {
@@ -92,87 +89,133 @@ function processAlbum(albumPath) {
         let htmlContent = '';
 
         if (fs.existsSync(mdPath)) {
-            const fileContent = fs.readFileSync(mdPath, 'utf8');
-            const parsed = matter(fileContent);
-            metaData = parsed.data || {}; // YAML frontmatter
-            htmlContent = md.render(parsed.content || ''); // Rendered markdown body
+            if (fs.statSync(mdPath).isDirectory()) {
+                console.warn(`Ignored directory acting as metadata: ${mdPath}`);
+            } else {
+                try {
+                    const fileContent = fs.readFileSync(mdPath, 'utf8');
+                    const parsed = matter(fileContent);
+                    metaData = parsed.data || {}; // YAML frontmatter
+                    htmlContent = md.render(parsed.content || ''); // Rendered markdown body
+                } catch (e) {
+                    console.error(`Error reading MD file ${mdPath}`, e);
+                }
+            }
         }
 
         const title = metaData.title || baseName;
 
-        images.push({
-            name: imgName,
-            srcA: path.relative(PUBLIC_DIR, leftPath).replace(/\\/g, '/'),
-            srcB: path.relative(PUBLIC_DIR, rightPath).replace(/\\/g, '/'),
-            thumb: path.relative(PUBLIC_DIR, thumbPath).replace(/\\/g, '/'),
-            meta: {
-                title: title,
-                tags: metaData.tags || [],
-                description: metaData.description || '',
-                content: htmlContent
-            }
-        });
+        // Check for duplicates in current images array by name
+        if (!images.find(img => img.name === imgName)) {
+            images.push({
+                name: imgName,
+                srcA: path.relative(PUBLIC_DIR, leftPath).replace(/\\/g, '/'),
+                srcB: path.relative(PUBLIC_DIR, rightPath).replace(/\\/g, '/'),
+                thumb: path.relative(PUBLIC_DIR, thumbPath).replace(/\\/g, '/'),
+                meta: {
+                    title: title,
+                    tags: metaData.tags || [],
+                    description: metaData.description || '',
+                    content: htmlContent
+                }
+            });
+        }
     };
 
-    // 1. Process Local Files
-    const files = fs.readdirSync(albumPath);
+    // 1. Process Local Files in this folder
+    const files = fs.readdirSync(folderPath);
     const imgFiles = files.filter(f => f.toLowerCase().endsWith('.jpg') || f.toLowerCase().endsWith('.png'));
     imgFiles.forEach(img => {
-        processImgFile(path.join(albumPath, img));
+        const fullPath = path.join(folderPath, img);
+        if (fs.statSync(fullPath).isDirectory()) return; // Skip directories
+        processImgFile(fullPath);
     });
-
-    // 2. Process Included Files
-    if (cfg.includes && Array.isArray(cfg.includes)) {
-        cfg.includes.forEach(includePath => {
-            // Assume includePath is relative to ALBUMS_DIR, e.g. "OtherAlbum/Photo.jpg"
-            const fullPath = path.join(ALBUMS_DIR, includePath);
-            processImgFile(fullPath);
-        });
-    }
-
-    // Validate cover image existence
-    let coverPath = null;
-    if (cfg.coverImage) {
-        // Use the cover image name (which might be one of the included ones or local ones)
-        // Check if we generated a thumbnail for it in the current album dir
-        const coverThumbPath = path.join(THUMB_DIR, albumId, cfg.coverImage);
-        if (fs.existsSync(coverThumbPath)) {
-            coverPath = `${albumId}/${cfg.coverImage}`;
-        }
-    }
-
-    // Security: Hash unlock code if present
-    let unlockHash = null;
-    let isLocked = cfg.locked || false;
-
-    if (cfg.unlockCode) {
-        unlockHash = hash(cfg.unlockCode);
-        isLocked = true; // Force lock if code exists
-    }
-
-    return {
-        id: albumId,
-        title: cfg.name || cfg.title || albumId,
-        categories: cfg.category || [],
-        cover: coverPath,
-        locked: isLocked,
-        unlockHash: unlockHash, // Send hash to client
-        images,
-    };
 }
 
 function main() {
-    const albums = [];
+    const albumMap = new Map(); // Title -> Album Object
+
     if (fs.existsSync(ALBUMS_DIR)) {
         const dirs = fs.readdirSync(ALBUMS_DIR);
         dirs.forEach(d => {
-            const full = path.join(ALBUMS_DIR, d);
-            if (fs.statSync(full).isDirectory()) {
-                albums.push(processAlbum(full));
+            const folderPath = path.join(ALBUMS_DIR, d);
+            if (!fs.statSync(folderPath).isDirectory()) return;
+
+            // Read Config unique to this folder
+            const configPath = path.join(folderPath, 'config.json');
+            let cfg = {};
+            if (fs.existsSync(configPath)) {
+                try { cfg = JSON.parse(fs.readFileSync(configPath, 'utf8')); } catch (e) { console.error('Invalid JSON in', configPath); }
             }
+
+            // Determine Title (Key for merging)
+            // If no name in config, use directory name.
+            const title = cfg.name ? cfg.name.trim() : d;
+
+            let albumObj;
+
+            if (albumMap.has(title)) {
+                // MERGE: Existing album found.
+                // We use the EXISTING album object.
+                // We IGNORE the current 'cfg' for metadata (cover, lock, etc).
+                albumObj = albumMap.get(title);
+                console.log(`[Build] Merging processed folder "${d}" into existing album "${title}"`);
+            } else {
+                // CREATE: New album.
+                const albumId = d; // Use directory name as ID for the first one.
+
+                // Security: Hash unlock code if present
+                let unlockHash = null;
+                let isLocked = cfg.locked || false;
+
+                if (cfg.unlockCode) {
+                    unlockHash = hash(cfg.unlockCode);
+                    isLocked = true;
+                }
+
+                albumObj = {
+                    id: albumId,
+                    title: title,
+                    categories: cfg.category || [],
+                    cover: null, // Will resolve later
+                    coverImageCfg: cfg.coverImage, // Store content for later resolution
+                    locked: isLocked,
+                    unlockHash: unlockHash,
+                    images: [],
+                };
+
+                // Process 'includes' from Config (Only for Primary)
+                if (cfg.includes && Array.isArray(cfg.includes)) {
+                    cfg.includes.forEach(includePath => {
+                        const fullPath = path.join(ALBUMS_DIR, includePath);
+                        if (fs.existsSync(fullPath)) {
+                            if (fs.statSync(fullPath).isDirectory()) {
+                                processFolderImages(fullPath, albumObj);
+                            }
+                        }
+                    });
+                }
+
+                albumMap.set(title, albumObj);
+            }
+
+            // Process Images from THIS folder
+            processFolderImages(folderPath, albumObj);
         });
     }
-    // Write data.json moved below to include config
+
+    // Post-processing: Resolve Covers for all albums
+    const albums = Array.from(albumMap.values());
+    albums.forEach(album => {
+        if (album.coverImageCfg) {
+            const coverThumbPath = path.join(THUMB_DIR, album.id, album.coverImageCfg);
+            if (fs.existsSync(coverThumbPath)) {
+                album.cover = `${album.id}/${album.coverImageCfg}`;
+            }
+        }
+        delete album.coverImageCfg; // Cleanup
+    });
+
 
     // Copy static files
     fs.copyFileSync(path.join(ROOT, 'app.js'), path.join(PUBLIC_DIR, 'app.js'));
@@ -251,7 +294,6 @@ function main() {
         dictionary: dictionary
     };
 
-    // ... (rest of writing logic moved up/modified)
     console.log('[debug] Albums data:', JSON.stringify(outputData, null, 2).substring(0, 200) + '...');
     try {
         if (fs.existsSync(DATA_FILE)) fs.unlinkSync(DATA_FILE);

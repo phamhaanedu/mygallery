@@ -10,12 +10,32 @@
 </head>
 
 <body>
-    <main class="container-fluid p-0 position-relative vh-100 bg-black overflow-hidden" id="main-content">
+    <main class="container-fluid p-0 vh-100 bg-black overflow-hidden d-flex flex-column" id="main-content">
         <!-- Photo content will be injected here -->
-        <h1 class="d-none" id="photo-title">Photo</h1>
+
+        <!-- Sticky Navigation Bar (Consistent Style) -->
+        <div class="sticky-subnav mb-0" style="position: relative; width: 100%; border-bottom: none; z-index: 1070;">
+            <div class="d-flex align-items-center overflow-hidden flex-grow-1">
+                <button id="back-btn" class="btn btn-link text-decoration-none d-flex align-items-center p-0 me-3"
+                    style="color: rgba(255,255,255,0.9);">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                </button>
+                <button id="info-btn" class="btn btn-link text-decoration-none d-flex align-items-center p-0 me-3"
+                    style="color: rgba(255,255,255,0.9);">
+                    <ion-icon name="information-circle-outline" style="font-size: 24px;"></ion-icon>
+                </button>
+            </div>
+            <div class="d-flex gap-2">
+                <button id="copy-btn" class="btn btn-link text-decoration-none d-flex align-items-center p-0"
+                    style="color: rgba(255,255,255,0.9);">
+                    <ion-icon name="copy-outline" style="font-size: 22px;"></ion-icon>
+                </button>
+            </div>
+        </div>
+
         <div id="photo-wrapper"
-            class="w-100 h-100 d-flex align-items-center justify-content-center overflow-hidden position-relative">
-            <div id="photo-container" class="d-flex justify-content-center align-items-center"></div>
+            class="w-100 d-flex align-items-center justify-content-center overflow-hidden position-relative flex-grow-1">
+            <div id="photo-container" class="d-flex justify-content-center align-items-center w-100 h-100"></div>
         </div>
 
         <!-- Navigation Controls -->
@@ -31,24 +51,7 @@
         </div>
 
         <!-- Info & Zoom Controls -->
-        <div id="controls-overlay"
-            class="position-absolute top-0 start-0 p-3 w-100 d-flex justify-content-between pe-none"
-            style="margin-top: 0; z-index: 1060;">
-            <div class="d-flex gap-2">
-                <button id="back-btn"
-                    class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
-                    style="width: 30px; height: 30px; pointer-events: auto; padding: 0;"><ion-icon
-                        name="arrow-back-outline" style="font-size: 16px;"></ion-icon></button>
-                <button id="info-btn"
-                    class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
-                    style="width: 30px; height: 30px; pointer-events: auto; padding: 0;"><ion-icon
-                        name="information-outline" style="font-size: 18px;"></ion-icon></button>
-            </div>
-            <button id="copy-btn"
-                class="btn btn-outline-light rounded-circle pe-auto shadow d-flex align-items-center justify-content-center"
-                style="width: 30px; height: 30px; pointer-events: auto; padding: 0;"><ion-icon name="copy-outline"
-                    style="font-size: 16px;"></ion-icon></button>
-        </div>
+
 
         <!-- Bottom Info Overlay -->
         <div id="info-overlay" class="position-absolute bottom-0 start-0 p-4 text-white pe-none"
@@ -58,8 +61,9 @@
         </div>
 
         <!-- Side Info Panel -->
+        <!-- Side Info Panel -->
         <div id="info-panel" class="position-absolute top-0 end-0 h-100 shadow p-3 overflow-auto"
-            style="width: 320px; transform: translateX(100%); transition: transform 0.3s ease; z-index: 1050; padding-top: 70px !important; display: block; background-color: rgba(33, 37, 41, 0.95) !important; border-left: 1px solid rgba(255,255,255,0.1); color: white;">
+            style="width: 33.333%; transform: translateX(100%); transition: transform 0.3s ease; z-index: 1050; padding-top: 70px !important; display: block; background-color: rgba(60, 60, 60, 0.7) !important; border-left: 1px solid rgba(255,255,255,0.1); color: white; backdrop-filter: blur(10px);">
             <div id="metadata-content"></div>
         </div>
 

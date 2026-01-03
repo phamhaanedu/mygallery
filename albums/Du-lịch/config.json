@@ -3,20 +3,12 @@
     "template": "post",
     "date": "2025-12-31 10:00",
     "category": [
-        "Travel",
-        "Sample",
-        "Travel1",
-        "Sample1",
-        "Travel2",
-        "Sample2",
-        "Travel3",
-        "Sample3",
-        "Travel4",
-        "Sample4",
-        "Travel5",
-        "Sample5"
+        "Travel"
     ],
-    "coverImage": "Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "includes": [],
-    "locked": true
+    "coverImage": "Trang-trắng-trẻo/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "includes": [
+        "Trang-trắng-trẻo/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+        "Trang-trắng-trẻo/Gemini_Generated_Image_10t6r810t6r810t6.png"
+    ],
+    "locked": false
 }

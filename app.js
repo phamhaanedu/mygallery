@@ -41,7 +41,7 @@ function route() {
     // Check specific pages based on unique DOM elements
     const isCategoryPage = !!document.getElementById('category-title');
     const isAlbumPage = !!document.getElementById('album-title');
-    const isPhotoPage = !!document.getElementById('photo-title');
+    const isPhotoPage = !!document.getElementById('photo-container');
     const isHomePage = !!document.getElementById('categories');
 
     if (isPhotoPage) {
@@ -124,6 +124,21 @@ function renderHome() {
         }
     }
 
+    // JS Helper for Masonry Centering
+    if (layout === 'masonry') {
+        // Center the wrapper itself using Flexbox on parent - REMOVED conflict
+        if (parentContainer) parentContainer.classList.remove('d-flex', 'justify-content-center');
+
+        // Constrain width so it doesn't take full width unnecessarily
+        // 250px col + 1.5rem (24px) gap. Use 280 to be safe.
+        container.style.maxWidth = (catList.length * 280) + 'px';
+        container.style.margin = '0 auto';  // Extra safety
+    } else {
+        if (parentContainer) parentContainer.classList.remove('d-flex', 'justify-content-center');
+        container.style.maxWidth = '';
+        container.style.margin = '';
+    }
+
     catList.forEach(cat => {
         const cover = catMap[cat]; // Resolved path from build.js
         const col = document.createElement('div');
@@ -165,6 +180,16 @@ function renderCategory(category) {
             parentContainer.classList.remove('container');
             parentContainer.classList.add('container-fluid', 'px-4');
         }
+    }
+
+    if (layout === 'masonry') {
+        if (parentContainer) parentContainer.classList.remove('d-flex', 'justify-content-center');
+        container.style.maxWidth = (albums.length * 280) + 'px';
+        container.style.margin = '0 auto';
+    } else {
+        if (parentContainer) parentContainer.classList.remove('d-flex', 'justify-content-center');
+        container.style.maxWidth = '';
+        container.style.margin = '';
     }
 
     albums.forEach(album => {
@@ -318,6 +343,16 @@ function renderAlbum(albumId) {
         }
     }
 
+    if (layout === 'masonry') {
+        if (parentContainer) parentContainer.classList.remove('d-flex', 'justify-content-center');
+        container.style.maxWidth = (album.images.length * 280) + 'px';
+        container.style.margin = '0 auto';
+    } else {
+        if (parentContainer) parentContainer.classList.remove('d-flex', 'justify-content-center');
+        container.style.maxWidth = '';
+        container.style.margin = '';
+    }
+
     album.images.forEach(img => {
         const col = document.createElement('div');
         col.className = 'gallery-item';
@@ -346,9 +381,9 @@ function renderPhoto(albumId, imageName) {
     if (!checkLock(album)) {
         window.location.href = `album.html?album=${encodeURIComponent(albumId)}`;
         return;
+        return;
     }
-    const title = document.getElementById('photo-title');
-    if (title) title.textContent = `${album.title} – ${imageName}`;
+    // Title setting removed per user request
 
     const container = document.getElementById('photo-container');
     if (!container) return;
@@ -362,7 +397,7 @@ function renderPhoto(albumId, imageName) {
 
     // Render split images without gaps (d-flex is enough, no spacing classes)
     container.innerHTML = `
-            <div class="d-flex" style="transform-origin: center;">
+            <div class="d-flex justify-content-center" style="transform-origin: center; height: 100%;">
       <img src="${imgObj.srcA}" draggable="false" alt="Part A" />
       <img src="${imgObj.srcB}" draggable="false" alt="Part B" />
     </div>`;
@@ -374,7 +409,7 @@ function renderPhoto(albumId, imageName) {
     panzoomInstance = Panzoom(elem, {
         maxScale: 5,
         minScale: 0.1,
-        contain: 'outside',
+        // contain: 'outside', // Removed to prevent clipping on non-covering images
         startScale: 1
     });
     // Enable mouse wheel
@@ -456,8 +491,8 @@ function renderPhoto(albumId, imageName) {
             infoPanel.style.transform = 'translateX(0)';
             infoOverlay.style.opacity = '0'; // Hide bottom overlay
             // Shrink photo wrapper
-            wrapper.style.width = 'calc(100% - 320px)';
-            wrapper.style.marginRight = '320px';
+            wrapper.style.width = '66.666%';
+            wrapper.style.marginRight = '33.333%';
             // Shift Next button
             navNext.classList.add('shifted');
             localStorage.setItem('infoOpen', 'true');
@@ -473,7 +508,8 @@ function renderPhoto(albumId, imageName) {
         setTimeout(() => panzoomInstance.resize(), 300);
     }
 
-    infoBtn.onclick = () => {
+    infoBtn.onclick = (e) => {
+        e.stopPropagation(); // Prevent navigation
         const isHidden = infoPanel.style.transform === 'translateX(100%)';
         toggleInfo(isHidden);
     };
@@ -486,7 +522,8 @@ function renderPhoto(albumId, imageName) {
     // Copy Button Logic
     const copyBtn = document.getElementById('copy-btn');
     if (copyBtn) {
-        copyBtn.onclick = async () => {
+        copyBtn.onclick = async (e) => {
+            e.stopPropagation(); // Prevent navigation
             const textElem = document.getElementById('metadata-text');
             const textToCopy = textElem ? textElem.innerText : '';
             if (textToCopy) {
@@ -515,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setupGlobalInteractions() {
     // Only active on Photo Page
-    if (!document.getElementById('photo-title')) return;
+    if (!document.getElementById('photo-container')) return;
 
     document.addEventListener('keydown', (e) => {
         // Ignore if user is typing in an input (unlikely here but good practice)
@@ -544,6 +581,7 @@ function setupGlobalInteractions() {
         // check if hovering over the zoomable image container
         // If inside photo-container, let Panzoom or default scroll happen (Panzoom handles wheel usually)
         if (e.target.closest('#photo-container')) return;
+        if (e.target.closest('.sticky-subnav')) return; // Ignore wheel on nav
 
         // Otherwise (black background), use wheel for navigation
         if (e.deltaY < 0) {

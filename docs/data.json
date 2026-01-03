@@ -13,24 +13,331 @@
     "masterHash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
   },
   "categories": {
-    "Tạo ảnh AI": "thumbnails/Chào-xuân-2026/Chào-xuân-01-01.jpg",
-    "Travel": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Sample": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Travel1": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Sample1": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Travel2": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Sample2": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Travel3": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Sample3": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Travel4": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Sample4": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Travel5": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-    "Sample5": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
+    "Tạo ảnh AI": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1).jpg",
+    "Travel": "assets/default-category 200x200.png",
     "Demo": "assets/test-category-1.png",
-    "Demo-2": "assets/default-category 200x200.png",
-    "Demo-3": "assets/default-category 200x200.png"
+    "Sample": "thumbnails/Trang-trắng-trẻo/Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
+    "Sample1": "assets/default-category 200x200.png",
+    "Sample2": "assets/default-category 200x200.png"
   },
   "albums": [
+    {
+      "id": "Bà-hội-đồng-mời-trà",
+      "title": "Bà hội đồng mời trà",
+      "categories": [
+        "Tạo ảnh AI"
+      ],
+      "cover": "Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1).jpg",
+      "locked": false,
+      "unlockHash": null,
+      "images": [
+        {
+          "name": "Ba hoi dong moi tra (1).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1).jpg",
+          "meta": {
+            "title": "Bà hội đồng mời trà",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>Giữ nguyên toàn bộ gương mặt từ ảnh tham chiếu — đúng ánh sáng, tông da và thần thái thực, không làm đẹp lại hay tái tạo theo phong cách minh họa.\nGiữ nguyên độ dài tóc theo ảnh tham chiếu, nếu có mái thì giữ nguyên mái.\nBối cảnh &amp; bố cục\nKhung dọc cổ điển–điện ảnh trong nhà tông terracotta ấm, phông treo họa tiết dân gian, ánh đèn trần gợi Tết xưa. Chủ thể trên sập gỗ tối; mặt sập bày mâm Tết đầy (bánh chưng, dưa hành, mứt, quýt, ấm chén trà, đĩa/khay gốm sứ). Đạo cụ xếp lớp tiền cảnh, bố cục cân tự nhiên; nền sau mờ nhẹ.\nTrang phục &amp; phụ kiện\nÁo dài lụa truyền thống 2 tà rõ, dáng dài, cổ cao, tay dài rộng; tông đỏ . Tà trước thả xuôi ôm dọc theo chân tạo dải lụa liền mạch, hai tà tách rất nhẹ ở biên/gấu để đúng form mà vẫn kín. Phụ kiện Tết cổ: vòng ngọc trai hạt to, chuỗi dài layer nhiều lớp, khuyên tai nhỏ.\nMakeup &amp; thần thái\nMakeup ấm điện ảnh: nền mỏng semi-matte/satin, contour rất nhẹ, má đào cao, mắt nâu đồng/bronze, eyeliner mảnh, mi tơi, highlight cực mỏng; son đỏ gạch/đỏ cam satin. Thần thái tĩnh sang editorial; tóc bồng vừa, lọn tơi gọn.\nÁnh sáng &amp; tông màu\nKey light trung tính hơi cao chếch, shadow mềm; fill trung tính giữ chi tiết mâm Tết; rim mỏng tách tóc/vai. WB neutral sạch tông; quýt cam tươi, bánh chưng xanh rõ, men sứ xanh lam sạch. Hậu kỳ clarity + micro-contrast nhẹ, hạn chế bloom, giảm vàng/cam nhẹ để “ấm nhưng trong”.\nPose &amp; framing\nNgồi sát mép sập, quay lưng 2/3 về camera; một chân thả xuống sàn (hé rất ít), chân còn lại gập trên sập; đầu quay lại nhìn camera qua vai. Một tay kia nâng chén trà, tà trước vuốt xuôi theo chân gập và rủ xuống mép sập, không xòe. Khung gần full body, mâm Tết ở lớp trước, chủ thể lớp giữa, phông mờ phía sau.\nỐng kính &amp; hậu kỳ\n35–50mm, f/2.8–f/4, DOF vừa; nét ưu tiên chủ thể nhưng vẫn rõ tà áo, vòng ngọc trai và đồ Tết. Sharpen texture vải/gỗ/gốm, giảm noise nhẹ, grain cực mỏng.</p>\n"
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (10).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (10)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (10)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (10).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (10)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (11).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (11)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (11)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (11).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (11)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (12).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (12)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (12)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (12).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (12)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (13).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (13)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (13)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (13).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (13)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (14).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (14)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (14)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (14).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (14)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (15).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (15)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (15)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (15).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (15)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (2).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (2)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (2)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (2).jpg",
+          "meta": {
+            "title": "Bà hội đồng mời trà",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>Giữ nguyên toàn bộ gương mặt từ ảnh tham chiếu — đúng ánh sáng, tông da và thần thái thực, không làm đẹp lại hay tái tạo theo phong cách minh họa.\nGiữ nguyên độ dài tóc theo ảnh tham chiếu, nếu có mái thì giữ nguyên mái.\nBối cảnh &amp; bố cục\nKhung dọc cổ điển–điện ảnh trong nhà tông terracotta ấm, phông treo họa tiết dân gian, ánh đèn trần gợi Tết xưa. Chủ thể trên sập gỗ tối; mặt sập bày mâm Tết đầy (bánh chưng, dưa hành, mứt, quýt, ấm chén trà, đĩa/khay gốm sứ). Đạo cụ xếp lớp tiền cảnh, bố cục cân tự nhiên; nền sau mờ nhẹ.\nTrang phục &amp; phụ kiện\nÁo dài lụa truyền thống 2 tà rõ, dáng dài, cổ cao, tay dài rộng; tông đỏ . Tà trước thả xuôi ôm dọc theo chân tạo dải lụa liền mạch, hai tà tách rất nhẹ ở biên/gấu để đúng form mà vẫn kín. Phụ kiện Tết cổ: vòng ngọc trai hạt to, chuỗi dài layer nhiều lớp, khuyên tai nhỏ.\nMakeup &amp; thần thái\nMakeup ấm điện ảnh: nền mỏng semi-matte/satin, contour rất nhẹ, má đào cao, mắt nâu đồng/bronze, eyeliner mảnh, mi tơi, highlight cực mỏng; son đỏ gạch/đỏ cam satin. Thần thái tĩnh sang editorial; tóc bồng vừa, lọn tơi gọn.\nÁnh sáng &amp; tông màu\nKey light trung tính hơi cao chếch, shadow mềm; fill trung tính giữ chi tiết mâm Tết; rim mỏng tách tóc/vai. WB neutral sạch tông; quýt cam tươi, bánh chưng xanh rõ, men sứ xanh lam sạch. Hậu kỳ clarity + micro-contrast nhẹ, hạn chế bloom, giảm vàng/cam nhẹ để “ấm nhưng trong”.\nPose &amp; framing\nNgồi sát mép sập, quay lưng 2/3 về camera; một chân thả xuống sàn (hé rất ít), chân còn lại gập trên sập; đầu quay lại nhìn camera qua vai. Một tay kia nâng chén trà, tà trước vuốt xuôi theo chân gập và rủ xuống mép sập, không xòe. Khung gần full body, mâm Tết ở lớp trước, chủ thể lớp giữa, phông mờ phía sau.\nỐng kính &amp; hậu kỳ\n35–50mm, f/2.8–f/4, DOF vừa; nét ưu tiên chủ thể nhưng vẫn rõ tà áo, vòng ngọc trai và đồ Tết. Sharpen texture vải/gỗ/gốm, giảm noise nhẹ, grain cực mỏng.</p>\n"
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (3).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (3)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (3)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (3).jpg",
+          "meta": {
+            "title": "Bà hội đồng mời trà",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>Giữ nguyên toàn bộ gương mặt từ ảnh tham chiếu — đúng ánh sáng, tông da và thần thái thực, không làm đẹp lại hay tái tạo theo phong cách minh họa.\nGiữ nguyên độ dài của tóc theo ảnh tham chiếu, nếu có mái thì giữ nguyên mái.\n⸻\nBối cảnh &amp; bố cục\nKhung dọc cổ điển–điện ảnh, trong nhà tông đất nung ấm, phông họa tiết dân gian, ánh đèn trần gợi Tết xưa. Chủ thể nằm nghiêng trên sập gỗ tối; mặt sập bày mâm cơm Tết đầy (bánh chưng, dưa hành, mứt, quýt, trà ấm chén, đĩa/khay gốm sứ). Đạo cụ tiền cảnh xếp lớp, bố cục cân trái–phải tự nhiên; nền sau hơi mờ để chủ thể nổi bật.\nTrang phục &amp; phụ kiện\nÁo dài lụa 2 tà rõ, dáng dài, cổ cao gọn, tay dài rộng rủ mềm; tông đỏ bắt sáng sạch. Tà trước rủ xuôi theo đường chân khi nằm, phủ liền mạch như dải lụa (không xòe ngang), hai tà chỉ tách nhẹ ở gấu/biên để đúng form mà vẫn kín; quần lụa ống rộng trắng nga chỉ hé rất ít ở mép tà. Phụ kiện: vòng ngọc trai hạt to, chuỗi dài layer nhiều lớp, khuyên tai nhỏ tinh tế.\nMakeup &amp; thần thái\nMakeup ấm điện ảnh: nền mỏng semi-matte, phấn mịn, contour rất nhẹ, má đào tán cao; mắt nâu đồng/bronze mềm, eyeliner mảnh, mi tơi, highlight cực mỏng; son đỏ gạch/đỏ cam satin. Thần thái tĩnh, thanh, editorial; vai–cổ thả lỏng, ánh nhìn bình tĩnh; tóc bồng nhẹ, lọn tơi gọn.\nÁnh sáng &amp; tông màu\nKey light trung tính hơi cao và chếch nhẹ cho satin lên highlight dài; fill giữ chi tiết mâm cơm; rim mỏng tách tóc/vai. WB neutral không ám vàng: da và áo dài sạch tông, quýt cam tươi, bánh chưng xanh rõ, men sứ xanh lam sạch; hậu kỳ clarity nhẹ, hạn chế bloom, giảm vàng/cam chút để “ấm nhưng trong”.\nPose &amp; framing\nNằm nghiêng: thân dựa nhẹ về sau, một tay chống phía sau nâng dáng; tay kia đặt trên đùi hoặc chạm mép mâm cơm như đang sửa soạn. Hai chân duỗi dài, cổ chân thả lỏng để tà trước rủ xuôi theo chân. Khung gần full body, mâm cơm nằm tiền cảnh hơi gần ống kính tạo cảm giác đời mà điện ảnh.\nỐng kính &amp; hậu kỳ\n35–50mm, f/2.8–f/4, DOF vừa; nét ưu tiên chủ thể, vẫn giữ chi tiết lụa/ngọc trai và món Tết. Sharpen texture vải–gỗ–gốm, giảm noise nhẹ, grain cực mỏng, tổng thể sắc và sạch màu.</p>\n"
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (4).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (4)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (4)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (4).jpg",
+          "meta": {
+            "title": "Bà hội đồng mời trà",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>Giữ nguyên toàn bộ gương mặt từ ảnh tham chiếu — đúng ánh sáng, tông da và thần thái thực, không làm đẹp lại hay tái tạo theo phong cách minh họa.\nBối cảnh &amp; bố cục\nKhung dọc cổ điển–điện ảnh trong nhà tông terracotta ấm, phông treo họa tiết dân gian, ánh đèn trần gợi Tết xưa. Chủ thể ngồi trên sập gỗ tối; mặt sập bày mâm cơm Tết đầy (bánh chưng, dưa hành, mứt, quýt) và mâm trà đặt cạnh; đạo cụ xếp lớp dày ở tiền cảnh, bố cục cân trái–phải tự nhiên, nền sau hơi mờ để nổi chủ thể.\nTrang phục &amp; phụ kiện\nÁo dài lụa truyền thống 2 tà rõ, cổ cao gọn, tay dài rộng rủ mềm; tông đỏ . Tà trước thả xuôi ôm dọc đùi–gối–cẳng chân theo pose thành dải lụa liền mạch, hai tà chỉ tách rất nhẹ ở biên/gấu để đúng form mà vẫn kín. Phụ kiện vibe Tết cổ: vòng ngọc trai hạt to, chuỗi dài layer nhiều lớp rủ tầng; khuyên tai nhỏ tinh tế.\nMakeup &amp; thần thái\nMakeup ấm điện ảnh, nền mỏng semi-matte/satin, contour rất nhẹ, má đào tán cao, mắt nâu đồng/bronze mềm, eyeliner mảnh sạch, mi tơi, highlight cực mỏng; son đỏ gạch/đỏ cam satin. Thần thái tĩnh sang editorial; vai cổ thả lỏng, ánh nhìn bình tĩnh; tóc bồng vừa, lọn tơi mềm gọn.\nÁnh sáng &amp; tông màu\nKey light trung tính hơi cao chếch để satin lên highlight dài, shadow mềm; fill trung tính giữ chi tiết mâm Tết; rim mỏng tách tóc/vai. WB neutral không ám vàng; terracotta và nâu gỗ ấm vừa, da/áo dài sạch tông; quýt cam tươi, bánh chưng xanh rõ, bộ trà men sạch. Hậu kỳ clarity + micro-contrast nhẹ, hạn chế bloom, giảm saturation vàng/cam nhẹ để “ấm nhưng trong”.\nPose &amp; framing\nNgồi lệch: một chân gập giấu dưới tà áo, chân còn lại duỗi nhẹ dọc sập; tà trước phủ xuôi theo chân thành dải lụa kín. Một tay cầm ấm, tay kia giữ tách; ấm–tách bắt buộc cùng một bộ trà đồng nhất và đặt trên khay cùng tông; ấm nghiêng vừa đủ rót, tách sát miệng ấm. Ánh mắt nhìn theo ấm và dòng trà, cổ cúi nhẹ; khung gần full body dọc, mâm trà/mâm cơm ở tiền cảnh nhưng không che dáng.\nỐng kính &amp; hậu kỳ\n35–50mm, f/2.8–f/4, DOF vừa; nét ưu tiên chủ thể nhưng vẫn rõ ấm–tách, đồ Tết và dòng trà. Sharpen texture vải/gỗ/gốm, giảm noise nhẹ, grain cực mỏng để ảnh sắc rõ mà vẫn điện ảnh.</p>\n"
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (5).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (5)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (5)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (5).jpg",
+          "meta": {
+            "title": "Bà hội đồng mời trà",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>Giữ nguyên toàn bộ khuôn mặt giống hệt ảnh tham khảo — ánh sáng, tông da, cấu trúc khuôn mặt và biểu cảm chân thực. Không chỉnh sửa, không theo phong cách minh họa, không tái tạo khuôn mặt.\nGiữ nguyên độ dài tóc và mái tóc như ảnh tham khảo.\nKhung hình dọc điện ảnh trong nhà, tông màu đất nung ấm áp. Phông nền treo họa tiết dân gian truyền thống, đèn trần cổ điển gợi không khí Tết xưa.\nĐối tượng ngồi trên giường gỗ tối màu. Phía trước: một mâm Tết đầy ắp bánh chưng, hành muối, mứt trái cây, quýt, ấm trà và khay gốm, được sắp xếp tự nhiên làm tiền cảnh.\nTrang phục: áo dài lụa đỏ truyền thống, cấu trúc hai vạt rõ ràng, cổ cao, tay áo dài rộng; vạt trước xòe thẳng xuống chân, các vạt chỉ hơi tách ra ở gấu áo để tạo dáng đúng chuẩn.\nPhụ kiện: vòng cổ ngọc trai lớn, nhiều lớp dây chuyền dài, khuyên tai nhỏ.\nTrang điểm: trang điểm điện ảnh ấm áp, lớp nền mỏng nhẹ, tạo khối rất mềm mại, má hồng đào đậm, mắt màu nâu đồng, kẻ mắt mỏng, lông mi mảnh, highlight nhẹ, son môi màu đỏ gạch bóng mượt.\nTư thế: ngồi gần mép giường gỗ, thân người quay 2/3 ra xa, đầu quay về phía máy ảnh với nụ cười rạng rỡ, vui vẻ. Một tay nâng tách trà lên gần mặt.\nÁnh sáng: ánh sáng chính trung tính hơi cao và nghiêng, bóng đổ mềm mại; ánh sáng phụ trung tính giữ được chi tiết khay trà; ánh sáng viền mỏng tách biệt tóc và vai.\nỐng kính: 50mm, f/2.8, độ sâu trường ảnh trung bình.\nLấy nét sắc nét vào khuôn mặt và nụ cười, hậu cảnh mờ nhẹ.\nCân bằng trắng trung tính sạch sẽ, màu sắc ấm áp nhưng rõ ràng.\nĐộ rõ nét của ánh sáng và độ tương phản vi mô, hiện tượng lóa sáng tối thiểu, hạt nhiễu rất nhẹ.</p>\n"
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (6).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (6)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (6)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (6).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (6)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (7).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (7)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (7)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (7).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (7)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (8).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (8)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (8)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (8).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (8)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        },
+        {
+          "name": "Ba hoi dong moi tra (9).jpg",
+          "srcA": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (9)_a.jpg",
+          "srcB": "split/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (9)_b.jpg",
+          "thumb": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (9).jpg",
+          "meta": {
+            "title": "Ba hoi dong moi tra (9)",
+            "tags": [],
+            "description": "",
+            "content": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "Checkin-cùng-các-nhân-vật-hoạt-hình",
+      "title": "Checkin cùng các nhân vật hoạt hình",
+      "categories": [
+        "Tạo ảnh AI"
+      ],
+      "cover": "Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (1).jpg",
+      "locked": false,
+      "unlockHash": null,
+      "images": [
+        {
+          "name": "checkin-hoat-hinh (1).jpg",
+          "srcA": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (1)_a.jpg",
+          "srcB": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (1)_b.jpg",
+          "thumb": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (1).jpg",
+          "meta": {
+            "title": "Checkin cùng các nhân vật hoạt hình",
+            "tags": [
+              "cartoon"
+            ],
+            "description": "",
+            "content": "<p>&quot;A modern, urban, premium fashion photograph in a studio setting. A real human model with a cool, composed expression and a preserved face stands between near-human scale photorealistic 3D animated renders of Goku and Vegeta (base forms). The human wears a knitted sweater with distinct orange and deep blue accents, high-waisted dark jeans, and clean white sneakers. Goku stands casually with a confident, friendly smirk, showing realistic fabric textures on his Gi and defined musculature. Vegeta stands upright on the other side with arms crossed, a dominant silhouette, showing realistic armor plating texture and a stern expression. The background is a deep concrete grey studio backdrop with subtle golden-orange light accents. Soft studio lighting with defined rim light separates all figures. 3/4 framing, strong visual balance, modern editorial look.&quot;</p>\n"
+          }
+        },
+        {
+          "name": "checkin-hoat-hinh (2).jpg",
+          "srcA": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (2)_a.jpg",
+          "srcB": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (2)_b.jpg",
+          "thumb": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (2).jpg",
+          "meta": {
+            "title": "Checkin cùng các nhân vật hoạt hình",
+            "tags": [
+              "cartoon"
+            ],
+            "description": "",
+            "content": "<p>A relaxed, premium fashion portrait in a studio setting. A real human model with a confident, charming smile and a preserved face rests an arm naturally on the shoulder of a true human scale photorealistic 3D animated character, Puss in Boots. The human wears an oatmeal beige knitted sweater, high-waisted dark jeans, and clean white sneakers. Puss in Boots, rendered with highly realistic ginger fur texture, expressive large eyes, and his signature leather hat, boots, and belt, stands with a suave, confident posture. The background is a clean warm taupe or neutral studio backdrop. Soft studio lighting with subtle rim light enhances the detailed fur texture and creates a natural chemistry between the subjects. 3/4 framing, high-end fashion editorial.&quot;</p>\n"
+          }
+        },
+        {
+          "name": "checkin-hoat-hinh (3).jpg",
+          "srcA": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (3)_a.jpg",
+          "srcB": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (3)_b.jpg",
+          "thumb": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (3).jpg",
+          "meta": {
+            "title": "Checkin cùng các nhân vật hoạt hình",
+            "tags": [
+              "cartoon"
+            ],
+            "description": "",
+            "content": "<p>Phong cách: siêu thực (hyper-realistic)\nKhuôn mặt: giữ nguyên khuôn mặt gốc, trùng khớp tham chiếu\nChủ thể: Một người phong cách, có cùng khuôn mặt như gốc\nTrang phục: Áo: Áo len dệt kim, màu xám nhạt theo chủ đề avatar\nQuần: Quần jeans cạp cao, màu xanh denim\nGiày: Giày thể thao cao cổ, màu trắng\nTư thế: Đứng với tay khoác quanh Jake Sully ,Neytiri đứng cạnh\nBiểu cảm: Vui tươi, tinh nghịch\nYếu tố nhân vật: Tên: Jake Sully, Neytiri\nLoại: Bộ đôi 3D siêu thực photorealistic\nTương tác: Jake Sully tạo dáng tự tin, Neytiri nhìn nghịch ngợm\nMôi trường: Phông nền sạch, màu xám xanh nhẹ</p>\n"
+          }
+        },
+        {
+          "name": "checkin-hoat-hinh (4).jpg",
+          "srcA": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (4)_a.jpg",
+          "srcB": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (4)_b.jpg",
+          "thumb": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (4).jpg",
+          "meta": {
+            "title": "Checkin cùng các nhân vật hoạt hình",
+            "tags": [
+              "cartoon"
+            ],
+            "description": "",
+            "content": "<p>Phong cách: siêu thực (hyper-realistic) Khuôn mặt: giữ nguyên khuôn mặt gốc, trùng khớp tham chiếu\nChủ thể: Một người phong cách, có cùng khuôn mặt như gốc\nTrang phục: Áo: Áo len dệt kim, màu xanh dương nhạt theo chủ đề STICH\nQuần: Quần jeans cạp cao, màu xanh denim\nGiày: Giày thể thao cao cổ, màu trắng\nTư thế: Đứng với tay khoác quanh một chú Stitch 3D khổng lồ, Stitch tạo dáng thân thiện bên người\nBiểu cảm: Vui tươi, tinh nghịch\nYếu tố nhân vật: Tên: Stitch\nLoại: Hình ảnh 3D siêu thực photorealistic của Stitch\nTương tác: Stitch đứng gần, nhìn thân thiện và đáng yêu, Lilo Pelekai ngồi trên cổ\nMôi trường: Phông nền sạch, màu xám xanh nhẹ</p>\n"
+          }
+        },
+        {
+          "name": "checkin-hoat-hinh (5).jpg",
+          "srcA": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (5)_a.jpg",
+          "srcB": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (5)_b.jpg",
+          "thumb": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (5).jpg",
+          "meta": {
+            "title": "Checkin cùng các nhân vật hoạt hình",
+            "tags": [
+              "cartoon"
+            ],
+            "description": "",
+            "content": "<p>&quot;A hyperrealistic, premium fashion photograph in a studio setting. A real human model with a confident, defiant expression and a preserved face stands next to a massive, imposing 3D animated Charizard, rendered in photorealistic quality. The human wears a dark charcoal knitted sweater, dark black jeans, and white sneakers, with their body slightly turned towards the camera in a strong pose. Charizard looms powerfully, with highly realistic leathery orange skin texture, formidable claws, and a detailed flame burning at the tip of its tail. The massive wings are partially folded. The background is a dark slate grey studio backdrop with subtle, warm orange light accents. Soft but contrast-rich studio lighting defines the massive forms and textures. 3/4 body framing, editorial aesthetic.&quot;</p>\n"
+          }
+        },
+        {
+          "name": "checkin-hoat-hinh (6).jpg",
+          "srcA": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (6)_a.jpg",
+          "srcB": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (6)_b.jpg",
+          "thumb": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (6).jpg",
+          "meta": {
+            "title": "Checkin cùng các nhân vật hoạt hình",
+            "tags": [
+              "cartoon"
+            ],
+            "description": "",
+            "content": "<p>Phong cách: siêu thực (hyper-realistic)\nKhuôn mặt: giữ nguyên khuôn mặt gốc, trùng khớp tham chiếu\nChủ thể: Một người phong cách, có cùng khuôn mặt như gốc\nTrang phục: Áo: Áo len dệt kim, màu xám nhạt theo chủ đề PIKACHU\nQuần: Quần trắng cạp cao, màu xanh denim\nGiày: Giày thể thao cao cổ, màu trắng\nTư thế: Đứng với tay khoác quanh một chú Pikachu 3D khổng lồ, Pikachu tạo dáng thân thiện bên người\nBiểu cảm: Vui tươi, tinh nghịch\nYếu tố nhân vật: Tên: Pikachu Loại: Hình ảnh 3D siêu thực photorealistic của Pikachu\nTương tác: Pikachu đứng gần, nhìn thân thiện và đáng yêu\nMôi trường: Phông nền sạch, màu xám xanh nhẹ</p>\n"
+          }
+        },
+        {
+          "name": "checkin-hoat-hinh (7).jpg",
+          "srcA": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (7)_a.jpg",
+          "srcB": "split/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (7)_b.jpg",
+          "thumb": "thumbnails/Checkin-cùng-các-nhân-vật-hoạt-hình/checkin-hoat-hinh (7).jpg",
+          "meta": {
+            "title": "Checkin cùng các nhân vật hoạt hình",
+            "tags": [
+              "cartoon"
+            ],
+            "description": "",
+            "content": "<p>Phong cách: siêu thực (hyper-realistic)\nKhuôn mặt: giữ nguyên khuôn mặt gốc, trùng khớp tham chiếu\nChủ thể: Một người phong cách, có cùng khuôn mặt như gốc\nTrang phục: Áo: Áo len dệt kim, màu xám nhạt theo chủ đề Tom\nQuần: Quần jeans cạp cao, màu xanh denim\nGiày: Giày thể thao cao cổ, màu trắng\nTư thế: Đứng với tay khoác quanh một chú mèo Tom 3D khổng lồ, chú Jerry ngồi trên vai Tom\nBiểu cảm: Vui tươi, tinh nghịch\nYếu tố nhân vật: Tên: Tom &amp; Jerry\nLoại: Bộ đôi 3D siêu thực photorealistic\nTương tác: Tom tạo dáng tự tin, Jerry nhìn nghịch ngợm\nMôi trường: Phông nền sạch, màu xám xanh nhẹ</p>\n"
+          }
+        }
+      ]
+    },
     {
       "id": "Chào-xuân-2026",
       "title": "Chào xuân",
@@ -189,6 +496,81 @@
             ],
             "description": "",
             "content": "<p>Create a cinematic HD Vietnamese poster in vertical 9:16 format.\nUse 100% the reference face as identity, keep facial structure, proportions, skin texture exactly the same.\nA Vietnamese woman wearing a luxurious traditional red silk áo dài, flowing long panels, subtle golden embroidery inspired by royal patterns, elegant and refined. Hair worn naturally loose with soft waves, wearing classic pearl earrings.\nLower composition: the woman is posed full-body from head to toe, standing gracefully, one hand gently holding the áo dài panel, posture elegant and calm, cinematic and poetic.\nUpper composition (sky layer): a large close-up portrait of the same woman, softly enlarged in the background sky, cinematic lighting, gentle expression, dreamy eyes, no text, clean background.\nLighting is soft, warm, cinematic, high-end studio quality.\nMood: traditional, noble, Vietnamese elegance.\nUltra-realistic, 8K, professional photography, no watermark, no text.</p>\n"
+          }
+        },
+        {
+          "name": "Tet 001.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 001_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 001_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 001.jpg",
+          "meta": {
+            "title": "Tet 001",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>Ultra-realistic, cinematic portrait of a beautiful young Asian woman in her early 20s, with a radiant and serene smile, preserving her delicate facial features. She has fair, smooth skin, captivating warm brown eyes, and long, dark brown hair styled with an ornate gold and pearl hair ornament featuring delicate hanging tassels. She wears a vibrant red traditional Qipao-style dress, exquisitely adorned with intricate gold phoenix embroidery and hanging gold tassels on the shoulder and chest. Her hands gracefully hold several red envelopes (lì xì) with subtle gold floral patterns. The scene is bathed in soft, diffused cinematic lighting, creating gentle highlights and minimal shadows. The background is a beautifully blurred bokeh of traditional Chinese New Year festive elements, including red lanterns, golden blossoming branches, and small orange fruits, all contributing to a joyful and elegant atmosphere. Shallow depth of field, eye-level shot, rich textures, crisp detail, 9:16 aspect ratio.</p>\n"
+          }
+        },
+        {
+          "name": "Tet 002.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 002_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 002_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 002.jpg",
+          "meta": {
+            "title": "Tet 002",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>A hyper-realistic, cinematic portrait of a beautiful young Asian woman, approximately in her late 20s, with a gentle and confident smile, preserving her unique facial features. She has flawless fair skin and black hair styled in two traditional &quot;ox horn&quot; buns adorned with intricate golden phoenix hairpins, vibrant red fluffy pom-poms, and elegant golden chain ornaments cascading down. She is wearing a festive red traditional Vietnamese Ao Dai or Chinese Qipao-style top, made of lustrous silk, richly embroidered with large, colorful peony flowers in shades of pink, blue, and green, along with gold accents. She holds two red folding fans, one partially open revealing the auspicious &quot;福&quot; (Fú) character and golden bamboo motifs. Her eyes are partially obscured by slender, fashionable red cat-eye sunglasses. The background is bright and adorned with traditional Lunar New Year elements: red lanterns hanging at the top left, a vibrant kumquat bonsai tree and falling red envelopes with &quot;福&quot; characters on the bottom left, a blooming pink cherry blossom branch, a string of red firecrackers, and a golden auspicious cloud on the right. Soft, diffused cinematic lighting highlights her and the festive details, creating a warm and inviting atmosphere. Shot at eye-level, medium close-up, with a shallow depth of field, emphasizing the subject while maintaining crisp background details.</p>\n"
+          }
+        },
+        {
+          "name": "Tet 003.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 003_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 003_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 003.jpg",
+          "meta": {
+            "title": "Tet 003",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>A hyper-realistic, cinematic portrait of a young, serene Asian woman, meticulously preserving her delicate facial features and gentle smile. Her lustrous black hair is elegantly styled in a traditional bun, adorned with an intricate gold and red hair stick featuring delicate beads and a flowing red tassel. She is dressed in a magnificent, vibrant red traditional Chinese garment (Qipao-style), crafted from luxurious silk or satin, gleaming softly. The fabric showcases meticulous gold embroidery of flourishing peonies and intertwining foliage across the bodice and sleeves, complete with a refined high mandarin collar and classic frog closures. Her posture is graceful, slightly looking upwards and to the side, conveying thoughtful contemplation as she gently cradles a stack of ancient, cream-colored scrolls or books in her left hand. The scene is bathed in soft, diffused natural light, highlighting the intricate details and casting a gentle glow. The background is an exquisite, softly blurred bokeh of blooming cherry blossoms (sakura), creating a dreamlike tapestry of delicate pink and white petals against faint tree branches, emphasizing the shallow depth of field and timeless elegance.\nGiữ nguyên khuôn mặt ảnh gốc</p>\n"
+          }
+        },
+        {
+          "name": "Tet 004.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 004_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 004_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 004.jpg",
+          "meta": {
+            "title": "Tet 004",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>A hyper-realistic, photorealistic, ultra-detailed cinematic medium shot of a beautiful young East Asian woman, gracefully posed with her back slightly turned, looking over her shoulder directly at the viewer, preserving her unique facial features. She has fair skin, captivating dark eyes, elegant eyebrows, and vibrant red lipstick forming a gentle, inviting smile. Her dark hair is styled into an elegant low bun, adorned with a traditional Chinese golden hairpin featuring red beads and a flowing red tassel. She wears a luxurious, deep red velvet-like cheongsam (qipao) intricately embroidered with opulent golden peony flowers across the back and sleeves, complete with a classic mandarin collar and decorative cuffs. In her right hand, she delicately holds a white teacup patterned with red flowers. The serene background features abundant, soft pink and white cherry blossoms (sakura) or plum blossoms in full bloom, creating an ethereal, romantic atmosphere, with hints of calm water and foliage in the soft-focus distance. Soft, diffused natural daylight illuminates the scene, casting gentle highlights and subtle shadows, emphasizing the rich textures and details. Shot with a shallow depth of field, ultra-high resolution, professional photography, cinematic lighting. Aspect ratio 9:16.\nGiữ nguyên khuôn mặt ảnh gốc</p>\n"
+          }
+        },
+        {
+          "name": "Tet 005.jpg",
+          "srcA": "split/Chào-xuân-2026/Tet 005_a.jpg",
+          "srcB": "split/Chào-xuân-2026/Tet 005_b.jpg",
+          "thumb": "thumbnails/Chào-xuân-2026/Tet 005.jpg",
+          "meta": {
+            "title": "Tet 005",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
+            "description": "",
+            "content": "<p>Hyper-realistic cinematic portrait of a beautiful young East Asian woman, preserving her facial features, with fair skin, delicate features, and a gentle, inviting smile. Her long, straight black hair is elegantly styled in a traditional bun with some flowing strands, adorned with an intricate red and gold hairpin featuring red tassels and beads. She wears a luxurious, rich red traditional Chinese gown (Qipao-inspired), exquisitely embroidered with large golden peony motifs across the bodice and skirt, and subtle gold trim along the collar and cuffs. She gracefully holds a vibrant red folding fan, adorned with delicate white cherry blossom patterns, partially obscuring one side of her face. She leans against an intricately carved dark wooden window frame, with a softly diffused, out-of-focus background of lush pink cherry blossoms (sakura) on branches. Soft, natural cinematic lighting illuminates her from the front, creating a warm, ethereal glow and highlighting the textures of her attire. The composition is a medium close-up shot, eye-level, with a shallow depth of field, creating an immersive, high-resolution, and incredibly detailed photorealistic image.</p>\n"
           }
         }
       ]
@@ -349,56 +731,12 @@
       "id": "Du-lịch",
       "title": "Du lịch - Travel",
       "categories": [
-        "Travel",
-        "Sample",
-        "Travel1",
-        "Sample1",
-        "Travel2",
-        "Sample2",
-        "Travel3",
-        "Sample3",
-        "Travel4",
-        "Sample4",
-        "Travel5",
-        "Sample5"
+        "Travel"
       ],
-      "cover": "Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-      "locked": true,
+      "cover": null,
+      "locked": false,
       "unlockHash": null,
-      "images": [
-        {
-          "name": "Gemini_Generated_Image_10t6r810t6r810t6.png",
-          "srcA": "split/Du-lịch/Gemini_Generated_Image_10t6r810t6r810t6_a.jpg",
-          "srcB": "split/Du-lịch/Gemini_Generated_Image_10t6r810t6r810t6_b.jpg",
-          "thumb": "thumbnails/Du-lịch/Gemini_Generated_Image_10t6r810t6r810t6.png",
-          "meta": {
-            "title": "Cô gái Thái Lan",
-            "tags": [
-              "travel",
-              "thailand",
-              "trangtrangtreo"
-            ],
-            "description": "",
-            "content": "<p>&quot;Tạo hình ảnh người mẫu có cùng khuôn mặt với mẫu tham khảo. Cô ấy mặc trang phục Lanna (miền Bắc Thái Lan): áo ống trễ vai bằng lụa trắng.\nVáy của cô ấy là sarong Lanna Thái (Phasin) màu trắng kem với các sọc trắng ngang và thắt lưng bạc. Một chiếc khăn choàng màu hồng pastel của miền Bắc Thái Lan được khoác trên cánh tay cô ấy.\nCô ấy đeo đồ trang sức bằng bạc: hoa tai, vòng tay và vòng cổ dài. Tóc cô ấy được búi cao gọn gàng, trang trí bằng hoa trắng, với những lọn tóc nhỏ ôm lấy khuôn mặt.\nCô ấy đang đứng, hướng về phía trước, nhìn vào máy ảnh, mỉm cười và thực hiện động tác 'Wai' (chào). Những chiếc đèn lồng trắng có hoa văn vàng treo gần đó. Phông nền là bối cảnh miền Bắc Thái Lan với 'Tung' (cờ) trang trí, ánh sáng dịu nhẹ và lối đi lát gạch. Phong cách chân thực, độ phân giải cao 4K, lấy nét mềm mại, màu sắc tự nhiên, làn da mịn màng.&quot;</p>\n"
-          }
-        },
-        {
-          "name": "Gemini_Generated_Image_4yuc304yuc304yuc.png",
-          "srcA": "split/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc_a.jpg",
-          "srcB": "split/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc_b.jpg",
-          "thumb": "thumbnails/Du-lịch/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-          "meta": {
-            "title": "Cô gái Thái Lan",
-            "tags": [
-              "travel",
-              "thailand",
-              "trangtrangtreo"
-            ],
-            "description": "",
-            "content": "<p>&quot;Tạo hình ảnh người mẫu có cùng khuôn mặt với mẫu tham khảo. Cô ấy mặc trang phục Lanna (miền Bắc Thái Lan): áo ống trễ vai bằng lụa trắng.\nVáy của cô ấy là sarong Lanna Thái (Phasin) màu trắng kem với các sọc trắng ngang và thắt lưng bạc. Một chiếc khăn choàng màu hồng pastel của miền Bắc Thái Lan được khoác trên cánh tay cô ấy.\nCô ấy đeo đồ trang sức bằng bạc: hoa tai, vòng tay và vòng cổ dài. Tóc cô ấy được búi cao gọn gàng, trang trí bằng hoa trắng, với những lọn tóc nhỏ ôm lấy khuôn mặt.\nCô ấy đang đứng, hướng về phía trước, nhìn vào máy ảnh, mỉm cười và thực hiện động tác 'Wai' (chào). Những chiếc đèn lồng trắng có hoa văn vàng treo gần đó. Phông nền là bối cảnh miền Bắc Thái Lan với 'Tung' (cờ) trang trí, ánh sáng dịu nhẹ và lối đi lát gạch. Phong cách chân thực, độ phân giải cao 4K, lấy nét mềm mại, màu sắc tự nhiên, làn da mịn màng.&quot;</p>\n"
-          }
-        }
-      ]
+      "images": []
     },
     {
       "id": "Mùa hoa cải",
@@ -462,94 +800,57 @@
       "title": "Sample-Album",
       "categories": [
         "Demo",
-        "Sample"
+        "Sample",
+        "Sample1",
+        "Sample2"
       ],
-      "cover": "Sample-Album/sample_img_01_1767120074454.png",
+      "cover": null,
       "locked": false,
       "unlockHash": null,
       "images": [
         {
-          "name": "sample_img_01_1767120074454 - Copy (2).png",
-          "srcA": "split/Sample-Album/sample_img_01_1767120074454 - Copy (2)_a.jpg",
-          "srcB": "split/Sample-Album/sample_img_01_1767120074454 - Copy (2)_b.jpg",
-          "thumb": "thumbnails/Sample-Album/sample_img_01_1767120074454 - Copy (2).png",
+          "name": "Mùa-hoa-cải-01.jpg",
+          "srcA": "split/Sample-Album/Mùa-hoa-cải-01_a.jpg",
+          "srcB": "split/Sample-Album/Mùa-hoa-cải-01_b.jpg",
+          "thumb": "thumbnails/Sample-Album/Mùa-hoa-cải-01.jpg",
           "meta": {
-            "title": "sample_img_01_1767120074454 - Copy (2)",
-            "tags": [],
+            "title": "Mùa-hoa-cải-01",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
             "description": "",
-            "content": ""
+            "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
           }
         },
         {
-          "name": "sample_img_01_1767120074454 - Copy (3).png",
-          "srcA": "split/Sample-Album/sample_img_01_1767120074454 - Copy (3)_a.jpg",
-          "srcB": "split/Sample-Album/sample_img_01_1767120074454 - Copy (3)_b.jpg",
-          "thumb": "thumbnails/Sample-Album/sample_img_01_1767120074454 - Copy (3).png",
+          "name": "Mùa-hoa-cải-02.jpg",
+          "srcA": "split/Sample-Album/Mùa-hoa-cải-02_a.jpg",
+          "srcB": "split/Sample-Album/Mùa-hoa-cải-02_b.jpg",
+          "thumb": "thumbnails/Sample-Album/Mùa-hoa-cải-02.jpg",
           "meta": {
-            "title": "sample_img_01_1767120074454 - Copy (3)",
-            "tags": [],
+            "title": "Mùa-hoa-cải-02",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
             "description": "",
-            "content": ""
+            "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
           }
         },
         {
-          "name": "sample_img_01_1767120074454 - Copy (4).png",
-          "srcA": "split/Sample-Album/sample_img_01_1767120074454 - Copy (4)_a.jpg",
-          "srcB": "split/Sample-Album/sample_img_01_1767120074454 - Copy (4)_b.jpg",
-          "thumb": "thumbnails/Sample-Album/sample_img_01_1767120074454 - Copy (4).png",
+          "name": "Mùa-hoa-cải-03.jpg",
+          "srcA": "split/Sample-Album/Mùa-hoa-cải-03_a.jpg",
+          "srcB": "split/Sample-Album/Mùa-hoa-cải-03_b.jpg",
+          "thumb": "thumbnails/Sample-Album/Mùa-hoa-cải-03.jpg",
           "meta": {
-            "title": "sample_img_01_1767120074454 - Copy (4)",
-            "tags": [],
+            "title": "Mùa-hoa-cải-03",
+            "tags": [
+              "new year",
+              "áo dài"
+            ],
             "description": "",
-            "content": ""
-          }
-        },
-        {
-          "name": "sample_img_01_1767120074454 - Copy (5).png",
-          "srcA": "split/Sample-Album/sample_img_01_1767120074454 - Copy (5)_a.jpg",
-          "srcB": "split/Sample-Album/sample_img_01_1767120074454 - Copy (5)_b.jpg",
-          "thumb": "thumbnails/Sample-Album/sample_img_01_1767120074454 - Copy (5).png",
-          "meta": {
-            "title": "sample_img_01_1767120074454 - Copy (5)",
-            "tags": [],
-            "description": "",
-            "content": ""
-          }
-        },
-        {
-          "name": "sample_img_01_1767120074454 - Copy (6).png",
-          "srcA": "split/Sample-Album/sample_img_01_1767120074454 - Copy (6)_a.jpg",
-          "srcB": "split/Sample-Album/sample_img_01_1767120074454 - Copy (6)_b.jpg",
-          "thumb": "thumbnails/Sample-Album/sample_img_01_1767120074454 - Copy (6).png",
-          "meta": {
-            "title": "sample_img_01_1767120074454 - Copy (6)",
-            "tags": [],
-            "description": "",
-            "content": ""
-          }
-        },
-        {
-          "name": "sample_img_01_1767120074454 - Copy (7).png",
-          "srcA": "split/Sample-Album/sample_img_01_1767120074454 - Copy (7)_a.jpg",
-          "srcB": "split/Sample-Album/sample_img_01_1767120074454 - Copy (7)_b.jpg",
-          "thumb": "thumbnails/Sample-Album/sample_img_01_1767120074454 - Copy (7).png",
-          "meta": {
-            "title": "sample_img_01_1767120074454 - Copy (7)",
-            "tags": [],
-            "description": "",
-            "content": ""
-          }
-        },
-        {
-          "name": "sample_img_01_1767120074454 - Copy.png",
-          "srcA": "split/Sample-Album/sample_img_01_1767120074454 - Copy_a.jpg",
-          "srcB": "split/Sample-Album/sample_img_01_1767120074454 - Copy_b.jpg",
-          "thumb": "thumbnails/Sample-Album/sample_img_01_1767120074454 - Copy.png",
-          "meta": {
-            "title": "sample_img_01_1767120074454 - Copy",
-            "tags": [],
-            "description": "",
-            "content": ""
+            "content": "<p>Keep original uploaded face identity exactly, strict face lock.\nAsian woman, height 170cm, petite slim body, small waist, small frame, small refined face.\nLuxury billion-dollar fashion style.\nBlack high-end fitted long-sleeve dress, minimalist couture.\nSoft mint-green silk scarf draped around neck and shoulder.\nLong smooth wavy hair, side-parted.\nElegant makeup, flawless skin, red lips, calm confident eyes.\nStraight relaxed posture, hands gentle and natural.\nStanding in white flower field, soft natural background.\nDaylight, cinematic soft lighting, ultra-realistic, 8K, no text, no watermark.</p>\n"
           }
         },
         {
@@ -568,159 +869,15 @@
           }
         },
         {
-          "name": "sample_img_02_1767120096332.png",
-          "srcA": "split/Sample-Album/sample_img_02_1767120096332_a.jpg",
-          "srcB": "split/Sample-Album/sample_img_02_1767120096332_b.jpg",
-          "thumb": "thumbnails/Sample-Album/sample_img_02_1767120096332.png",
+          "name": "test.png",
+          "srcA": "split/Sample-Album/test_a.jpg",
+          "srcB": "split/Sample-Album/test_b.jpg",
+          "thumb": "thumbnails/Sample-Album/test.png",
           "meta": {
-            "title": "Cảnh quan đơn giản",
-            "tags": [
-              "landscape",
-              "demo"
-            ],
-            "description": "Một ảnh phong cảnh đơn giản, dùng làm ví dụ cho album mẫu.",
-            "content": "<p><em>Cảnh quan đơn giản</em></p>\n<p>Ảnh này mô tả một phong cảnh nhẹ nhàng, phù hợp cho việc thử nghiệm layout.</p>\n"
-          }
-        }
-      ]
-    },
-    {
-      "id": "Sample-Album-2",
-      "title": "Sample-Album-2",
-      "categories": [
-        "Demo-2",
-        "Sample"
-      ],
-      "cover": null,
-      "locked": false,
-      "unlockHash": null,
-      "images": []
-    },
-    {
-      "id": "Sample-Album-3",
-      "title": "Sample-Album-3",
-      "categories": [
-        "Demo-3",
-        "Sample"
-      ],
-      "cover": null,
-      "locked": true,
-      "unlockHash": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
-      "images": [
-        {
-          "name": "Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
-          "srcA": "split/Sample-Album-3/Gemini_Generated_Image_2o6isp2o6isp2o6i_a.jpg",
-          "srcB": "split/Sample-Album-3/Gemini_Generated_Image_2o6isp2o6isp2o6i_b.jpg",
-          "thumb": "thumbnails/Sample-Album-3/Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
-          "meta": {
-            "title": "Gemini_Generated_Image_2o6isp2o6isp2o6i",
-            "tags": [
-              "trangtrangtreo"
-            ],
+            "title": "test",
+            "tags": [],
             "description": "",
-            "content": "<p>&quot;Tạo một bức chân dung toàn thân siêu thực bằng nhân vật trong ảnh tham chiếu, là một cô gái trẻ 25 tuổi với mái tóc đen có gẩy một chút line nâu dài quá bờ vai buộc tóc kiểu đuôi ngựa, chất lượng super HD (hướng chân dung), chân dung chiếm 50% khung hình, sử dụng chính khuôn mặt của ảnh tham chiếu.</p>\n<p>Mặc một bộ trang phục pastel thời trang, vui tươi (dễ thương/gợi cảm): một chiếc váy ngắn bó sát màu pastel có bèo nhún, áo crop top pastel thời thượng và các phụ kiện đồng bộ (bông tai, vòng tay, kẹp tóc hoặc tất xinh xắn).</p>\n<p>Tư thế (Chọn một): Vui tươi/gợi cảm (ngồi trên bàn, nằm trên ghế sofa với búp bê), nằm trên một chiếc gối xinh xắn hoặc xoay tóc nhìn vào máy ảnh.</p>\n<p>Môi trường: Được bao quanh bởi những đám mây pastel như kẹo bông gòn (màu hồng và màu tím) và/hoặc vươn tới những bong bóng đang nổi.&quot;</p>\n"
-          }
-        },
-        {
-          "name": "Gemini_Generated_Image_4yuc304yuc304yuc.png",
-          "srcA": "split/Sample-Album-3/Gemini_Generated_Image_4yuc304yuc304yuc_a.jpg",
-          "srcB": "split/Sample-Album-3/Gemini_Generated_Image_4yuc304yuc304yuc_b.jpg",
-          "thumb": "thumbnails/Sample-Album-3/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-          "meta": {
-            "title": "Gemini_Generated_Image_4yuc304yuc304yuc",
-            "tags": [
-              "travel",
-              "thailand",
-              "trangtrangtreo"
-            ],
-            "description": "",
-            "content": "<p>&quot;Tạo hình ảnh người mẫu có cùng khuôn mặt với mẫu tham khảo. Cô ấy mặc trang phục Lanna (miền Bắc Thái Lan): áo ống trễ vai bằng lụa trắng.\nVáy của cô ấy là sarong Lanna Thái (Phasin) màu trắng kem với các sọc trắng ngang và thắt lưng bạc. Một chiếc khăn choàng màu hồng pastel của miền Bắc Thái Lan được khoác trên cánh tay cô ấy.\nCô ấy đeo đồ trang sức bằng bạc: hoa tai, vòng tay và vòng cổ dài. Tóc cô ấy được búi cao gọn gàng, trang trí bằng hoa trắng, với những lọn tóc nhỏ ôm lấy khuôn mặt.\nCô ấy đang đứng, hướng về phía trước, nhìn vào máy ảnh, mỉm cười và thực hiện động tác 'Wai' (chào). Những chiếc đèn lồng trắng có hoa văn vàng treo gần đó. Phông nền là bối cảnh miền Bắc Thái Lan với 'Tung' (cờ) trang trí, ánh sáng dịu nhẹ và lối đi lát gạch. Phong cách chân thực, độ phân giải cao 4K, lấy nét mềm mại, màu sắc tự nhiên, làn da mịn màng.&quot;</p>\n"
-          }
-        }
-      ]
-    },
-    {
-      "id": "Sample-Album-4",
-      "title": "Sample-Album-4",
-      "categories": [
-        "Demo-3",
-        "Sample"
-      ],
-      "cover": null,
-      "locked": true,
-      "unlockHash": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
-      "images": [
-        {
-          "name": "Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
-          "srcA": "split/Sample-Album-4/Gemini_Generated_Image_2o6isp2o6isp2o6i_a.jpg",
-          "srcB": "split/Sample-Album-4/Gemini_Generated_Image_2o6isp2o6isp2o6i_b.jpg",
-          "thumb": "thumbnails/Sample-Album-4/Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
-          "meta": {
-            "title": "Gemini_Generated_Image_2o6isp2o6isp2o6i",
-            "tags": [
-              "trangtrangtreo"
-            ],
-            "description": "",
-            "content": "<p>&quot;Tạo một bức chân dung toàn thân siêu thực bằng nhân vật trong ảnh tham chiếu, là một cô gái trẻ 25 tuổi với mái tóc đen có gẩy một chút line nâu dài quá bờ vai buộc tóc kiểu đuôi ngựa, chất lượng super HD (hướng chân dung), chân dung chiếm 50% khung hình, sử dụng chính khuôn mặt của ảnh tham chiếu.</p>\n<p>Mặc một bộ trang phục pastel thời trang, vui tươi (dễ thương/gợi cảm): một chiếc váy ngắn bó sát màu pastel có bèo nhún, áo crop top pastel thời thượng và các phụ kiện đồng bộ (bông tai, vòng tay, kẹp tóc hoặc tất xinh xắn).</p>\n<p>Tư thế (Chọn một): Vui tươi/gợi cảm (ngồi trên bàn, nằm trên ghế sofa với búp bê), nằm trên một chiếc gối xinh xắn hoặc xoay tóc nhìn vào máy ảnh.</p>\n<p>Môi trường: Được bao quanh bởi những đám mây pastel như kẹo bông gòn (màu hồng và màu tím) và/hoặc vươn tới những bong bóng đang nổi.&quot;</p>\n"
-          }
-        },
-        {
-          "name": "Gemini_Generated_Image_4yuc304yuc304yuc.png",
-          "srcA": "split/Sample-Album-4/Gemini_Generated_Image_4yuc304yuc304yuc_a.jpg",
-          "srcB": "split/Sample-Album-4/Gemini_Generated_Image_4yuc304yuc304yuc_b.jpg",
-          "thumb": "thumbnails/Sample-Album-4/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-          "meta": {
-            "title": "Gemini_Generated_Image_4yuc304yuc304yuc",
-            "tags": [
-              "travel",
-              "thailand",
-              "trangtrangtreo"
-            ],
-            "description": "",
-            "content": "<p>&quot;Tạo hình ảnh người mẫu có cùng khuôn mặt với mẫu tham khảo. Cô ấy mặc trang phục Lanna (miền Bắc Thái Lan): áo ống trễ vai bằng lụa trắng.\nVáy của cô ấy là sarong Lanna Thái (Phasin) màu trắng kem với các sọc trắng ngang và thắt lưng bạc. Một chiếc khăn choàng màu hồng pastel của miền Bắc Thái Lan được khoác trên cánh tay cô ấy.\nCô ấy đeo đồ trang sức bằng bạc: hoa tai, vòng tay và vòng cổ dài. Tóc cô ấy được búi cao gọn gàng, trang trí bằng hoa trắng, với những lọn tóc nhỏ ôm lấy khuôn mặt.\nCô ấy đang đứng, hướng về phía trước, nhìn vào máy ảnh, mỉm cười và thực hiện động tác 'Wai' (chào). Những chiếc đèn lồng trắng có hoa văn vàng treo gần đó. Phông nền là bối cảnh miền Bắc Thái Lan với 'Tung' (cờ) trang trí, ánh sáng dịu nhẹ và lối đi lát gạch. Phong cách chân thực, độ phân giải cao 4K, lấy nét mềm mại, màu sắc tự nhiên, làn da mịn màng.&quot;</p>\n"
-          }
-        }
-      ]
-    },
-    {
-      "id": "Sample-Album-5",
-      "title": "Sample-Album-5",
-      "categories": [
-        "Demo-3",
-        "Sample"
-      ],
-      "cover": null,
-      "locked": true,
-      "unlockHash": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
-      "images": [
-        {
-          "name": "Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
-          "srcA": "split/Sample-Album-5/Gemini_Generated_Image_2o6isp2o6isp2o6i_a.jpg",
-          "srcB": "split/Sample-Album-5/Gemini_Generated_Image_2o6isp2o6isp2o6i_b.jpg",
-          "thumb": "thumbnails/Sample-Album-5/Gemini_Generated_Image_2o6isp2o6isp2o6i.png",
-          "meta": {
-            "title": "Gemini_Generated_Image_2o6isp2o6isp2o6i",
-            "tags": [
-              "trangtrangtreo"
-            ],
-            "description": "",
-            "content": "<p>&quot;Tạo một bức chân dung toàn thân siêu thực bằng nhân vật trong ảnh tham chiếu, là một cô gái trẻ 25 tuổi với mái tóc đen có gẩy một chút line nâu dài quá bờ vai buộc tóc kiểu đuôi ngựa, chất lượng super HD (hướng chân dung), chân dung chiếm 50% khung hình, sử dụng chính khuôn mặt của ảnh tham chiếu.</p>\n<p>Mặc một bộ trang phục pastel thời trang, vui tươi (dễ thương/gợi cảm): một chiếc váy ngắn bó sát màu pastel có bèo nhún, áo crop top pastel thời thượng và các phụ kiện đồng bộ (bông tai, vòng tay, kẹp tóc hoặc tất xinh xắn).</p>\n<p>Tư thế (Chọn một): Vui tươi/gợi cảm (ngồi trên bàn, nằm trên ghế sofa với búp bê), nằm trên một chiếc gối xinh xắn hoặc xoay tóc nhìn vào máy ảnh.</p>\n<p>Môi trường: Được bao quanh bởi những đám mây pastel như kẹo bông gòn (màu hồng và màu tím) và/hoặc vươn tới những bong bóng đang nổi.&quot;</p>\n"
-          }
-        },
-        {
-          "name": "Gemini_Generated_Image_4yuc304yuc304yuc.png",
-          "srcA": "split/Sample-Album-5/Gemini_Generated_Image_4yuc304yuc304yuc_a.jpg",
-          "srcB": "split/Sample-Album-5/Gemini_Generated_Image_4yuc304yuc304yuc_b.jpg",
-          "thumb": "thumbnails/Sample-Album-5/Gemini_Generated_Image_4yuc304yuc304yuc.png",
-          "meta": {
-            "title": "Gemini_Generated_Image_4yuc304yuc304yuc",
-            "tags": [
-              "travel",
-              "thailand",
-              "trangtrangtreo"
-            ],
-            "description": "",
-            "content": "<p>&quot;Tạo hình ảnh người mẫu có cùng khuôn mặt với mẫu tham khảo. Cô ấy mặc trang phục Lanna (miền Bắc Thái Lan): áo ống trễ vai bằng lụa trắng.\nVáy của cô ấy là sarong Lanna Thái (Phasin) màu trắng kem với các sọc trắng ngang và thắt lưng bạc. Một chiếc khăn choàng màu hồng pastel của miền Bắc Thái Lan được khoác trên cánh tay cô ấy.\nCô ấy đeo đồ trang sức bằng bạc: hoa tai, vòng tay và vòng cổ dài. Tóc cô ấy được búi cao gọn gàng, trang trí bằng hoa trắng, với những lọn tóc nhỏ ôm lấy khuôn mặt.\nCô ấy đang đứng, hướng về phía trước, nhìn vào máy ảnh, mỉm cười và thực hiện động tác 'Wai' (chào). Những chiếc đèn lồng trắng có hoa văn vàng treo gần đó. Phông nền là bối cảnh miền Bắc Thái Lan với 'Tung' (cờ) trang trí, ánh sáng dịu nhẹ và lối đi lát gạch. Phong cách chân thực, độ phân giải cao 4K, lấy nét mềm mại, màu sắc tự nhiên, làn da mịn màng.&quot;</p>\n"
+            "content": ""
           }
         }
       ]
