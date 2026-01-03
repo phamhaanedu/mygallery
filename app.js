@@ -108,10 +108,26 @@ function renderHome() {
     const catMap = galleryData.categories || {};
     const catList = Object.keys(catMap);
 
+    // Layout
+    const layout = (galleryData.config && galleryData.config.layout) || 'grid';
+    container.className = 'layout-' + layout;
+
+    // Switch to container-fluid for modern layouts to use full width
+    const parentContainer = container.parentElement;
+    if (parentContainer && (parentContainer.classList.contains('container') || parentContainer.classList.contains('container-fluid'))) {
+        if (layout === 'grid') {
+            parentContainer.classList.add('container');
+            parentContainer.classList.remove('container-fluid', 'px-4');
+        } else {
+            parentContainer.classList.remove('container');
+            parentContainer.classList.add('container-fluid', 'px-4');
+        }
+    }
+
     catList.forEach(cat => {
         const cover = catMap[cat]; // Resolved path from build.js
         const col = document.createElement('div');
-        col.className = 'col'; // Center the fixed-width card in the column
+        col.className = 'gallery-item'; // Generic item wrapper
         col.innerHTML = `
       <a href="category.html?category=${encodeURIComponent(cat)}" class="text-decoration-none">
         <div class="category-card">
@@ -135,9 +151,25 @@ function renderCategory(category) {
     if (!container) return;
     container.innerHTML = '';
     const albums = galleryData.albums.filter(a => (a.categories || []).includes(category));
+
+    const layout = (galleryData.config && galleryData.config.layout) || 'grid';
+    container.className = 'layout-' + layout;
+
+    // Switch to container-fluid for modern layouts
+    const parentContainer = container.parentElement;
+    if (parentContainer && (parentContainer.classList.contains('container') || parentContainer.classList.contains('container-fluid'))) {
+        if (layout === 'grid') {
+            parentContainer.classList.add('container');
+            parentContainer.classList.remove('container-fluid', 'px-4');
+        } else {
+            parentContainer.classList.remove('container');
+            parentContainer.classList.add('container-fluid', 'px-4');
+        }
+    }
+
     albums.forEach(album => {
         const col = document.createElement('div');
-        col.className = 'col';
+        col.className = 'gallery-item';
 
         let coverSrc = '';
         if (album.cover) {
@@ -270,9 +302,25 @@ function renderAlbum(albumId) {
     const container = document.getElementById('photos');
     if (!container) return;
     container.innerHTML = '';
+
+    const layout = (galleryData.config && galleryData.config.layout) || 'grid';
+    container.className = 'layout-' + layout;
+
+    // Switch to container-fluid for modern layouts
+    const parentContainer = container.parentElement;
+    if (parentContainer && (parentContainer.classList.contains('container') || parentContainer.classList.contains('container-fluid'))) {
+        if (layout === 'grid') {
+            parentContainer.classList.add('container');
+            parentContainer.classList.remove('container-fluid', 'px-4');
+        } else {
+            parentContainer.classList.remove('container');
+            parentContainer.classList.add('container-fluid', 'px-4');
+        }
+    }
+
     album.images.forEach(img => {
         const col = document.createElement('div');
-        col.className = 'col';
+        col.className = 'gallery-item';
         const thumb = img.thumb;
         // Make the whole card clickable
         col.innerHTML = `

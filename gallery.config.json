@@ -8,5 +8,6 @@
         "Demo": "assets/test-category-1.png"
     },
     "masterCode": "1",
+    "layout": "masonry",
     "dictionary": "assets/dict-en.json"
 }
