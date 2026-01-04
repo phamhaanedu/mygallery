@@ -295,7 +295,7 @@ body {
   /* Slightly more opaque for better legibility */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  height: 40px;
+  height: 60px;
   /* Enforce fixed height */
   padding: 0 1.5rem;
   /* Horizontal padding only, flex handles vertical */

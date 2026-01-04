@@ -328,7 +328,11 @@ async function main() {
         const description = `View ${album.images.length} photos in ${album.title}`;
         let coverUrl = '';
         if (album.cover) {
-            coverUrl = `${BASE_URL}thumbnails/${album.cover}`;
+            // Encode the path parts to ensure spaces and unicode are valid in URL
+            // album.cover is like "AlbumName/ImageName.jpg"
+            const parts = album.cover.split('/');
+            const encodedPath = parts.map(p => encodeURIComponent(p)).join('/');
+            coverUrl = `${BASE_URL}thumbnails/${encodedPath}`;
         }
 
         const ogTags = `
@@ -361,7 +365,14 @@ async function main() {
 
         let coverUrl = '';
         if (categoryMap[catId]) {
-            coverUrl = `${BASE_URL}${categoryMap[catId]}`;
+            // categoryMap[catId] is like "thumbnails/AlbumName/Image.jpg" or special config
+            // If it starts with thumbnails/, we need to be careful.
+            // It's safer to re-construct if possible, or split and encode.
+            // But categoryMap values are paths relative to PUBLIC_DIR.
+            const relativePath = categoryMap[catId];
+            const parts = relativePath.split('/');
+            const encodedPath = parts.map(p => encodeURIComponent(p)).join('/');
+            coverUrl = `${BASE_URL}${encodedPath}`;
         }
 
         const ogTags = `
