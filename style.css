@@ -291,16 +291,33 @@ body {
   top: 0;
   z-index: 1070;
   /* Above Info Panel (1050) and Overlays */
-  background: rgba(33, 37, 41, 0.7);
-  /* Dark gray, 70% opacity */
+  background: rgba(33, 37, 41, 0.95);
+  /* Slightly more opaque for better legibility */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.75rem 1.5rem;
+  height: 60px;
+  /* Enforce fixed height */
+  padding: 0 1.5rem;
+  /* Horizontal padding only, flex handles vertical */
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  /* Prevent shrinking in flex layouts (e.g. photo.html) */
+}
+
+/* Immersive variant for Photo Viewer */
+.sticky-subnav.immersive {
+  position: relative;
+  /* Not sticky in the flex container */
+  background: rgba(33, 37, 41, 0.8);
+  /* Slightly more transparency for viewer */
+  border-bottom: none;
+  /* No border for immersive look */
+  margin-bottom: 0;
+  box-shadow: none;
 }
 
 .sticky-subnav h2,

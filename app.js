@@ -7,6 +7,13 @@
 // Global data holder
 let galleryData = null;
 
+// Utility: get path prefix based on depth
+function getPathPrefix() {
+    const path = window.location.pathname;
+    if (path.includes('/albums/') || path.includes('/category/')) return '../';
+    return '';
+}
+
 // Utility: get query parameters as an object
 function getQueryParams() {
     const params = {};
@@ -22,7 +29,8 @@ function getQueryParams() {
 // Fetch the manifest (public/data.json). All pages are served from the same root, so we can use a relative path.
 async function loadData() {
     try {
-        const resp = await fetch('data.json');
+        const prefix = getPathPrefix();
+        const resp = await fetch(`${prefix}data.json`);
         if (!resp.ok) throw new Error('Failed to load data.json');
         galleryData = await resp.json();
         applyBranding(); // Apply globally
@@ -35,16 +43,37 @@ async function loadData() {
 
 // Router – decide which view to render based on query params
 // Router – decide which view to render based on query params or page context
+// Router – decide which view to render based on query params or page context
 function route() {
     const params = getQueryParams();
 
-    // Check specific pages based on unique DOM elements
+    // Check for Static Hydration Context (injected by build.js)
+    if (window.initialContext) {
+        const ctx = window.initialContext;
+        if (ctx.type === 'album') renderAlbum(ctx.id);
+        else if (ctx.type === 'category') renderCategory(ctx.id);
+        else if (ctx.type === 'home') renderHome();
+        updateNavbar();
+        return;
+    }
+
+    // Check specific pages based on unique DOM elements (Fallback or dynamic pages like Tags/Photo)
     const isCategoryPage = !!document.getElementById('category-title');
     const isAlbumPage = !!document.getElementById('album-title');
     const isPhotoPage = !!document.getElementById('photo-container');
     const isHomePage = !!document.getElementById('categories');
     const isTagsPage = !!document.getElementById('tags-container');
     const isTagDetailPage = !!document.getElementById('tag-photos');
+
+    // Filename checks for Index/Categories (Fallback)
+    const pathname = window.location.pathname;
+    if (pathname.endsWith('categories.html') || pathname.endsWith('index.html') || pathname.endsWith('/')) {
+        if (isHomePage) {
+            renderHome();
+            updateNavbar();
+            return;
+        }
+    }
 
     if (isPhotoPage) {
         if (params.album && params.photo) {
@@ -82,10 +111,10 @@ function route() {
 function updateNavbar() {
     const navMenu = document.getElementById('nav-menu');
     if (navMenu) {
-        // Dynamic Menu
+        const prefix = getPathPrefix();
         navMenu.innerHTML = `
-            <li class="nav-item"><a class="nav-link" href="index.html">Categories</a></li>
-            <li class="nav-item"><a class="nav-link" href="tags.html">Tags</a></li>
+            <li class="nav-item"><a class="nav-link" href="${prefix}categories.html">Categories</a></li>
+            <li class="nav-item"><a class="nav-link" href="${prefix}tags.html">Tags</a></li>
         `;
     }
 }
@@ -99,15 +128,19 @@ function showError(msg) {
 // ---------- Rendering functions ----------
 function applyBranding() {
     const cfg = galleryData.config || {};
+    const prefix = getPathPrefix();
+
     if (cfg.projectName) {
         document.title = cfg.projectName;
         const brand = document.querySelector('.navbar-brand');
         if (brand) {
             // Logo + Text
             brand.innerHTML = `
-                ${cfg.projectLogo ? `<img src="${cfg.projectLogo}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">` : ''}
+                ${cfg.projectLogo ? `<img src="${prefix}${cfg.projectLogo}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">` : ''}
                 ${cfg.projectName}
             `;
+            // Fix Brand Link
+            brand.href = `${prefix}categories.html`;
         }
     }
     if (cfg.browserIcon) {
@@ -117,7 +150,7 @@ function applyBranding() {
             link.rel = 'icon';
             document.head.appendChild(link);
         }
-        link.href = cfg.browserIcon;
+        link.href = prefix + (cfg.browserIcon.startsWith('http') ? cfg.browserIcon : cfg.browserIcon);
     }
 }
 
@@ -162,12 +195,19 @@ function renderHome() {
         container.style.margin = '';
     }
 
+    const prefix = getPathPrefix();
+
     catList.forEach(cat => {
-        const cover = catMap[cat]; // Resolved path from build.js
+        let cover = catMap[cat];
+        // Prepend prefix to cover if it's a relative path
+        if (cover && !cover.startsWith('http')) {
+            cover = prefix + cover;
+        }
+
         const col = document.createElement('div');
         col.className = 'gallery-item'; // Generic item wrapper
         col.innerHTML = `
-      <a href="category.html?category=${encodeURIComponent(cat)}" class="text-decoration-none">
+      <a href="${prefix}category/${encodeURIComponent(cat)}.html" class="text-decoration-none">
         <div class="category-card">
             ${cover ? `<img src="${cover}" alt="${cat}">` : '<div class="w-100 h-100 bg-secondary"></div>'}
             <div class="category-overlay">
@@ -215,29 +255,39 @@ function renderCategory(category) {
         container.style.margin = '';
     }
 
+    // Determine depth for relative links
+    const prefix = getPathPrefix();
+
     albums.forEach(album => {
         const col = document.createElement('div');
         col.className = 'gallery-item';
 
         let coverSrc = '';
         if (album.cover) {
-            coverSrc = `thumbnails/${album.cover}`;
+            coverSrc = `${prefix}thumbnails/${album.cover}`;
         } else if (galleryData.config && galleryData.config.defaultAlbumCover) {
-            coverSrc = galleryData.config.defaultAlbumCover;
+            coverSrc = (galleryData.config.defaultAlbumCover.startsWith('http')) ? galleryData.config.defaultAlbumCover : prefix + galleryData.config.defaultAlbumCover;
         }
 
         const count = album.images ? album.images.length : 0;
 
+        // STATIC LINK GENERATION: ../albums/[id].html
         col.innerHTML = `
-      <a href="album.html?album=${encodeURIComponent(album.id)}&category=${encodeURIComponent(category)}" class="album-item">
+      <a href="${prefix}albums/${encodeURIComponent(album.id)}.html" class="album-item">
         <div class="album-thumb-wrapper">
-             ${coverSrc ? `<img src="${coverSrc}" alt="${album.title}" onerror="this.onerror=null; this.src='${galleryData.config.defaultAlbumCover || ''}';">` : '<div class="w-100 h-100 bg-secondary"></div>'}
+             ${coverSrc ? `<img src="${coverSrc}" alt="${album.title}" onerror="this.onerror=null; this.src='${prefix}${galleryData.config.defaultAlbumCover || ''}';">` : '<div class="w-100 h-100 bg-secondary"></div>'}
         </div>
         <div class="album-title">${album.title}</div>
         <div class="album-count">${count} items</div>
       </a>`;
         container.appendChild(col);
     });
+
+    // Check for back button in subnav specifically
+    const backBtn = document.getElementById('back-link');
+    if (backBtn) {
+        backBtn.href = `${prefix}categories.html`;
+    }
 }
 
 // Render Tags (Cloud Style)
@@ -245,6 +295,7 @@ function renderTags() {
     const container = document.getElementById('tags-container');
     if (!container) return;
     container.innerHTML = '';
+    const prefix = getPathPrefix();
 
     if (!galleryData.tags || Object.keys(galleryData.tags).length === 0) {
         container.innerHTML = '<p class="text-center text-white">No tags found.</p>';
@@ -277,7 +328,7 @@ function renderTags() {
         const opacity = 0.7 + (weight * 0.3); // 0.7 to 1.0
 
         const tagLink = document.createElement('a');
-        tagLink.href = `tag.html?tag=${encodeURIComponent(tag)}`;
+        tagLink.href = `${prefix}tag.html?tag=${encodeURIComponent(tag)}`;
         tagLink.className = 'text-decoration-none text-white badge rounded-pill bg-gradient shadow-sm border border-light border-opacity-25';
         tagLink.style.fontSize = `${fontSize}rem`;
         tagLink.style.padding = '0.5em 1em';
@@ -330,6 +381,7 @@ function renderTagDetail(tagName) {
     const container = document.getElementById('tag-photos');
     if (!container) return;
     container.innerHTML = '';
+    const prefix = getPathPrefix();
 
     const countElem = document.getElementById('tag-count');
     if (countElem) countElem.textContent = `${allPhotos.length} items`;
@@ -366,10 +418,10 @@ function renderTagDetail(tagName) {
     allPhotos.forEach(img => {
         const col = document.createElement('div');
         col.className = 'gallery-item';
-        const thumb = img.thumb;
+        const thumb = prefix + img.thumb;
 
         col.innerHTML = `
-      <a href="photo.html?album=${encodeURIComponent(img.albumId)}&photo=${encodeURIComponent(img.name)}&tag=${encodeURIComponent(tagName)}" class="text-decoration-none text-dark">
+      <a href="${prefix}photo.html?album=${encodeURIComponent(img.albumId)}&photo=${encodeURIComponent(img.name)}&tag=${encodeURIComponent(tagName)}" class="text-decoration-none text-dark">
         <div class="card h-100 album-card-hover">
             <img src="${thumb}" class="card-img-top" alt="${img.name}">
         </div>
@@ -396,6 +448,8 @@ function showUnlockPrompt(album) {
     const main = document.getElementById('main-content');
     if (!main) return;
 
+    const prefix = getPathPrefix();
+
     const dict = galleryData.dictionary || {};
     const txtTitle = dict.lockedTitle || 'Locked Album';
     const txtMsg = dict.lockedMsg || 'This album requires a code to access.';
@@ -420,7 +474,7 @@ function showUnlockPrompt(album) {
                 <button id="unlock-btn" class="btn btn-primary w-100">${txtBtn}</button>
                 <div id="unlock-error" class="text-danger mt-2 small" style="display:none;">${txtError}</div>
                 <div class="mt-3">
-                    <a href="index.html" class="text-decoration-none small text-secondary">${txtBack}</a>
+                    <a href="${prefix}categories.html" class="text-decoration-none small text-secondary">${txtBack}</a>
                 </div>
             </div>
         </div>
@@ -478,11 +532,13 @@ function renderAlbum(albumId) {
 
     // Configure Back Button
     const backLink = document.getElementById('back-link');
+    const prefix = getPathPrefix();
+
     if (backLink) {
         if (params.category) {
-            backLink.href = `category.html?category=${encodeURIComponent(params.category)}`;
+            backLink.href = `${prefix}category/${encodeURIComponent(params.category)}.html`;
         } else {
-            backLink.href = `index.html`; // Default fallback
+            backLink.href = `${prefix}categories.html`; // Default fallback
         }
     }
     const container = document.getElementById('photos');
@@ -517,10 +573,10 @@ function renderAlbum(albumId) {
     album.images.forEach(img => {
         const col = document.createElement('div');
         col.className = 'gallery-item';
-        const thumb = img.thumb;
+        const thumb = prefix + img.thumb;
         // Make the whole card clickable
         col.innerHTML = `
-      <a href="photo.html?album=${encodeURIComponent(album.id)}&photo=${encodeURIComponent(img.name)}" class="text-decoration-none text-dark">
+      <a href="${prefix}photo.html?album=${encodeURIComponent(album.id)}&photo=${encodeURIComponent(img.name)}" class="text-decoration-none text-dark">
         <div class="card h-100 album-card-hover">
             <img src="${thumb}" class="card-img-top" alt="${img.name}">
         </div>

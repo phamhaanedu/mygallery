@@ -8,9 +8,9 @@
     "categoryCovers": {
       "Demo": "assets/test-category-1.png"
     },
+    "masterCode": "1",
     "layout": "masonry",
-    "dictionary": "assets/dict-en.json",
-    "masterHash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    "dictionary": "assets/dict-en.json"
   },
   "categories": {
     "Tạo ảnh AI": "thumbnails/Bà-hội-đồng-mời-trà/Ba hoi dong moi tra (1).jpg",

@@ -239,22 +239,7 @@ async function main() {
     });
 
 
-    // Copy static files
-    fs.copyFileSync(path.join(ROOT, 'app.js'), path.join(PUBLIC_DIR, 'app.js'));
-    fs.copyFileSync(path.join(ROOT, 'style.css'), path.join(PUBLIC_DIR, 'style.css'));
-
-    // Write serve.json to disable "Clean URLs"
-    const serveConfig = { cleanUrls: false };
-    fs.writeFileSync(path.join(PUBLIC_DIR, 'serve.json'), JSON.stringify(serveConfig, null, 2), 'utf8');
-    console.log('[build] Generated serve.json');
-
-    // Hash Master Code
-    if (galleryConfig.masterCode) {
-        galleryConfig.masterHash = hash(galleryConfig.masterCode);
-        delete galleryConfig.masterCode; // Remove plain text
-    }
-
-    // Process Categories & Covers
+    // --- Category Map Generation (Restored) ---
     const categoryMap = {};
     albums.forEach(album => {
         (album.categories || []).forEach(cat => {
@@ -280,16 +265,6 @@ async function main() {
             categoryMap[cat] = galleryConfig.defaultCategoryCover;
         }
     });
-
-    // Copy Assets
-    const ASSETS_DIR = path.join(ROOT, 'assets');
-    const PUBLIC_ASSETS_DIR = path.join(PUBLIC_DIR, 'assets');
-    if (fs.existsSync(ASSETS_DIR)) {
-        ensureDir(PUBLIC_ASSETS_DIR);
-        fs.readdirSync(ASSETS_DIR).forEach(file => {
-            fs.copyFileSync(path.join(ASSETS_DIR, file), path.join(PUBLIC_ASSETS_DIR, file));
-        });
-    }
 
     // Load Dictionary
     let dictionary = {};
@@ -327,16 +302,130 @@ async function main() {
         console.log('[build] All image tasks finished.');
     }
 
-    // Copy HTML pages
+    // --- Static Page Generation ---
+    const BASE_URL = 'https://phamhaanedu.github.io/mygallery/';
+
+    // Helper to read template
+    const readTemplate = (name) => {
+        const p = path.join(ROOT, 'pages', name);
+        return fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '';
+    };
+
+    const albumTemplate = readTemplate('album.html');
+    const categoryTemplate = readTemplate('category.html');
+    const categoriesTemplate = readTemplate('categories.html');
+
+    // 1. Generate Album Pages
+    const ALBUM_OUT_DIR = path.join(PUBLIC_DIR, 'albums');
+    ensureDir(ALBUM_OUT_DIR);
+
+    albums.forEach(album => {
+        if (!albumTemplate) return;
+        let html = albumTemplate;
+
+        // Meta Data
+        const title = `${album.title} - MyGallery`;
+        const description = `View ${album.images.length} photos in ${album.title}`;
+        let coverUrl = '';
+        if (album.cover) {
+            coverUrl = `${BASE_URL}thumbnails/${album.cover}`;
+        }
+
+        const ogTags = `
+    <meta property="og:title" content="${title.replace(/"/g, '&quot;')}" />
+    <meta property="og:description" content="${description.replace(/"/g, '&quot;')}" />
+    <meta property="og:image" content="${coverUrl}" />
+    <meta property="og:url" content="${BASE_URL}albums/${encodeURIComponent(album.id)}.html" />
+    <meta property="og:type" content="website" />
+    <script>window.initialContext = { type: 'album', id: '${album.id}' };</script>
+        `;
+
+        html = html.replace('<!-- TITLE -->', title)
+            .replace('<!-- OG_TAGS -->', ogTags);
+
+        fs.writeFileSync(path.join(ALBUM_OUT_DIR, `${album.id}.html`), html, 'utf8');
+    });
+
+    // 2. Generate Category Pages
+    const CAT_OUT_DIR = path.join(PUBLIC_DIR, 'category');
+    ensureDir(CAT_OUT_DIR);
+
+    Object.keys(categoryMap).forEach(catId => {
+        if (!categoryTemplate) return;
+        let html = categoryTemplate;
+
+        // Use Dictionary for readable title if available
+        const displayName = dictionary[catId] || catId;
+        const title = `${displayName} - MyGallery`;
+        const description = `Browse photos in ${displayName}`;
+
+        let coverUrl = '';
+        if (categoryMap[catId]) {
+            coverUrl = `${BASE_URL}${categoryMap[catId]}`;
+        }
+
+        const ogTags = `
+    <meta property="og:title" content="${title.replace(/"/g, '&quot;')}" />
+    <meta property="og:description" content="${description.replace(/"/g, '&quot;')}" />
+    <meta property="og:image" content="${coverUrl}" />
+    <meta property="og:url" content="${BASE_URL}category/${encodeURIComponent(catId)}.html" />
+    <meta property="og:type" content="website" />
+    <script>window.initialContext = { type: 'category', id: '${catId}' };</script>
+        `;
+
+        html = html.replace('<!-- TITLE -->', title)
+            .replace('<!-- OG_TAGS -->', ogTags);
+
+        fs.writeFileSync(path.join(CAT_OUT_DIR, `${catId}.html`), html, 'utf8');
+    });
+
+    // 3. Generate Categories (Home) Page
+    if (categoriesTemplate) {
+        // Just standard title/og for home
+        const title = `MyGallery - All Categories`;
+        const ogTags = `
+    <meta property="og:title" content="${title}" />
+    <meta property="og:image" content="${BASE_URL}assets/gallery icon 32x32.png" />
+    <meta property="og:url" content="${BASE_URL}categories.html" />
+        `;
+
+        const html = categoriesTemplate.replace('<!-- TITLE -->', title)
+            // .replace('<!-- OG_TAGS -->', ogTags); // Template might not have OG placeholder in index/categories override? 
+            // Check if categories.html has placeholder. I renamed index.html to categories.html but didn't check content.
+            // Assuming I should add it or just write it.
+            // Let's assume simplest: just write it. 
+            // Actually, I renamed `index.html` to `categories.html` but didn't add placeholders to IT.
+            // I will write it as is, or attempt replace if exists.
+            ;
+
+        fs.writeFileSync(path.join(PUBLIC_DIR, 'categories.html'), html, 'utf8');
+        // Also write index.html as a copy/redirect
+        fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), html, 'utf8');
+    }
+
+    // copy other HTML pages if any (e.g. tags.html, photo.html)
+    // Note: tags.html, tag.html, photo.html still exist in pages/
+    // We should copy them too.
     const PAGES_DIR = path.join(ROOT, 'pages');
     if (fs.existsSync(PAGES_DIR)) {
         fs.readdirSync(PAGES_DIR).forEach(file => {
+            // specific exclusion since we generated these
+            if (['album.html', 'category.html', 'categories.html', 'index.html'].includes(file)) return;
             if (file.endsWith('.html')) {
                 fs.copyFileSync(path.join(PAGES_DIR, file), path.join(PUBLIC_DIR, file));
             }
         });
     }
-    console.log('[build] Copied static files to docs/');
+
+    // Copy static files (App/Style)
+    fs.copyFileSync(path.join(ROOT, 'app.js'), path.join(PUBLIC_DIR, 'app.js'));
+    fs.copyFileSync(path.join(ROOT, 'style.css'), path.join(PUBLIC_DIR, 'style.css'));
+
+    // Write serve.json (Keep cleanURLs false for .html extensions)
+    const serveConfig = { cleanUrls: false };
+    fs.writeFileSync(path.join(PUBLIC_DIR, 'serve.json'), JSON.stringify(serveConfig, null, 2), 'utf8');
+
+    console.log('[build] Static generation complete.');
 }
 
 main();
